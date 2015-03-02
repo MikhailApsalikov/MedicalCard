@@ -9,31 +9,50 @@
 
 </head>
 <body>
-	<div class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container">
+	<nav class="navbar navbar-default without-margins">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				@Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+				<a class="navbar-brand" >Главная</a>
 			</div>
-			<div class="navbar-collapse collapse">
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li>@Html.ActionLink("Home", "Index", "Home")</li>
-					<li>@Html.ActionLink("About", "About", "Home")</li>
-					<li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+					<li><a >Link <span class="sr-only">(current)</span></a></li>
+					<li><a>Link</a></li>
+
 				</ul>
-				@Html.Partial("_LoginPartial")
-			</div>
-		</div>
-	</div>
-	<div class="container body-content">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a>Link</a></li>
+					<li class="dropdown">
+						<a  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a>Action</a></li>
+							<li><a>Another action</a></li>
+							<li><a>Something else here</a></li>
+							<li class="divider"></li>
+							<li><a>Separated link</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+	</nav>
+<div class="main-logo">
+
+</div>
+	<div class="container-fluid body-content">
 		@RenderBody()
 		<hr />
 		<footer>
-			<p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+			<p>&copy; @DateTime.Now.Year - Medical Card</p>
 		</footer>
 	</div>
 
@@ -44,8 +63,9 @@
 	<script src="~/Scripts/app/app.js"></script>
 	<script src="~/Scripts/app/config.js"></script>
 	<script src="~/Scripts/app/controllers/home/home.js"></script>
-
-
+	<script src="~/Scripts/app/controllers/home/edit.js"></script>
+	<script src="~/Scripts/app/filters/searchFilter.js"></script>
+	<script src="~/Scripts/app/services/modalService.js"></script>
 
 	@RenderSection("scripts", required: false)
 </body>

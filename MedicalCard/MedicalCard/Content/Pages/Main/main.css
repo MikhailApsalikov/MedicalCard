@@ -1,0 +1,15 @@
+﻿.margin-row {
+  margin: 20px 0;
+}
+body {
+  padding: 0;
+}
+.main-logo {
+  width: 1340px;
+  height: 250px;
+  background: url(/Content/Images/logo.jpg) no-repeat #ffffff;
+}
+.without-margins {
+  margin: 0;
+}
+/*# sourceMappingURL=main.css.map */

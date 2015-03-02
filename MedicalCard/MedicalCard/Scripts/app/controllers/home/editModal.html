@@ -1,0 +1,83 @@
+﻿<div class="modal-header">
+	<h3>Редактирование:</h3>
+</div>
+<div class="modal-body">
+	<form class="form-horizontal">
+		<div class="form-group">
+			<label for="lastName" class="col-sm-4 control-label">Фамилия</label>
+			<div class="col-sm-8">
+				<input type="email" class="form-control" id="lastName" placeholder="Фамилия" ng-model="doctor.lastName">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="firstName" class="col-sm-4 control-label">Имя</label>
+			<div class="col-sm-8">
+				<input type="email" class="form-control" id="firstName" placeholder="Имя" ng-model="doctor.firstName">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="fatherName" class="col-sm-4 control-label">Отчество</label>
+			<div class="col-sm-8">
+				<input type="email" class="form-control" id="fatherName" placeholder="Отчество" ng-model="doctor.fatherName">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="birthdate" class="col-sm-4 control-label">Дата рождения</label>
+			<div class="col-sm-8">
+				<input type="email" class="form-control" id="birthdate" placeholder="Дата рождения" ng-model="doctor.birthdate">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-4 control-label">Пол</label>
+			<div class="col-sm-8">
+				<select class="form-control">
+					<option value="0"></option>
+					<option value="1">Муж.</option>
+					<option value="2">Жен.</option>
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="birthdate" class="col-sm-4 control-label">Должность</label>
+			<div class="col-sm-8">
+				<select class="form-control">
+					<option value="0"></option>
+					<option value="1">Хирург</option>
+					<option value="2">Мясник</option>
+					<option value="3">Проктолог</option>
+					<option value="4">Окулист</option>
+					<option value="5">Терапевт</option>
+				</select>
+			</div>
+
+		</div>
+		<div class="form-group">
+			<label for="birthdate" class="col-sm-4 control-label">Дата рождения</label>
+			<div class="col-sm-8">
+				<input type="email" class="form-control" id="birthdate" placeholder="Дата рождения" ng-model="doctor.birthdate">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="address" class="col-sm-4 control-label">Адрес</label>
+			<div class="col-sm-8">
+				<input type="email" class="form-control" id="address" placeholder="Адрес" ng-model="doctor.address">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="phone" class="col-sm-4 control-label">Телефон</label>
+			<div class="col-sm-8">
+				<input type="email" class="form-control" id="phone" placeholder="Телефон" ng-model="doctor.phone">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="email" class="col-sm-4 control-label">Электронная почта</label>
+			<div class="col-sm-8">
+				<input type="email" class="form-control" id="email" placeholder="Электронная почта" ng-model="doctor.email">
+			</div>
+		</div>
+	</form>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-success" ng-click="save()">Сохранить</button>
+	<button class="btn btn-default" ng-click="cancel()">Отмена</button>
+</div>

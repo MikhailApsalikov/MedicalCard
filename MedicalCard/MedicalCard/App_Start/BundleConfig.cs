@@ -13,10 +13,18 @@ namespace MedicalCard
 
 			bundles.Add(new ScriptBundle("~/bundles/angular").Include(
 				"~/Scripts/angular.js",
-				"~/Scripts/angular-toastr.js",
+				"~/Scripts/angular-ui.js",
 				"~/Scripts/angular-route.js",
-				"~/Scripts/angular-resource.js",
 				"~/Scripts/angular-animate.js",
+				"~/Scripts/angular-toastr.js",
+				"~/Scripts/angular-mocks.js",
+				"~/Scripts/angular-ui.js",
+				"~/Scripts/angular-ui/ui-bootstrap.js",
+				"~/Scripts/angular-ui/ui-bootstrap-tpls.js",
+				"~/Scripts/angular-sanitize.js",
+				"~/Scripts/angular-resource.js",
+				"~/Scripts/i18n/angular-locale_ru-ru.js",
+				"~/Scripts/ui-bootstrap-tpls-{version}.js",
 				"~/Scripts/lodash.js"));
 
 			bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
@@ -33,6 +41,7 @@ namespace MedicalCard
 
 			bundles.Add(new StyleBundle("~/Content/css").Include(
 					  "~/Content/bootstrap.css",
+					  "~/Content/bootstrap-theme.css",
 					  "~/Content/site.css"));
 
 			// Set EnableOptimizations to false for debugging. For more information,
