@@ -170,6 +170,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="ControllersApi\AccountsController.cs" />
+    <Compile Include="ControllersApi\DoctorsController.cs" />
+    <Compile Include="ControllersApi\PatientsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
