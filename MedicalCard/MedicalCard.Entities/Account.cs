@@ -1,25 +1,37 @@
 ﻿namespace MedicalCard.Entities
 {
 	using System;
+	using System.ComponentModel;
+	using System.ComponentModel.DataAnnotations;
+	using System.ComponentModel.DataAnnotations.Schema;
 	using MedicalCard.Entities.Enums;
 	using MedicalCard.Entities.Interfaces;
 
 	public class Account : IEntityWithId<int>
 	{
+		[Key]
 		public int Id { get; set; }
 
 		public Role Role { get; set; }
 
+		[Required]
+		[StringLength(255, ErrorMessage = "{0} должен иметь длину от {2} до {1} символов" , MinimumLength = 3)]
+		[DisplayName("Логин")]
 		public String Username { get; set; }
 
+		[Required]
+		[StringLength(255, ErrorMessage = "{0} должен иметь длину от {2} до {1} символов", MinimumLength = 3)]
+		[DisplayName("Пароль")]
 		public String Password { get; set; }
 
+		[ForeignKey("Patient")]
 		public int? PatientId { get; set; }
 
-		public Patient Patient { get; set; }
+		public virtual Patient Patient { get; set; }
 
+		[ForeignKey("Doctor")]
 		public int? DoctorId { get; set; }
 
-		public Doctor Doctor { get; set; }
+		public virtual Doctor Doctor { get; set; }
 	}
 }
