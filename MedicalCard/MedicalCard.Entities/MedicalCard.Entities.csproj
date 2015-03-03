@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{42F3B05F-249D-4840-A2B5-76B59E39E429}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MedicalCard.Entities</RootNamespace>
     <AssemblyName>MedicalCard.Entities</AssemblyName>
@@ -31,6 +31,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -41,7 +44,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Analysis.cs" />
+    <Compile Include="Doctor.cs" />
+    <Compile Include="Enums\Role.cs" />
+    <Compile Include="Enums\Gender.cs" />
+    <Compile Include="Examination.cs" />
+    <Compile Include="Interfaces\IEntityWithId.cs" />
+    <Compile Include="MedCard.cs" />
+    <Compile Include="Patient.cs" />
+    <Compile Include="Photo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Account.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
