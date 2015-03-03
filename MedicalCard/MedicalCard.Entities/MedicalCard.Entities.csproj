@@ -52,8 +52,9 @@
     <Compile Include="Interfaces\IEntityWithId.cs" />
     <Compile Include="MedCard.cs" />
     <Compile Include="Patient.cs" />
+    <Compile Include="Photo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="User.cs" />
+    <Compile Include="Account.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

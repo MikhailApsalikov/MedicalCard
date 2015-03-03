@@ -1,12 +1,14 @@
 ﻿namespace MedicalCard.Entities.Enums
 {
-	using System;
-	using System.Linq;
+	using System.ComponentModel;
 
 	public enum Role
 	{
+		[Description("Пациент")]
 		Patient = 1,
+		[Description("Врач")]
 		Doctor = 2,
-		Assistant = 4, 
+		[Description("Лаборант")]
+		Assistant = 4
 	}
 }

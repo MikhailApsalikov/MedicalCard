@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MedicalCard.Entities.Enums
+﻿namespace MedicalCard.Entities.Enums
 {
+	using System.ComponentModel;
+
 	public enum Gender
 	{
-		Male = 1,
-		Female = 2,
+		[Description("Мужской")] Male = 1,
+		[Description("Женский")] Female = 2
 	}
 }

@@ -66,20 +66,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MedicalCard.Common\MedicalCard.Common.csproj">
-      <Project>{f3797235-c7f1-4f87-9f11-555f5b89dbbb}</Project>
-      <Name>MedicalCard.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MedicalCard.DAL\MedicalCard.DAL.csproj">
-      <Project>{78f829af-a8fa-47ec-b068-2399fe7dc98d}</Project>
-      <Name>MedicalCard.DAL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MedicalCard.Entities\MedicalCard.Entities.csproj">
-      <Project>{42f3b05f-249d-4840-a2b5-76b59e39e429}</Project>
-      <Name>MedicalCard.Entities</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
@@ -95,6 +81,20 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MedicalCard.Common\MedicalCard.Common.csproj">
+      <Project>{f3797235-c7f1-4f87-9f11-555f5b89dbbb}</Project>
+      <Name>MedicalCard.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MedicalCard.DAL\MedicalCard.DAL.csproj">
+      <Project>{78f829af-a8fa-47ec-b068-2399fe7dc98d}</Project>
+      <Name>MedicalCard.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MedicalCard.Entities\MedicalCard.Entities.csproj">
+      <Project>{42f3b05f-249d-4840-a2b5-76b59e39e429}</Project>
+      <Name>MedicalCard.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

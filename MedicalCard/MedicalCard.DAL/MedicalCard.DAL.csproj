@@ -51,11 +51,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MedicalCardDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MedicalCard.Common\MedicalCard.Common.csproj">
+      <Project>{f3797235-c7f1-4f87-9f11-555f5b89dbbb}</Project>
+      <Name>MedicalCard.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MedicalCard.Entities\MedicalCard.Entities.csproj">
+      <Project>{42f3b05f-249d-4840-a2b5-76b59e39e429}</Project>
+      <Name>MedicalCard.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
