@@ -20,6 +20,7 @@
 				{
 					Id = account.Id,
 					Username = account.Username,
+					Password = account.Password,
 					Role = account.Role,
 					PatientId = account.PatientId,
 					DoctorId = account.DoctorId,
