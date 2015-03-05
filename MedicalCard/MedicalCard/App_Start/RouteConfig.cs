@@ -12,7 +12,7 @@ namespace MedicalCard
 			routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
 			routes.MapHttpRoute(
-				name: "API Default",
+				name: "DefaultApi",
 				routeTemplate: "api/{controller}/{id}",
 				defaults: new { id = RouteParameter.Optional }
 			);
