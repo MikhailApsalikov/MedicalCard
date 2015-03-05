@@ -240,6 +240,7 @@
     <Content Include="Scripts\app\controllers\home\editModal.html" />
     <Content Include="Scripts\app\controllers\home\home.js" />
     <Content Include="Scripts\app\filters\searchFilter.js" />
+    <Content Include="Scripts\app\services\Doctors.js" />
     <Content Include="Scripts\app\services\modalService.js" />
     <Content Include="Scripts\app\shared\modals\confirm.html" />
     <Content Include="Scripts\bootstrap.js" />
