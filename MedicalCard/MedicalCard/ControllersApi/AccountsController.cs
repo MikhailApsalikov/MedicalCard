@@ -1,6 +1,6 @@
 ﻿namespace MedicalCard.ControllersApi
 {
-	using System.Data.Entity;
+	using System.Collections.Generic;
 	using System.Data.Entity.Infrastructure;
 	using System.Linq;
 	using System.Net;
@@ -12,18 +12,25 @@
 
 	public class AccountsController : ApiController
 	{
-		private readonly MedicalCardDbContext db = new MedicalCardDbContext();
 		// GET: api/Accounts
-		public IQueryable<Account> GetAccounts()
+		public IEnumerable<Account> GetAccounts()
 		{
-			return db.Accounts;
+			return from account in new AccountLogic().GetAccounts()
+				select new Account
+				{
+					Id = account.Id,
+					Username = account.Username,
+					Role = account.Role,
+					PatientId = account.PatientId,
+					DoctorId = account.DoctorId,
+				};
 		}
 
 		// GET: api/Accounts/5
 		[ResponseType(typeof (Account))]
 		public async Task<IHttpActionResult> GetAccount(int id)
 		{
-			var account = await db.Accounts.FindAsync(id);
+			var account = await new AccountLogic().GetAccount(id);
 			if (account == null)
 			{
 				return NotFound();
@@ -46,15 +53,13 @@
 				return BadRequest();
 			}
 
-			db.Entry(account).State = EntityState.Modified;
-
 			try
 			{
-				await db.SaveChangesAsync();
+				await new AccountLogic().PutAccount(id, account);
 			}
 			catch (DbUpdateConcurrencyException)
 			{
-				if (!AccountExists(id))
+				if (!new AccountLogic().AccountExists(id))
 				{
 					return NotFound();
 				}
@@ -73,8 +78,7 @@
 				return BadRequest(ModelState);
 			}
 
-			db.Accounts.Add(account);
-			await db.SaveChangesAsync();
+			await new AccountLogic().PostAccount(account);
 
 			return CreatedAtRoute("DefaultApi", new {id = account.Id}, account);
 		}
@@ -83,30 +87,13 @@
 		[ResponseType(typeof (Account))]
 		public async Task<IHttpActionResult> DeleteAccount(int id)
 		{
-			var account = await db.Accounts.FindAsync(id);
-			if (account == null)
+			var account = await new AccountLogic().DeleteAccount(id);
+			if (account != null)
 			{
-				return NotFound();
+				return Ok(account);
 			}
 
-			db.Accounts.Remove(account);
-			await db.SaveChangesAsync();
-
-			return Ok(account);
-		}
-
-		protected override void Dispose(bool disposing)
-		{
-			if (disposing)
-			{
-				db.Dispose();
-			}
-			base.Dispose(disposing);
-		}
-
-		private bool AccountExists(int id)
-		{
-			return db.Accounts.Count(e => e.Id == id) > 0;
+			return NotFound();
 		}
 	}
 }

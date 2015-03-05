@@ -171,8 +171,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="ControllersApi\AccountsController.cs" />
     <Compile Include="ControllersApi\DoctorsController.cs" />
+    <Compile Include="ControllersApi\MedCardsController.cs" />
     <Compile Include="ControllersApi\PatientsController.cs" />
+    <Compile Include="ControllersApi\PhotosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1063,6 +1066,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="Scripts\app\directives\" />
+    <Folder Include="Views\Test\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
