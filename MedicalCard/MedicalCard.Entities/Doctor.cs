@@ -23,7 +23,6 @@
 		public String Email { get; set; }
 		public int PhotoId { get; set; }
 		public virtual Photo Photo { get; set; }
-
 		
 	}
 }

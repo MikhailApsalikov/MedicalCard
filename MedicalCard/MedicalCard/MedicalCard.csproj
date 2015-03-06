@@ -239,9 +239,15 @@
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\app\app.js" />
     <Content Include="Scripts\app\config.js" />
-    <Content Include="Scripts\app\controllers\home\edit.js" />
-    <Content Include="Scripts\app\controllers\home\editModal.html" />
-    <Content Include="Scripts\app\controllers\home\home.js" />
+    <Content Include="Scripts\app\controllers\account\login.html" />
+    <Content Include="Scripts\app\controllers\account\login.js" />
+    <Content Include="Scripts\app\controllers\doctors\edit.js" />
+    <Content Include="Scripts\app\controllers\doctors\editModal.html" />
+    <Content Include="Scripts\app\controllers\doctors\doctors.js" />
+    <Content Include="Scripts\app\controllers\patients\edit.js" />
+    <Content Include="Scripts\app\controllers\patients\editModal.html" />
+    <Content Include="Scripts\app\controllers\patients\patients.html" />
+    <Content Include="Scripts\app\controllers\patients\patients.js" />
     <Content Include="Scripts\app\filters\searchFilter.js" />
     <Content Include="Scripts\app\services\Doctors.js" />
     <Content Include="Scripts\app\services\modalService.js" />
@@ -1022,7 +1028,7 @@
     <Content Include="Scripts\select2.js" />
     <Content Include="Scripts\select2.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Scripts\app\controllers\home\home.html" />
+    <Content Include="Scripts\app\controllers\doctors\doctors.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -1066,6 +1072,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Scripts\app\controllers\account\NewFolder1\" />
+    <Folder Include="Scripts\app\controllers\NewFolder1\" />
     <Folder Include="Scripts\app\directives\" />
     <Folder Include="Views\Test\" />
   </ItemGroup>

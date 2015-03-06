@@ -2,7 +2,7 @@
 	'use strict';
 
 	angular.module('medicalCardApp')
-		.controller('homeController', ['$scope', '$modal', '$rootScope', 'modalService', 'Doctors', '$http',
+		.controller('doctorsController', ['$scope', '$modal', '$rootScope', 'modalService', 'Doctors', '$http',
 			function ($scope, $modal, $rootScope, modalService, Doctors, $http) {
 
 				$scope.doctors = [
@@ -17,8 +17,6 @@
 					{ id: 7, fullName: 'Семичев Михаил Викторович', phone: '+7-915-999-66-10', position: 'Главврач' },
 				];
 
-				$http.delete('api/accounts')
-
 				var query = Doctors.query(function (response) {
 					console.log(query);
 				});
@@ -27,7 +25,7 @@
 
 					var scope = $rootScope.$new(),
 						options = {
-						templateUrl: '/Scripts/app/controllers/home/editModal.html',
+						templateUrl: '/Scripts/app/controllers/doctors/editModal.html',
 						controller: 'editController',
 						backdrop: 'static',
 						scope: scope
