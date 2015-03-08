@@ -2,14 +2,29 @@
 	'use strict';
 
 	angular.module('medicalCardApp')
-		.controller('patientsController', ['$scope', '$modal', '$rootScope', 'modalService', 'Doctors',
-			function ($scope, $modal, $rootScope, modalService, Patients) {
+		.controller('patientsController', ['$scope', '$modal', '$rootScope', 'modalService', 'Patients', 'Doctors',
+			function ($scope, $modal, $rootScope, modalService, Patients, Doctors) {
 
-				$scope.doctors = [
+				function setPatients() {
+					$scope.patients = Patients.query(function () {
+						console.log($scope.patients);
+					});
+
+					$scope.doctors = Doctors.query(function () {
+
+						$scope.doctors = _.map($scope.doctors, function (doctor) {
+							return {
+								id: doctor.Id,
+								fullName: doctor.LastName + ' ' + doctor.FirstName + ' ' + doctor.MiddleName
+							}
+						})
+
+					});
 
 
-				];
+				}
 
+				setPatients();
 
 				function showEditModal(patient) {
 
@@ -21,7 +36,7 @@
 							scope: scope
 						};
 
-					scope.doctor = angular.copy(patient);
+					scope.patient = angular.copy(patient);
 
 					return $modal.open(options).result;
 				}

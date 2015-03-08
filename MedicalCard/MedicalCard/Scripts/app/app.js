@@ -39,16 +39,16 @@
 			}
 		];
 
-		$scope.$on('$locationChangeSuccess', function (params, route, next) {
-			if (next.originalPath !== '/login' && route.originalPath !== '/login') {
-				if (!$scope.user.name) {
+		//$scope.$on('$locationChangeSuccess', function (params, route, next) {
+		//	if (next.originalPath !== '/login' && route.originalPath !== '/login') {
+		//		if (!$scope.user.name) {
 
-					$window.location = '#/login';
+		//			$window.location = '#/login';
 
-				}
-			}
+		//		}
+		//	}
 
-		});
+		//});
 	}]);
 
 }());

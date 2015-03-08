@@ -259,9 +259,11 @@
     <Content Include="Scripts\app\controllers\patients\patients.html" />
     <Content Include="Scripts\app\controllers\patients\patients.js" />
     <Content Include="Scripts\app\directives\slider.js" />
+    <Content Include="Scripts\app\filters\fullName.js" />
     <Content Include="Scripts\app\filters\searchFilter.js" />
     <Content Include="Scripts\app\services\Doctors.js" />
     <Content Include="Scripts\app\services\modalService.js" />
+    <Content Include="Scripts\app\services\Patients.js" />
     <Content Include="Scripts\app\shared\modals\confirm.html" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
