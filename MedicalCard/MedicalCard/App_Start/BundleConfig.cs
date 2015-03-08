@@ -18,7 +18,7 @@ namespace MedicalCard
 				"~/Scripts/angular-animate.js",
 				"~/Scripts/angular-toastr.js",
 				"~/Scripts/angular-mocks.js",
-				"~/Scripts/angular-ui.js",
+				//"~/Scripts/angular-ui.js",
 				"~/Scripts/angular-ui/ui-bootstrap.js",
 				"~/Scripts/angular-ui/ui-bootstrap-tpls.js",
 				"~/Scripts/angular-sanitize.js",

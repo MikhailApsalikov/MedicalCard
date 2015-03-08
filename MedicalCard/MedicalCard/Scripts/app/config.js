@@ -5,7 +5,10 @@
 		.config(['$routeProvider', '$locationProvider',
 			function ($routeProvider, $locationProvider) {
 				$routeProvider
-
+					.when('/home', {
+						templateUrl: 'Scripts/app/controllers/home/home.html',
+						controller: 'homeController',
+					})
 					.when('/doctors', {
 						templateUrl: 'Scripts/app/controllers/doctors/doctors.html',
 						controller: 'doctorsController',
@@ -17,6 +20,10 @@
 					.when('/login', {
 						templateUrl: 'Scripts/app/controllers/account/login.html',
 						controller: 'loginController',
+					})
+					.when('/register', {
+						templateUrl: 'Scripts/app/controllers/account/register.html',
+						controller: 'registerController',
 					})
 					.otherwise({
 						redirectTo: '/home'

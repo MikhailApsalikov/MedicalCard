@@ -28,6 +28,16 @@
 			$window.location = '#/home';
 		};
 
+		$scope.slides = [
+			{
+				image: '/Content/Images/slider1.jpg',
+				text: 'Новейшее оборудование'
+			},
+			{
+				image: '/Content/Images/slider2.jpg',
+				text: 'Команда квалифицированных специалистов'
+			}
+		];
 
 		$scope.$on('$locationChangeSuccess', function (params, route, next) {
 			if (next.originalPath !== '/login' && route.originalPath !== '/login') {

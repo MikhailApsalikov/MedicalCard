@@ -190,6 +190,8 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Images\logo.jpg" />
+    <Content Include="Content\Images\slider1.jpg" />
+    <Content Include="Content\Images\slider2.jpg" />
     <Content Include="Content\Pages\Main\main.css">
       <DependentUpon>main.less</DependentUpon>
     </Content>
@@ -241,13 +243,17 @@
     <Content Include="Scripts\app\config.js" />
     <Content Include="Scripts\app\controllers\account\login.html" />
     <Content Include="Scripts\app\controllers\account\login.js" />
+    <Content Include="Scripts\app\controllers\account\register.js" />
     <Content Include="Scripts\app\controllers\doctors\edit.js" />
     <Content Include="Scripts\app\controllers\doctors\editModal.html" />
     <Content Include="Scripts\app\controllers\doctors\doctors.js" />
+    <Content Include="Scripts\app\controllers\home\home.html" />
+    <Content Include="Scripts\app\controllers\home\home.js" />
     <Content Include="Scripts\app\controllers\patients\edit.js" />
     <Content Include="Scripts\app\controllers\patients\editModal.html" />
     <Content Include="Scripts\app\controllers\patients\patients.html" />
     <Content Include="Scripts\app\controllers\patients\patients.js" />
+    <Content Include="Scripts\app\directives\slider.js" />
     <Content Include="Scripts\app\filters\searchFilter.js" />
     <Content Include="Scripts\app\services\Doctors.js" />
     <Content Include="Scripts\app\services\modalService.js" />
@@ -1072,9 +1078,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Scripts\app\controllers\account\NewFolder1\" />
-    <Folder Include="Scripts\app\controllers\NewFolder1\" />
-    <Folder Include="Scripts\app\directives\" />
     <Folder Include="Views\Test\" />
   </ItemGroup>
   <ItemGroup>
