@@ -9,21 +9,37 @@
 	using System.Web.Http.Description;
 	using MedicalCard.BLL;
 	using MedicalCard.Entities;
+	using System.Collections.Generic;
 
 	public class PatientsController : ApiController
 	{
 		private readonly MedicalCardDbContext db = new MedicalCardDbContext();
 		// GET: api/Patients
-		public IQueryable<Patient> GetPatients()
+		public IEnumerable<Patient> GetPatients()
 		{
-			return db.Patients;
+			return from patient in new PatientLogic().Get()
+				   select new Patient
+				   {
+					   Id = patient.Id,
+					   Address = patient.Address,
+					   BirthDate = patient.BirthDate,
+					   Email = patient.Email,
+					   FirstName = patient.FirstName,
+					   Gender = patient.Gender,
+					   LastName = patient.LastName,
+					   MiddleName = patient.MiddleName,
+					   Phone = patient.Phone,
+					   Disability = patient.Disability,
+					   InsurancePolicy = patient.InsurancePolicy,
+					   Snils = patient.Snils,
+				   };
 		}
 
 		// GET: api/Patients/5
 		[ResponseType(typeof (Patient))]
 		public async Task<IHttpActionResult> GetPatient(int id)
 		{
-			var patient = await db.Patients.FindAsync(id);
+			var patient = await new PatientLogic().Get(id);
 			if (patient == null)
 			{
 				return NotFound();
@@ -46,15 +62,13 @@
 				return BadRequest();
 			}
 
-			db.Entry(patient).State = EntityState.Modified;
-
 			try
 			{
-				await db.SaveChangesAsync();
+				await new PatientLogic().Update(id, patient);
 			}
 			catch (DbUpdateConcurrencyException)
 			{
-				if (!PatientExists(id))
+				if (!new PatientLogic().IsExists(id))
 				{
 					return NotFound();
 				}
@@ -73,52 +87,21 @@
 				return BadRequest(ModelState);
 			}
 
-			db.Patients.Add(patient);
-
-			try
-			{
-				await db.SaveChangesAsync();
-			}
-			catch (DbUpdateException)
-			{
-				if (PatientExists(patient.Id))
-				{
-					return Conflict();
-				}
-				throw;
-			}
-
-			return CreatedAtRoute("DefaultApi", new {id = patient.Id}, patient);
+			await new PatientLogic().Create(patient);
+			return CreatedAtRoute("DefaultApi", new { id = patient.Id }, patient);
 		}
 
 		// DELETE: api/Patients/5
 		[ResponseType(typeof (Patient))]
 		public async Task<IHttpActionResult> DeletePatient(int id)
 		{
-			var patient = await db.Patients.FindAsync(id);
-			if (patient == null)
+			var patient = await new PatientLogic().Delete(id);
+			if (patient != null)
 			{
-				return NotFound();
+				return Ok(patient);
 			}
 
-			db.Patients.Remove(patient);
-			await db.SaveChangesAsync();
-
-			return Ok(patient);
-		}
-
-		protected override void Dispose(bool disposing)
-		{
-			if (disposing)
-			{
-				db.Dispose();
-			}
-			base.Dispose(disposing);
-		}
-
-		private bool PatientExists(int id)
-		{
-			return db.Patients.Count(e => e.Id == id) > 0;
+			return NotFound();
 		}
 	}
 }

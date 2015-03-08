@@ -5,10 +5,11 @@
 	using System.Linq;
 	using System.Threading.Tasks;
 	using MedicalCard.Entities;
+	using System;
 
 	public class AccountLogic
 	{
-		public List<Account> GetAccounts()
+		public List<Account> Get()
 		{
 			using (var db = new MedicalCardDbContext())
 			{
@@ -16,28 +17,40 @@
 			}
 		}
 
-		public async Task<Account> GetAccount(int id)
+		public async Task<Account> Get(int id)
 		{
 			return await new MedicalCardDbContext().Accounts.FindAsync(id);
 		}
 
-		public async Task PutAccount(int id, Account account)
+		public async Task Update(int id, Account account)
 		{
 			var db = new MedicalCardDbContext();
 			db.Entry(account).State = EntityState.Modified;
 			await db.SaveChangesAsync();
 		}
 
-		public async Task<int> PostAccount(Account account)
+		public async Task<int> Create(Account account)
 		{
 			var db = new MedicalCardDbContext();
+
+			switch (account.Role)
+			{
+				case MedicalCard.Entities.Enums.Role.Patient:
+					account.Patient = new Patient();
+					break;
+				case MedicalCard.Entities.Enums.Role.Doctor:
+					account.Doctor = new Doctor();
+					break;
+				default:
+					throw new ArgumentException("Неверная роль");
+			}
 			db.Accounts.Add(account);
 			await db.SaveChangesAsync();
 
 			return account.Id;
 		}
 
-		public async Task<Account> DeleteAccount(int id)
+		public async Task<Account> Delete(int id)
 		{
 			var db = new MedicalCardDbContext();
 			var account = await db.Accounts.FindAsync(id);
@@ -52,7 +65,7 @@
 			return account;
 		}
 
-		public bool AccountExists(int id)
+		public bool IsExists(int id)
 		{
 			return new MedicalCardDbContext().Accounts.Count(e => e.Id == id) > 0;
 		}
