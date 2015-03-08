@@ -15,7 +15,7 @@
 		// GET: api/Accounts
 		public IEnumerable<Account> GetAccounts()
 		{
-			return from account in new AccountLogic().GetAccounts()
+			return from account in new AccountLogic().Get()
 				select new Account
 				{
 					Id = account.Id,
@@ -31,7 +31,7 @@
 		[ResponseType(typeof (Account))]
 		public async Task<IHttpActionResult> GetAccount(int id)
 		{
-			var account = await new AccountLogic().GetAccount(id);
+			var account = await new AccountLogic().Get(id);
 			if (account == null)
 			{
 				return NotFound();
@@ -56,11 +56,11 @@
 
 			try
 			{
-				await new AccountLogic().PutAccount(id, account);
+				await new AccountLogic().Update(id, account);
 			}
 			catch (DbUpdateConcurrencyException)
 			{
-				if (!new AccountLogic().AccountExists(id))
+				if (!new AccountLogic().IsExists(id))
 				{
 					return NotFound();
 				}
@@ -79,7 +79,7 @@
 				return BadRequest(ModelState);
 			}
 
-			await new AccountLogic().PostAccount(account);
+			await new AccountLogic().Create(account);
 
 			return CreatedAtRoute("DefaultApi", new {id = account.Id}, account);
 		}
@@ -88,7 +88,7 @@
 		[ResponseType(typeof (Account))]
 		public async Task<IHttpActionResult> DeleteAccount(int id)
 		{
-			var account = await new AccountLogic().DeleteAccount(id);
+			var account = await new AccountLogic().Delete(id);
 			if (account != null)
 			{
 				return Ok(account);

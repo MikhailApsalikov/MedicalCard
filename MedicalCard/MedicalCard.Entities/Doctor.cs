@@ -21,7 +21,7 @@
 		public String Address { get; set; }
 		public String Phone { get; set; }
 		public String Email { get; set; }
-		public int PhotoId { get; set; }
+		public int? PhotoId { get; set; }
 		public virtual Photo Photo { get; set; }
 		
 	}

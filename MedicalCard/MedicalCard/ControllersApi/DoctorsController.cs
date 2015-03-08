@@ -1,5 +1,8 @@
 ﻿namespace MedicalCard.ControllersApi
 {
+	using MedicalCard.BLL;
+	using MedicalCard.Entities;
+	using System.Collections.Generic;
 	using System.Data.Entity;
 	using System.Data.Entity.Infrastructure;
 	using System.Linq;
@@ -7,23 +10,34 @@
 	using System.Threading.Tasks;
 	using System.Web.Http;
 	using System.Web.Http.Description;
-	using MedicalCard.BLL;
-	using MedicalCard.Entities;
 
 	public class DoctorsController : ApiController
 	{
-		private readonly MedicalCardDbContext db = new MedicalCardDbContext();
 		// GET: api/Doctors
-		public IQueryable<Doctor> GetDoctors()
+		public IEnumerable<Doctor> GetDoctors()
 		{
-			return db.Doctors;
+			return from doctor in new DoctorLogic().Get()
+				   select new Doctor
+				   {
+					   Id = doctor.Id,
+					   Address = doctor.Address,
+					   BirthDate = doctor.BirthDate,
+					   Email = doctor.Email,
+					   FirstName = doctor.FirstName,
+					   Gender = doctor.Gender,
+					   LastName = doctor.LastName,
+					   MiddleName = doctor.MiddleName,
+					   Phone = doctor.Phone,
+					   PhotoId = doctor.PhotoId,
+					   Position = doctor.Position,
+				   };
 		}
 
 		// GET: api/Doctors/5
-		[ResponseType(typeof (Doctor))]
+		[ResponseType(typeof(Doctor))]
 		public async Task<IHttpActionResult> GetDoctor(int id)
 		{
-			var doctor = await db.Doctors.FindAsync(id);
+			var doctor = await new DoctorLogic().Get(id);
 			if (doctor == null)
 			{
 				return NotFound();
@@ -33,7 +47,7 @@
 		}
 
 		// PUT: api/Doctors/5
-		[ResponseType(typeof (void))]
+		[ResponseType(typeof(void))]
 		public async Task<IHttpActionResult> PutDoctor(int id, Doctor doctor)
 		{
 			if (!ModelState.IsValid)
@@ -46,15 +60,13 @@
 				return BadRequest();
 			}
 
-			db.Entry(doctor).State = EntityState.Modified;
-
 			try
 			{
-				await db.SaveChangesAsync();
+				await new DoctorLogic().Update(id, doctor);
 			}
 			catch (DbUpdateConcurrencyException)
 			{
-				if (!DoctorExists(id))
+				if (!new DoctorLogic().IsExists(id))
 				{
 					return NotFound();
 				}
@@ -65,7 +77,7 @@
 		}
 
 		// POST: api/Doctors
-		[ResponseType(typeof (Doctor))]
+		[ResponseType(typeof(Doctor))]
 		public async Task<IHttpActionResult> PostDoctor(Doctor doctor)
 		{
 			if (!ModelState.IsValid)
@@ -73,52 +85,22 @@
 				return BadRequest(ModelState);
 			}
 
-			db.Doctors.Add(doctor);
+			await new DoctorLogic().Create(doctor);
 
-			try
-			{
-				await db.SaveChangesAsync();
-			}
-			catch (DbUpdateException)
-			{
-				if (DoctorExists(doctor.Id))
-				{
-					return Conflict();
-				}
-				throw;
-			}
-
-			return CreatedAtRoute("DefaultApi", new {id = doctor.Id}, doctor);
+			return CreatedAtRoute("DefaultApi", new { id = doctor.Id }, doctor);
 		}
 
 		// DELETE: api/Doctors/5
-		[ResponseType(typeof (Doctor))]
+		[ResponseType(typeof(Doctor))]
 		public async Task<IHttpActionResult> DeleteDoctor(int id)
 		{
-			var doctor = await db.Doctors.FindAsync(id);
-			if (doctor == null)
+			var doctor = await new DoctorLogic().Delete(id);
+			if (doctor != null)
 			{
-				return NotFound();
+				return Ok(doctor);
 			}
 
-			db.Doctors.Remove(doctor);
-			await db.SaveChangesAsync();
-
-			return Ok(doctor);
-		}
-
-		protected override void Dispose(bool disposing)
-		{
-			if (disposing)
-			{
-				db.Dispose();
-			}
-			base.Dispose(disposing);
-		}
-
-		private bool DoctorExists(int id)
-		{
-			return db.Doctors.Count(e => e.Id == id) > 0;
+			return NotFound();
 		}
 	}
 }

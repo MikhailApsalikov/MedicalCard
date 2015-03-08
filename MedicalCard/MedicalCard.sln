@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedicalCard", "MedicalCard\MedicalCard.csproj", "{B457D709-46FF-4F80-BA6C-5FD6D1DDB53E}"
 EndProject
@@ -20,6 +20,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{409FDC01-B2A4-46A4-87B2-A17837511515}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedicalCard.Exporter", "MedicalCard.Exporter\MedicalCard.Exporter.csproj", "{7E12AEA9-B496-4A0E-B468-3ED9236C5A78}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedicalCard.Console", "MedicalCard.Console\MedicalCard.Console.csproj", "{A9A79138-5341-4E3E-A7B5-6C230FE30D5B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +49,10 @@ Global
 		{7E12AEA9-B496-4A0E-B468-3ED9236C5A78}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E12AEA9-B496-4A0E-B468-3ED9236C5A78}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E12AEA9-B496-4A0E-B468-3ED9236C5A78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9A79138-5341-4E3E-A7B5-6C230FE30D5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9A79138-5341-4E3E-A7B5-6C230FE30D5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9A79138-5341-4E3E-A7B5-6C230FE30D5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9A79138-5341-4E3E-A7B5-6C230FE30D5B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -59,5 +65,6 @@ Global
 		{171A076B-FD4F-477B-9E23-E19F47FE3735} = {A9D4A92F-63DF-4FF3-8629-9D26F7333820}
 		{409FDC01-B2A4-46A4-87B2-A17837511515} = {A9D4A92F-63DF-4FF3-8629-9D26F7333820}
 		{7E12AEA9-B496-4A0E-B468-3ED9236C5A78} = {171A076B-FD4F-477B-9E23-E19F47FE3735}
+		{A9A79138-5341-4E3E-A7B5-6C230FE30D5B} = {8F661547-EC88-4EC8-94F1-03BF0BD86372}
 	EndGlobalSection
 EndGlobal
