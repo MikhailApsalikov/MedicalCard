@@ -86,7 +86,6 @@
 			}
 
 			await new DoctorLogic().Create(doctor);
-
 			return CreatedAtRoute("DefaultApi", new { id = doctor.Id }, doctor);
 		}
 

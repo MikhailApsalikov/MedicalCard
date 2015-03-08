@@ -5,6 +5,7 @@
 	using System.Linq;
 	using System.Threading.Tasks;
 	using MedicalCard.Entities;
+	using System;
 
 	public class AccountLogic
 	{
@@ -31,6 +32,18 @@
 		public async Task<int> Create(Account account)
 		{
 			var db = new MedicalCardDbContext();
+
+			switch (account.Role)
+			{
+				case MedicalCard.Entities.Enums.Role.Patient:
+					account.Patient = new Patient();
+					break;
+				case MedicalCard.Entities.Enums.Role.Doctor:
+					account.Doctor = new Doctor();
+					break;
+				default:
+					throw new ArgumentException("Неверная роль");
+			}
 			db.Accounts.Add(account);
 			await db.SaveChangesAsync();
 

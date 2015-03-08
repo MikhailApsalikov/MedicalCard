@@ -1,4 +1,6 @@
 ﻿using MedicalCard.BLL;
+using MedicalCard.Entities;
+using MedicalCard.Entities.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +18,6 @@ namespace MedicalCard.Console
 
 			AccountLogic al = new AccountLogic();
 			DoctorLogic dl = new DoctorLogic();
-			
 		}
 	}
 }

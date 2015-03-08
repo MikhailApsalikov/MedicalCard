@@ -22,7 +22,20 @@
 				{
 					Username = "Deejay",
 					Password = "Deejay",
-					Role = Role.Patient
+					Role = Role.Patient,
+					Patient = new Patient(){
+						Address = "У черта на куличиках",
+						BirthDate = new DateTime(1992, 12,31),
+						Email = "dh@as.com",
+						FirstName = "Превед",
+						Gender = Gender.Male,
+						LastName = "Медвед",
+						MiddleName = "Мёдович",
+						Phone = "+7915468741",
+						Disability = "Вообще больной на всю голову",
+						InsurancePolicy = "4897693246237940",
+						Snils = "434836472683",
+					}
 				},
 				new Account
 				{
@@ -63,6 +76,19 @@
 					Username = "Patient",
 					Password = "Patient",
 					Role = Role.Patient,
+					Patient = new Patient(){
+						Address = "Где-то в центрах",
+						BirthDate = new DateTime(1987, 1,2),
+						Email = "as@as.com",
+						FirstName = "Пациентка",
+						Gender = Gender.Female,
+						LastName = "Пациентова",
+						MiddleName = "Пациентовна",
+						Phone = "+7915464321",
+						Disability = "Нет",
+						InsurancePolicy = "4897693246237940",
+						Snils = "434836472683",
+					}
 				}
 			};
 

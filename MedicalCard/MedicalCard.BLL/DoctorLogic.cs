@@ -31,11 +31,7 @@
 
 		public async Task<int> Create(Doctor doctor)
 		{
-			var db = new MedicalCardDbContext();
-			db.Doctors.Add(doctor);
-			await db.SaveChangesAsync();
-
-			return doctor.Id;
+			throw new NotImplementedException("Доктора можно создать только при создании учетной записи");
 		}
 
 		public async Task<Doctor> Delete(int id)
