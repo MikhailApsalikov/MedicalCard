@@ -31,7 +31,7 @@
 		$scope.slides = [
 			{
 				image: '/Content/Images/slider1.jpg',
-				text: 'Новейшее оборудование'
+				text: 'Новейшее оборудованиеk'
 			},
 			{
 				image: '/Content/Images/slider2.jpg',
