@@ -23,7 +23,7 @@
 					Password = account.Password,
 					Role = account.Role,
 					PatientId = account.PatientId,
-					DoctorId = account.DoctorId,
+					DoctorId = account.DoctorId
 				};
 		}
 
