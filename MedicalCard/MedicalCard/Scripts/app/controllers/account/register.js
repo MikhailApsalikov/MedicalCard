@@ -3,7 +3,7 @@
 
 	angular.module('medicalCardApp')
 
-	.controller('registerController', ['$scope', 'Accounts', function ($scope, Accounts) {
+	.controller('registerController', ['$scope', 'Accounts', 'Enums', function ($scope, Accounts, Enums) {
 
 		$scope.account = new Accounts();
 
