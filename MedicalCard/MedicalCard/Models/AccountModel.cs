@@ -1,6 +1,6 @@
 ﻿namespace MedicalCard.Models
 {
-	using System;
+	using Entities.Enums;
 	using Entities.Interfaces;
 
 	public class AccountModel : IEntityWithId<int>
@@ -11,6 +11,6 @@
 
 		public string Password { get; set; }
 
-		public int Role { get; set; }
+		public Role Role { get; set; }
 	}
 }

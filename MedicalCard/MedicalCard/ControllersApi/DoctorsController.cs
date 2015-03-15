@@ -13,7 +13,7 @@
 
 	public class DoctorsController : BaseController<Doctor, int, DoctorModel>
 	{
-		public DoctorsController() : base(new DoctorsRepository(new MedicalCardDbContext()))
+		public DoctorsController() : base(new DoctorRepository(new MedicalCardDbContext()))
 		{
 		}
 

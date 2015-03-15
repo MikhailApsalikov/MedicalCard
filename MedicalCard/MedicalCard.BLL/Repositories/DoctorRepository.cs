@@ -3,9 +3,9 @@
 	using System.Data.Entity;
 	using Entities;
 
-	public class DoctorsRepository : BaseRepository<Doctor, int>
+	public class DoctorRepository : BaseRepository<Doctor, int>
 	{
-		public DoctorsRepository(MedicalCardDbContext dbContext)
+		public DoctorRepository(MedicalCardDbContext dbContext)
 			: base(dbContext)
 		{
 		}
