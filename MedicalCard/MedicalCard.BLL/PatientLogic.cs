@@ -29,7 +29,7 @@
 			await db.SaveChangesAsync();
 		}
 
-		public async Task<int> Create(Patient patient)
+		public Task<int> Create(Patient patient)
 		{
 			throw new NotImplementedException("Пациента можно создать только при создании учетной записи");
 		}

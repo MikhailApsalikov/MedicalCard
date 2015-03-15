@@ -50,6 +50,7 @@
     <Compile Include="Enums\Role.cs" />
     <Compile Include="Enums\Gender.cs" />
     <Compile Include="Examination.cs" />
+    <Compile Include="Exceptions\EntityNotFoundException.cs" />
     <Compile Include="Interfaces\IEntityWithId.cs" />
     <Compile Include="MedCard.cs" />
     <Compile Include="Patient.cs" />

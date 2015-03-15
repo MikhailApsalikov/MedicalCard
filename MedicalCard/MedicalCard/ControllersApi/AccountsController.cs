@@ -1,100 +1,37 @@
 ﻿namespace MedicalCard.ControllersApi
 {
-	using System.Collections.Generic;
-	using System.Data.Entity.Infrastructure;
+	using System;
 	using System.Linq;
 	using System.Net;
-	using System.Threading.Tasks;
 	using System.Web.Http;
-	using System.Web.Http.Description;
-	using MedicalCard.BLL;
-	using MedicalCard.Entities;
+	using BLL;
+	using BLL.Repositories;
+	using Entities;
+	using Models;
+	using Models.Filters;
 
-	public class AccountsController : ApiController
+	public class AccountsController : BaseController<Account, int, AccountModel>
 	{
-		// GET: api/Accounts
-		public IEnumerable<Account> GetAccounts()
+		public AccountsController() : base(new AccountRepository(new MedicalCardDbContext()))
 		{
-			return from account in new AccountLogic().Get()
-				select new Account
-				{
-					Id = account.Id,
-					Username = account.Username,
-					Password = account.Password,
-					Role = account.Role,
-					PatientId = account.PatientId,
-					DoctorId = account.DoctorId
-				};
 		}
 
-		// GET: api/Accounts/5
-		[ResponseType(typeof (Account))]
-		public async Task<IHttpActionResult> GetAccount(int id)
+		protected override string ControllerName
 		{
-			var account = await new AccountLogic().Get(id);
-			if (account == null)
-			{
-				return NotFound();
-			}
-
-			return Ok(account);
+			get { return "Accounts"; }
 		}
 
-		// PUT: api/Accounts/5
-		[ResponseType(typeof (void))]
-		public async Task<IHttpActionResult> PutAccount(int id, Account account)
+		protected override IQueryable<Account> ApplyFilter(IRepository<Account, int> repository, TextFilterQuery query)
 		{
-			if (!ModelState.IsValid)
-			{
-				return BadRequest(ModelState);
-			}
-
-			if (id != account.Id)
-			{
-				return BadRequest();
-			}
-
-			try
-			{
-				await new AccountLogic().Update(id, account);
-			}
-			catch (DbUpdateConcurrencyException)
-			{
-				if (!new AccountLogic().IsExists(id))
-				{
-					return NotFound();
-				}
-				throw;
-			}
-
-			return StatusCode(HttpStatusCode.NoContent);
+			return String.IsNullOrEmpty(query.Search)
+				? repository.GetAll()
+				: repository.Filter(g =>
+					(g.Username != null && g.Username.Contains(query.Search)));
 		}
 
-		// POST: api/Accounts
-		[ResponseType(typeof (Account))]
-		public async Task<IHttpActionResult> PostAccount(Account account)
+		public override IHttpActionResult Delete(int id)
 		{
-			if (!ModelState.IsValid)
-			{
-				return BadRequest(ModelState);
-			}
-
-			await new AccountLogic().Create(account);
-
-			return CreatedAtRoute("DefaultApi", new {id = account.Id}, account);
-		}
-
-		// DELETE: api/Accounts/5
-		[ResponseType(typeof (Account))]
-		public async Task<IHttpActionResult> DeleteAccount(int id)
-		{
-			var account = await new AccountLogic().Delete(id);
-			if (account != null)
-			{
-				return Ok(account);
-			}
-
-			return NotFound();
+			return StatusCode(HttpStatusCode.MethodNotAllowed);
 		}
 	}
 }
