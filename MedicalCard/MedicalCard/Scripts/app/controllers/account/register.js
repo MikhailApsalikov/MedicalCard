@@ -7,11 +7,15 @@
 
 		$scope.account = new Accounts();
 
+		$scope.registerFirstStep = true;
+
 		$scope.register = function () {
 
-			$scope.account.$save().then(function (response) {
-				console.log(response)
+			$scope.account.$save(function (response) {
+				console.log(response);
+				$scope.registerFirstStep = false;
 			});
+
 
 		};
 

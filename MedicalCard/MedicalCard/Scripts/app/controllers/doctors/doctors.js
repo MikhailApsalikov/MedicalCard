@@ -7,7 +7,9 @@
 
 
 				function setDoctors() {
-					$scope.doctors = Doctors.query();
+					$scope.doctors = Doctors.query(function () {
+						console.log($scope.doctors);
+					});
 				}
 
 				setDoctors();
@@ -52,7 +54,9 @@
 						text: 'Вы уверены что хотите удалить запись о сотруднике?',
 						title: 'Удаление'
 					}).then(function () {
-						console.log(doctor);
+						doctor.$delete(function () {
+							setDoctors();
+						});
 					})
 				};
 

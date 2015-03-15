@@ -58,7 +58,9 @@
 						text: 'Вы уверены что хотите удалить запись о пациенте?',
 						title: 'Удаление'
 					}).then(function () {
-						console.log(patient);
+						patient.$delete(function () {
+							setPatients();
+						});
 					})
 				};
 
