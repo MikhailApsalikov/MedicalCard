@@ -6,6 +6,7 @@
 	using System.Linq.Expressions;
 	using System.Threading;
 	using Common;
+	using Interfaces;
 	using Repositories;
 
 	public abstract class BaseRepository<T, TKey> : IRepository<T, TKey> where T : class

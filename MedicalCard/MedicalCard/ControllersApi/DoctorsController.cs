@@ -1,105 +1,45 @@
 ﻿namespace MedicalCard.ControllersApi
 {
-	using MedicalCard.BLL;
-	using MedicalCard.Entities;
-	using System.Collections.Generic;
-	using System.Data.Entity;
-	using System.Data.Entity.Infrastructure;
+	using System;
 	using System.Linq;
 	using System.Net;
-	using System.Threading.Tasks;
 	using System.Web.Http;
-	using System.Web.Http.Description;
+	using BLL;
+	using BLL.Interfaces;
+	using BLL.Repositories;
+	using Entities;
+	using Models;
+	using Models.Filters;
 
-	public class DoctorsController : ApiController
+	public class DoctorsController : BaseController<Doctor, int, DoctorModel>
 	{
-		// GET: api/Doctors
-		public IEnumerable<Doctor> GetDoctors()
+		public DoctorsController() : base(new DoctorsRepository(new MedicalCardDbContext()))
 		{
-			return from doctor in new DoctorLogic().Get()
-				   select new Doctor
-				   {
-					   Id = doctor.Id,
-					   Address = doctor.Address,
-					   BirthDate = doctor.BirthDate,
-					   Email = doctor.Email,
-					   FirstName = doctor.FirstName,
-					   Gender = doctor.Gender,
-					   LastName = doctor.LastName,
-					   MiddleName = doctor.MiddleName,
-					   Phone = doctor.Phone,
-					   PhotoId = doctor.PhotoId,
-					   Position = doctor.Position,
-				   };
 		}
 
-		// GET: api/Doctors/5
-		[ResponseType(typeof(Doctor))]
-		public async Task<IHttpActionResult> GetDoctor(int id)
+		protected override string ControllerName
 		{
-			var doctor = await new DoctorLogic().Get(id);
-			if (doctor == null)
-			{
-				return NotFound();
-			}
-
-			return Ok(doctor);
+			get { return "Doctors"; }
 		}
 
-		// PUT: api/Doctors/5
-		[ResponseType(typeof(void))]
-		public async Task<IHttpActionResult> PutDoctor(int id, Doctor doctor)
+		protected override IQueryable<Doctor> ApplyFilter(IRepository<Doctor, int> repository, TextFilterQuery query)
 		{
-			if (!ModelState.IsValid)
-			{
-				return BadRequest(ModelState);
-			}
-
-			if (id != doctor.Id)
-			{
-				return BadRequest();
-			}
-
-			try
-			{
-				await new DoctorLogic().Update(id, doctor);
-			}
-			catch (DbUpdateConcurrencyException)
-			{
-				if (!new DoctorLogic().IsExists(id))
-				{
-					return NotFound();
-				}
-				throw;
-			}
-
-			return StatusCode(HttpStatusCode.NoContent);
+			return String.IsNullOrEmpty(query.Search)
+				? repository.GetAll()
+				: repository.Filter(g =>
+					(g.FirstName != null && g.FirstName.Contains(query.Search))
+					|| (g.LastName != null && g.LastName.Contains(query.Search))
+					|| (g.MiddleName != null && g.MiddleName.Contains(query.Search)));
 		}
 
-		// POST: api/Doctors
-		[ResponseType(typeof(Doctor))]
-		public async Task<IHttpActionResult> PostDoctor(Doctor doctor)
+		public override IHttpActionResult Delete(int id)
 		{
-			if (!ModelState.IsValid)
-			{
-				return BadRequest(ModelState);
-			}
-
-			await new DoctorLogic().Create(doctor);
-			return CreatedAtRoute("DefaultApi", new { id = doctor.Id }, doctor);
+			return StatusCode(HttpStatusCode.MethodNotAllowed);
 		}
 
-		// DELETE: api/Doctors/5
-		[ResponseType(typeof(Doctor))]
-		public async Task<IHttpActionResult> DeleteDoctor(int id)
+		public override IHttpActionResult Post(DoctorModel value)
 		{
-			var doctor = await new DoctorLogic().Delete(id);
-			if (doctor != null)
-			{
-				return Ok(doctor);
-			}
-
-			return NotFound();
+			return StatusCode(HttpStatusCode.MethodNotAllowed);
 		}
 	}
 }

@@ -22,6 +22,6 @@
 		public String Email { get; set; }
 		public String Snils { get; set; }
 		public String InsurancePolicy { get; set; }
-		public String Disability { get; set; }
+		public Disability Disability { get; set; }
 	}
 }

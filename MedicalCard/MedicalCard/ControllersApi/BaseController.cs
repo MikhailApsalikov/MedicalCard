@@ -5,6 +5,7 @@
 	using System.Linq;
 	using System.Web.Http;
 	using AutoMapper;
+	using BLL.Interfaces;
 	using BLL.Repositories;
 	using Entities.Exceptions;
 	using Entities.Interfaces;

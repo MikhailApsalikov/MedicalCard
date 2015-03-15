@@ -22,6 +22,16 @@
 
 			#endregion
 
+			#region Doctor
+
+			Mapper.CreateMap<Doctor, DoctorModel>();
+			Mapper.CreateMap<DoctorModel, Doctor>()
+				.ForMember(dest => dest.PhotoId, src => src.Ignore())
+				.ForMember(dest => dest.Photo, src => src.Ignore())
+				.ForMember(dest => dest.Account, src => src.Ignore());
+
+			#endregion
+
 			Mapper.AssertConfigurationIsValid();
 		}
 	}
