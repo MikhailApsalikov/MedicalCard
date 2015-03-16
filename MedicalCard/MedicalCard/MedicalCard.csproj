@@ -274,6 +274,7 @@
     <Content Include="Scripts\app\controllers\patients\editModal.html" />
     <Content Include="Scripts\app\controllers\patients\patients.html" />
     <Content Include="Scripts\app\controllers\patients\patients.js" />
+    <Content Include="Scripts\app\directives\setActiveTab.js" />
     <Content Include="Scripts\app\directives\slider.js" />
     <Content Include="Scripts\app\filters\fullName.js" />
     <Content Include="Scripts\app\filters\searchFilter.js" />

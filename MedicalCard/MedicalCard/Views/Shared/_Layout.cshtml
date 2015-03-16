@@ -9,7 +9,7 @@
 	<link href="/Content/Pages/Main/main.css" rel="stylesheet" />
 </head>
 <body ng-controller="mainController">
-	<nav class="navbar navbar-default without-margins">
+	<nav class="navbar navbar-default without-margins" set-active-tab>
 		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
@@ -45,6 +45,7 @@
 
 					<li ng-if="!user.name"><a href="#/login">Войти</a></li>
 					<li ng-if="user.name" ng-click="logout()"><a>Выход</a></li>
+					<li ng-if="!user.name"> <a href="#/register">Регистрация</a></li>
 				</ul>
 			</div><!-- /.navbar-collapse -->
 		</div><!-- /.container-fluid -->
@@ -80,6 +81,7 @@
 	<script src="~/Scripts/app/services/Accounts.js"></script>
 	<script src="~/Scripts/app/controllers/account/register.js"></script>
 	<script src="~/Scripts/app/shared/Enum.js"></script>
+	<script src="~/Scripts/app/directives/setActiveTab.js"></script>
 	@RenderSection("scripts", required: false)
 </body>
 </html>
