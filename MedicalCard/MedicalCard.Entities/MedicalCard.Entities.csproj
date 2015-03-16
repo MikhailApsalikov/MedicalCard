@@ -48,7 +48,6 @@
     <Compile Include="Analysis.cs" />
     <Compile Include="Doctor.cs" />
     <Compile Include="Enums\Disability.cs" />
-    <Compile Include="Enums\Position.cs" />
     <Compile Include="Enums\Role.cs" />
     <Compile Include="Enums\Gender.cs" />
     <Compile Include="Examination.cs" />
@@ -57,11 +56,13 @@
     <Compile Include="MedCard.cs" />
     <Compile Include="Patient.cs" />
     <Compile Include="Photo.cs" />
+    <Compile Include="Position.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Account.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
