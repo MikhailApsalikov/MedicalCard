@@ -5,6 +5,7 @@
 	using System.Net;
 	using System.Web.Http;
 	using BLL;
+	using BLL.Interfaces;
 	using BLL.Repositories;
 	using Entities;
 	using Models;

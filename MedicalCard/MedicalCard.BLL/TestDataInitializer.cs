@@ -2,56 +2,69 @@
 {
 	using System;
 	using System.Collections.Generic;
+	using System.Data.Entity;
 	using System.Linq;
-	using MedicalCard.Entities;
-	using MedicalCard.Entities.Enums;
+	using Entities;
+	using Entities.Enums;
 
-	public class TestDataInitializer
+	public class TestDataInitializer : DropCreateDatabaseIfModelChanges<MedicalCardDbContext>
 	{
-		public Boolean Initialize()
+		protected override void Seed(MedicalCardDbContext context)
 		{
-			var db = new MedicalCardDbContext();
-			if (db.Accounts.Any())
+			try
 			{
-				return false;
+				Initialize(context);
+			}
+			catch
+			{
+			}
+		}
+
+		private void Initialize(MedicalCardDbContext context)
+		{
+			if (context.Accounts.Any())
+			{
+				return;
 			}
 
 			var accounts = new List<Account>
 			{
 				new Account
 				{
-					Username = "Deejay",
-					Password = "Deejay",
+					Username = "Anton",
+					Password = "Anton",
 					Role = Role.Patient,
-					Patient = new Patient(){
-						Address = "У черта на куличиках",
-						BirthDate = new DateTime(1992, 12,31),
+					Patient = new Patient
+					{
+						Address = "г.Саратов ул.Антонова д.25. кв.31",
+						BirthDate = new DateTime(1992, 12, 31),
 						Email = "dh@as.com",
-						FirstName = "Превед",
+						FirstName = "Антон",
 						Gender = Gender.Male,
-						LastName = "Медвед",
-						MiddleName = "Мёдович",
+						LastName = "Зеленцов",
+						MiddleName = "Петрович",
 						Phone = "+7915468741",
-						Disability = "Вообще больной на всю голову",
+						Disability = Disability.None,
 						InsurancePolicy = "4897693246237940",
-						Snils = "434836472683",
+						Snils = "434836472683"
 					}
 				},
 				new Account
 				{
-					Username = "Enhame",
-					Password = "Enhame",
+					Username = "Boris",
+					Password = "Boris",
 					Role = Role.Doctor,
-					Doctor = new Doctor(){
-						Address = "Somewhere",
-						BirthDate = new DateTime(1990, 1,1),
-						Email = "1@1.com",
-						FirstName = "FirstName",
+					Doctor = new Doctor
+					{
+						Address = "г.Саратов ул.Антонова д.25. кв.32",
+						BirthDate = new DateTime(1990, 1, 1),
+						Email = "a@b.com",
+						FirstName = "Борис",
 						Gender = Gender.Male,
-						LastName = "LastName",
-						MiddleName = "MiddleName",
+						LastName = "Иванов",
+						MiddleName = "Романович",
 						Phone = "123546678",
-						Position = "Хирург",
+						Position = Position.Surgeon
 					}
 				},
 				new Account
@@ -59,16 +72,17 @@
 					Username = "Doctor",
 					Password = "Doctor",
 					Role = Role.Doctor,
-					Doctor = new Doctor(){
+					Doctor = new Doctor
+					{
 						Address = "улица Пушкина, д.24 кв.5",
 						BirthDate = new DateTime(1990, 6, 8),
-						Email = "patient@bk.ru",
-						FirstName = "Врач",
+						Email = "doctor@bk.ru",
+						FirstName = "Петров",
 						Gender = Gender.Male,
-						LastName = "Враченко",
-						MiddleName = "Врачевич",
+						LastName = "Петр",
+						MiddleName = "Петрович",
 						Phone = "+79177894561",
-						Position = "Терапевт",
+						Position = Position.Therapist
 					}
 				},
 				new Account
@@ -76,25 +90,25 @@
 					Username = "Patient",
 					Password = "Patient",
 					Role = Role.Patient,
-					Patient = new Patient(){
-						Address = "Где-то в центрах",
-						BirthDate = new DateTime(1987, 1,2),
-						Email = "as@as.com",
-						FirstName = "Пациентка",
+					Patient = new Patient
+					{
+						Address = "г.Саратов ул.Соколовая д.52. кв.11",
+						BirthDate = new DateTime(1987, 1, 2),
+						Email = "patient@bk.ru",
+						FirstName = "Иванова",
 						Gender = Gender.Female,
-						LastName = "Пациентова",
-						MiddleName = "Пациентовна",
+						LastName = "Елена",
+						MiddleName = "Николаевна",
 						Phone = "+7915464321",
-						Disability = "Нет",
+						Disability = Disability.Third,
 						InsurancePolicy = "4897693246237940",
-						Snils = "434836472683",
+						Snils = "434836472683"
 					}
 				}
 			};
 
-			db.Accounts.AddRange(accounts);
-			db.SaveChanges();
-			return true;
+			context.Accounts.AddRange(accounts);
+			context.SaveChanges();
 		}
 	}
 }

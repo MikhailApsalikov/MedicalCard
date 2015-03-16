@@ -188,7 +188,6 @@
     <Compile Include="ControllersApi\PatientsController.cs" />
     <Compile Include="ControllersApi\PhotosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -196,9 +195,11 @@
     <Compile Include="Helpers\MappingHelper.cs" />
     <Compile Include="Helpers\Paginator.cs" />
     <Compile Include="Models\AccountModel.cs" />
+    <Compile Include="Models\DoctorModel.cs" />
     <Compile Include="Models\EntitiesListContainer.cs" />
     <Compile Include="Models\Filters\BaseFilterQuery.cs" />
     <Compile Include="Models\Filters\TextFilterQuery.cs" />
+    <Compile Include="Models\PatientModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

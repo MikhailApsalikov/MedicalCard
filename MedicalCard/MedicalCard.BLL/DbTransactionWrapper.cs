@@ -2,6 +2,7 @@
 {
 	using System;
 	using System.Data.Entity;
+	using Interfaces;
 
 	internal sealed class DbTransactionWrapper : ITransaction
 	{

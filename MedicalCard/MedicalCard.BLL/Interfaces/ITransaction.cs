@@ -1,4 +1,4 @@
-﻿namespace MedicalCard.BLL
+﻿namespace MedicalCard.BLL.Interfaces
 {
 	using System;
 

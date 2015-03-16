@@ -1,17 +1,11 @@
-﻿namespace MedicalCard.Entities
+﻿namespace MedicalCard.Models
 {
 	using System;
-	using System.ComponentModel.DataAnnotations;
-	using System.ComponentModel.DataAnnotations.Schema;
-	using MedicalCard.Entities.Enums;
-	using MedicalCard.Entities.Interfaces;
+	using Entities.Enums;
+	using Entities.Interfaces;
 
-	public class Patient : IEntityWithId<int>
+	public class PatientModel : IEntityWithId<int>
 	{
-		[Key, ForeignKey("Account")]
-		public int Id { get; set; }
-
-		public virtual Account Account { get; set; }
 		public String LastName { get; set; }
 		public String FirstName { get; set; }
 		public String MiddleName { get; set; }
@@ -23,5 +17,6 @@
 		public String Snils { get; set; }
 		public String InsurancePolicy { get; set; }
 		public Disability Disability { get; set; }
+		public int Id { get; set; }
 	}
 }
