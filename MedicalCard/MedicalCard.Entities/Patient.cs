@@ -23,5 +23,7 @@
 		public String Snils { get; set; }
 		public String InsurancePolicy { get; set; }
 		public Disability Disability { get; set; }
+		public String DisabilityDocument { get; set; }
+		public String JobStudyPosition { get; set; }
 	}
 }

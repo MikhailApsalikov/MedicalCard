@@ -25,11 +25,12 @@
 		protected override IQueryable<Doctor> ApplyFilter(IRepository<Doctor, int> repository, TextFilterQuery query)
 		{
 			return String.IsNullOrEmpty(query.Search)
-				? repository.GetAll()
+				? repository.GetAll().Where(g=>g.FirstName!=null)
 				: repository.Filter(g =>
 					(g.FirstName != null && g.FirstName.Contains(query.Search))
 					|| (g.LastName != null && g.LastName.Contains(query.Search))
-					|| (g.MiddleName != null && g.MiddleName.Contains(query.Search)));
+					|| (g.MiddleName != null && g.MiddleName.Contains(query.Search)))
+					.Where(g => g.FirstName != null);
 		}
 
 		public override IHttpActionResult Delete(int id)

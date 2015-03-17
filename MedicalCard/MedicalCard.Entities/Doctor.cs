@@ -8,6 +8,11 @@
 
 	public class Doctor : IEntityWithId<int>
 	{
+		public Doctor()
+		{
+			PositionId = 1;
+		}
+
 		public virtual Account Account { get; set; }
 		public String LastName { get; set; }
 		public String FirstName { get; set; }

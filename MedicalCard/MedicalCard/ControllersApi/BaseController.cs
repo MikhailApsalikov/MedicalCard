@@ -58,9 +58,9 @@
 				}
 				return Ok(source.Select(Mapper.Map<TModel>));
 			}
-			catch (Exception)
+			catch (Exception ex)
 			{
-				return InternalServerError();
+				return InternalServerError(ex);
 			}
 		}
 
@@ -77,9 +77,9 @@
 			{
 				return NotFound();
 			}
-			catch (Exception)
+			catch (Exception ex)
 			{
-				return InternalServerError();
+				return InternalServerError(ex);
 			}
 		}
 
@@ -94,9 +94,9 @@
 					new Uri(String.Format("{0}/{1}", ControllerName, value.Id), UriKind.Relative),
 					value);
 			}
-			catch (Exception)
+			catch (Exception ex)
 			{
-				return InternalServerError();
+				return InternalServerError(ex);
 			}
 		}
 
@@ -112,9 +112,9 @@
 			{
 				return NotFound();
 			}
-			catch (Exception)
+			catch (Exception ex)
 			{
-				return InternalServerError();
+				return InternalServerError(ex);
 			}
 		}
 
@@ -130,9 +130,9 @@
 			{
 				return NotFound();
 			}
-			catch (Exception)
+			catch (Exception ex)
 			{
-				return InternalServerError();
+				return InternalServerError(ex);
 			}
 		}
 
