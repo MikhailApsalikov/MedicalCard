@@ -283,6 +283,7 @@
     <Content Include="Scripts\app\services\Doctors.js" />
     <Content Include="Scripts\app\services\modalService.js" />
     <Content Include="Scripts\app\services\Patients.js" />
+    <Content Include="Scripts\app\services\toastService.js" />
     <Content Include="Scripts\app\shared\Enum.js" />
     <Content Include="Scripts\app\shared\modals\confirm.html" />
     <Content Include="Scripts\bootstrap.js" />

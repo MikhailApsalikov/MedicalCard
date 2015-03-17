@@ -3,7 +3,7 @@
 
 	angular.module('medicalCardApp')
 
-	.controller('registerController', ['$scope', 'Accounts', 'Enums', 'Doctors', function ($scope, Accounts, Enums, Doctors) {
+	.controller('registerController', ['$scope', 'Accounts', 'Enums', 'Doctors', '$window', 'toastService', 'Patients', function ($scope, Accounts, Enums, Doctors, $window, toastService, Patients) {
 
 		$scope.account = new Accounts();
 
@@ -22,20 +22,48 @@
 						username: response.Username,
 						password: response.Password,
 						id: response.Id,
-						role: response.Role
+						role: +response.Role
 					}
 				}
+
+				if (response.Role === Enums.roleCodes.patient) {
+					$scope.patientCreationMode = true;
+					$scope.patient = new Patients();
+					$scope.patient.id = response.Id;
+					$scope.patient.account = {
+						username: response.Username,
+						password: response.Password,
+						id: response.Id,
+						role: +response.Role
+					}
+				}
+
 			});
 
 		};
 
 		$scope.saveDoctor = function () {
+			Doctors.update({ id: $scope.doctor.id }, $scope.doctor, function () {
+				toastService.showSuccessToast({
+					text: 'Вы успешно зарегистрировались!',
+					title: 'Регистрация'
+				});
+				$window.location = '#/doctors';
+			}, function (response) {
+				toastService.showHttpErrorToast(response);
+			})
+		};
 
-			$scope.doctor.$save(function () {
-
-				alert('ok');
-			});
-
+		$scope.savePatient = function () {
+			Patients.update({ id: $scope.patient.id }, $scope.patient, function () {
+				toastService.showSuccessToast({
+					text: 'Вы успешно зарегистрировались!',
+					title: 'Регистрация'
+				});
+				$window.location = '#/patients';
+			}, function (response) {
+				toastService.showHttpErrorToast(response);
+			})
 		}
 
 	}])

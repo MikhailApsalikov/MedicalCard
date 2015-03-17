@@ -2,8 +2,8 @@
 	'use strict';
 
 	angular.module('medicalCardApp')
-		.controller('patientsController', ['$scope', '$modal', '$rootScope', 'modalService', 'Patients', 'Doctors',
-			function ($scope, $modal, $rootScope, modalService, Patients, Doctors) {
+		.controller('patientsController', ['$scope', '$modal', '$rootScope', 'modalService', 'Patients', 'Doctors', 'toastService',
+			function ($scope, $modal, $rootScope, modalService, Patients, Doctors, toastService) {
 
 				function setPatients() {
 					$scope.patients = Patients.query(function () {
@@ -43,7 +43,13 @@
 
 				$scope.edit = function (patient) {
 					showEditModal(patient).then(function (response) {
-						console.log(response);
+						Patients.update({ id: response.Id }, response, function () {
+							toastService.showSuccessToast({
+								text: 'Данные успешно сохранены!',
+								title: 'Редактирование'
+							});
+							setPatients();
+						})
 					});
 				};
 
