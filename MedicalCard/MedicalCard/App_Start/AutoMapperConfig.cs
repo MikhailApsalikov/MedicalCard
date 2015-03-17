@@ -21,11 +21,21 @@
 
 			#region Doctor
 
-			Mapper.CreateMap<Doctor, DoctorModel>();
+			Mapper.CreateMap<Doctor, DoctorModel>()
+				.ForMember(dest => dest.PositionId, src => src.MapFrom(s => s.Position.Id))
+				.ForMember(dest => dest.PositionName, src => src.MapFrom(s => s.Position.Name));
 			Mapper.CreateMap<DoctorModel, Doctor>()
 				.ForMember(dest => dest.PhotoId, src => src.Ignore())
 				.ForMember(dest => dest.Photo, src => src.Ignore())
-				.ForMember(dest => dest.Account, src => src.Ignore());
+				.ForMember(dest => dest.Account, src => src.Ignore())
+				.ForMember(dest => dest.Position, src => src.Ignore());
+
+			#endregion
+
+			#region Doctor positions
+
+			Mapper.CreateMap<Position, PositionModel>();
+			Mapper.CreateMap<PositionModel, Position>();
 
 			#endregion
 

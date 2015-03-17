@@ -13,11 +13,78 @@
 		{
 			try
 			{
+				InitializePositions(context);
 				Initialize(context);
 			}
 			catch
 			{
 			}
+		}
+
+		private void InitializePositions(MedicalCardDbContext context)
+		{
+			if (context.Positions.Any())
+			{
+				return;
+			}
+
+			var positions = new List<Position>
+			{
+				new Position("Терапевт"),
+				new Position("Лаборант"),
+				new Position("Хирург"),
+				new Position("Окулист"),
+				new Position("Нейрохирург"),
+				new Position("Невролог"),
+				new Position("Нарколог"),
+				new Position("Маммолог"),
+				new Position("Косметолог"),
+				new Position("Кардиохирург"),
+				new Position("Кардиолог"),
+				new Position("Иммунолог"),
+				new Position("Диетолог"),
+				new Position("Дерматолог"),
+				new Position("Дерматовенеролог"),
+				new Position("Гинеколог"),
+				new Position("Генетик"),
+				new Position("Гематолог"),
+				new Position("Гастроэнтеролог"),
+				new Position("Врач общей практики"),
+				new Position("Врач лечебной физкультуры"),
+				new Position("Вирусолог"),
+				new Position("Венеролог"),
+				new Position("Анестезиолог"),
+				new Position("Андролог"),
+				new Position("Ангиохирург"),
+				new Position("Аллерголог-иммунолог"),
+				new Position("Аллерголог"),
+				new Position("Акушер-гинеколог"),
+				new Position("Физиотерапевт"),
+				new Position("Эметолог"),
+				new Position("Эндокринолог"),
+				new Position("Эндоскопист"),
+				new Position("Фармаколог"),
+				new Position("Уролог"),
+				new Position("Травматолог"),
+				new Position("Токсиколог"),
+				new Position("Сурдолог"),
+				new Position("Стоматолог"),
+				new Position("Сексопатолог"),
+				new Position("Рентгенолог"),
+				new Position("Ревматолог"),
+				new Position("Реаниматолог"),
+				new Position("Пульмонолог"),
+				new Position("Психиатр"),
+				new Position("Проктолог"),
+				new Position("Педиатр"),
+				new Position("Оториноларинголог"),
+				new Position("Остеопат"),
+				new Position("Ортопед"),
+				new Position("Эпидемиолог")
+			};
+
+			context.Positions.AddRange(positions);
+			context.SaveChanges();
 		}
 
 		private void Initialize(MedicalCardDbContext context)
@@ -64,7 +131,7 @@
 						LastName = "Иванов",
 						MiddleName = "Романович",
 						Phone = "123546678",
-						Position = Position.Surgeon
+						PositionId = 3
 					}
 				},
 				new Account
@@ -82,7 +149,7 @@
 						LastName = "Петр",
 						MiddleName = "Петрович",
 						Phone = "+79177894561",
-						Position = Position.Therapist
+						PositionId = 1
 					}
 				},
 				new Account

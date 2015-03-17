@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace MedicalCard.Controllers
+﻿namespace MedicalCard.Controllers
 {
+	using System.Linq;
+	using System.Web.Mvc;
+	using BLL;
+	using BLL.Repositories;
+
 	public class HomeController : Controller
 	{
 		public ActionResult Index()
@@ -13,18 +12,37 @@ namespace MedicalCard.Controllers
 			return View();
 		}
 
-		public ActionResult About()
+		[HttpPost]
+		public JsonResult Login(string username, string password)
 		{
-			ViewBag.Message = "Your application description page.";
+			var repository = new AccountRepository(new MedicalCardDbContext());
+			var account =
+				repository.GetAll().FirstOrDefault(acc => acc.Username == username);
+			if (account == null)
+			{
+				return Json(new
+				{
+					success = false,
+					reason = "Пользователь не найден"
+				});
+			}
 
-			return View();
-		}
+			if (account.Password != password)
+			{
+				return Json(new
+				{
+					success = false,
+					reason = "Неверный пароль"
+				});
+			}
 
-		public ActionResult Contact()
-		{
-			ViewBag.Message = "Your contact page.";
-
-			return View();
+			return Json(new
+			{
+				success = true,
+				id = account.Id,
+				username = account.Username,
+				role = account.Role,
+			});
 		}
 	}
 }
