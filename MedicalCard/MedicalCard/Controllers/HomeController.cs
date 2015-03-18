@@ -25,7 +25,10 @@
 				Response.StatusCode = (int)HttpStatusCode.NotFound;
 				return Json(new
 				{
-					reason = "Пользователь не найден"
+					data = new
+					{
+						message = "Пользователь с указанным именем не найден"
+					}
 				});
 			}
 
@@ -34,7 +37,10 @@
 				Response.StatusCode = (int)HttpStatusCode.NotFound;
 				return Json(new
 				{
-					reason = "Неверный пароль"
+					data = new
+						{
+							message = "Неверный пароль"
+						}
 				});
 			}
 
