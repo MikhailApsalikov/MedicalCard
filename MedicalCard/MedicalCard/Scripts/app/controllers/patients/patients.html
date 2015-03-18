@@ -16,7 +16,7 @@
 				<label for="inputEmail3" class="col-sm-2 control-label">Сортировка по врачу:</label>
 				<div class="col-sm-10">
 					<select class="form-control text-center" ng-model="doctorId">
-						<option value="0"></option>
+						<option value="0">Все</option>
 						<option ng-repeat="doctor in doctors" value="{{doctor.Id}}" ng-bind="doctor.fullName"></option>
 					</select>
 				</div>
@@ -36,7 +36,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="patient in patients | searchFilter : queryString : ['FirstName', 'LastName', 'MiddleName'] | searchFilter : doctorId : ['doctorId'] ">
+				<tr ng-repeat="patient in patients | searchFilter : queryString : ['FirstName', 'LastName', 'MiddleName'] ">
 					<td ng-bind="patient | fullName">  </td>
 					<td ng-bind="patient.Phone">  </td>
 					<td ng-bind="patient.doctor">  </td>

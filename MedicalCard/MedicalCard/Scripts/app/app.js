@@ -20,40 +20,34 @@
 			}).then(function () {
 				$window.location = '#/login';
 				$scope.user = {};
+				localStorage['id'] = '';
+				localStorage['username'] = '';
 			})
 		};
 
 		$scope.login = function () {
-			var promise = $http.post('/home/login', { username: $scope.user.login, password: $scope.user.password });
-			
-			promise.then(function (response) {
-				console.log(response);
-				$scope.user.name = response.data.username;
-				$window.location = '#/home';
-			});
-			promise.error(function (response) {
-				toastService.showHttpErrorToast(response);
-			})
+				var promise = $http.post('/home/login', { username: $scope.user.login, password: $scope.user.password });
+
+				promise.then(function (response) {
+					console.log(response);
+					localStorage['id'] = response.data.id;
+					localStorage['username'] = response.data.username;
+					$scope.user = response.data;
+					$window.location = '#/home';
+				});
+				promise.error(function (response) {
+					toastService.showHttpErrorToast(response);
+				})
 
 		};
 
-		$scope.slides = [
-			{
-				image: '/Content/Images/slider1.jpg',
-				text: 'Новейшее оборудование'
-			},
-			{
-				image: '/Content/Images/slider2.jpg',
-				text: 'Команда квалифицированных специалистов'
-			}
-		];
-
 		$scope.$on('$routeChangeSuccess', function (params, route, next) {
 			if ($window.location !== '#/login' && $window.location.hash !== '#/register') {
-				if (!$scope.user.name) {
-
+				if (!localStorage['id']) {
 					$window.location = '#/login';
-
+				} else {
+					$scope.user.name = localStorage['username'];
+					$scope.user.id = localStorage['id'];
 				}
 			}
 
