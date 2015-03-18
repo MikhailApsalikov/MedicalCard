@@ -21,9 +21,9 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr ng-repeat="doctor in doctors | searchFilter : queryString : ['fullName','position','phone']">
+					<tr ng-repeat="doctor in doctors | searchFilter : queryString : ['FirstName', 'LastName', 'MiddleName']">
 						<td ng-bind="doctor | fullName">  </td>
-						<td ng-bind="doctor.Position">  </td>
+						<td ng-bind="doctor.PositionId | positionFilter : positions">  </td>
 						<td ng-bind="doctor.Phone">  </td>
 						<td>
 							<!--<button ng-click="delete(doctor)" title="Удалить" class="btn btn-danger pull-right btn-sm"><span class="glyphicon glyphicon-remove"></span></button>-->

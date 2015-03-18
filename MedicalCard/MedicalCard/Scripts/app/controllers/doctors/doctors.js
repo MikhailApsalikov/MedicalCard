@@ -2,13 +2,17 @@
 	'use strict';
 
 	angular.module('medicalCardApp')
-		.controller('doctorsController', ['$scope', '$modal', '$rootScope', 'modalService', 'Doctors', '$http',
-			function ($scope, $modal, $rootScope, modalService, Doctors, $http) {
+		.controller('doctorsController', ['$scope', '$modal', '$rootScope', 'modalService', 'Doctors', '$http', 'Positions', '$q',
+			function ($scope, $modal, $rootScope, modalService, Doctors, $http, Positions, $q) {
 
 
 				function setDoctors() {
-					$scope.doctors = Doctors.query(function () {
-						console.log($scope.doctors);
+					var doctors, positions;
+					doctors = Doctors.query(function () {
+						positions = Positions.query(function () {
+							$scope.positions = positions;
+							$scope.doctors = doctors;
+						});
 					});
 				}
 
@@ -29,7 +33,7 @@
 						};
 
 					scope.doctor = angular.copy(doctor);
-
+					scope.positions = $scope.positions;
 					return $modal.open(options).result;
 				}
 

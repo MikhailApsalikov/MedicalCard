@@ -40,13 +40,8 @@
 		<div class="form-group">
 			<label for="birthdate" class="col-sm-4 control-label">Должность</label>
 			<div class="col-sm-8">
-				<select class="form-control" ng-model="doctor.position">
-					<option value="0"></option>
-					<option value="1">Хирург</option>
-					<option value="2">Мясник</option>
-					<option value="3">Проктолог</option>
-					<option value="4">Окулист</option>
-					<option value="5">Терапевт</option>
+				<select class="form-control" ng-model="doctor.PositionId">
+					<option ng-repeat="position in positions" ng-bind="position.Name" ng-selected="position.Id === doctor.PositionId" value="{{position.Id}}"></option>
 				</select>
 			</div>
 
