@@ -26,18 +26,15 @@
 		};
 
 		$scope.login = function () {
-				var promise = $http.post('/home/login', { username: $scope.user.login, password: $scope.user.password });
+			var promise = $http.post('/home/login', { username: $scope.user.login, password: $scope.user.password });
 
-				promise.then(function (response) {
-					console.log(response);
-					localStorage['id'] = response.data.id;
-					localStorage['username'] = response.data.username;
-					$scope.user = response.data;
-					$window.location = '#/home';
-				});
-				promise.error(function (response) {
-					toastService.showHttpErrorToast(response);
-				})
+			promise.then(function (response) {
+				console.log(response);
+				localStorage['id'] = response.data.id;
+				localStorage['username'] = response.data.username;
+				$scope.user = response.data;
+				$window.location = '#/home';
+			});
 
 		};
 

@@ -13,6 +13,9 @@
 			$scope.positions = positions;
 		});
 
+
+
+
 		$scope.register = function () {
 
 			$scope.account.$save(function (response) {
@@ -54,8 +57,6 @@
 				});
 				$scope.user.name = $scope.doctor.FirstName;
 				$window.location = '#/doctors';
-			}, function (response) {
-				toastService.showHttpErrorToast(response);
 			})
 		};
 
@@ -67,8 +68,6 @@
 				});
 				$scope.user.name = $scope.patient.FirstName;
 				$window.location = '#/patients';
-			}, function (response) {
-				toastService.showHttpErrorToast(response);
 			})
 		}
 	}]);

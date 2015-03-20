@@ -290,6 +290,7 @@
     <Content Include="Scripts\app\services\toastService.js" />
     <Content Include="Scripts\app\shared\Enum.js" />
     <Content Include="Scripts\app\shared\modals\confirm.html" />
+    <Content Include="Scripts\app\system\httpErrorHandler.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\errors.json" />

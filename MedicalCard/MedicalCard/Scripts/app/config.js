@@ -2,8 +2,9 @@
 	'use strict';
 
 	angular.module('medicalCardApp')
-		.config(['$routeProvider', '$locationProvider',
-			function ($routeProvider, $locationProvider) {
+		.config(['$routeProvider', '$locationProvider', '$httpProvider',
+			function ($routeProvider, $locationProvider, $httpProvider) {
+				$httpProvider.interceptors.push('responseError');
 				$routeProvider
 					.when('/home', {
 						templateUrl: 'Scripts/app/controllers/home/home.html',
