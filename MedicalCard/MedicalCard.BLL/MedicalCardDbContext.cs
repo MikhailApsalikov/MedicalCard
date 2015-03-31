@@ -12,7 +12,6 @@
 		public DbSet<Doctor> Doctors { get; set; }
 		public DbSet<Patient> Patients { get; set; }
 		public DbSet<Photo> Photos { get; set; }
-		public DbSet<MedCard> MedCards { get; set; }
 		public DbSet<Position> Positions { get; set; }
 
 		public void Update<TEntity>(TEntity entity) where TEntity : class
