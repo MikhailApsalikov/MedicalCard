@@ -22,7 +22,7 @@
 
 			service.showHttpErrorToast = function (response) {
 				var localOptions = angular.extend(options, response);
-				if (localOptions.status === 400 && localOptions.data.message) {
+				if (localOptions.data.message) {
 					toastr.error(localOptions.data.message, 'Ошибка', localOptions);
 				} else {
 					toastr.error('Во время выполнения операции произошла ошибка.', 'Ошибка', localOptions);

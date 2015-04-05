@@ -103,19 +103,19 @@
 		// PUT api/<controller>/5
 		public virtual IHttpActionResult Put(TKey id, [FromBody] TModel value)
 		{
-			try
-			{
+			//try
+			//{
 				value.Id = id;
 				return Ok(Mapper.Map<TModel>(repository.Update(Mapper.Map<TBusiness>(value))));
-			}
-			catch (DataException)
-			{
-				return NotFound();
-			}
-			catch (Exception ex)
-			{
-				return InternalServerError(ex);
-			}
+			//}
+			//catch (DataException)
+			//{
+			//	return NotFound();
+			//}
+			//catch (Exception ex)
+			//{
+			//	return InternalServerError(ex);
+			//}
 		}
 
 		// DELETE api/<controller>/5

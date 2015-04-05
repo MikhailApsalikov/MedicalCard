@@ -9,7 +9,7 @@
 		'ngResource',
 		'ui.bootstrap',
 	])
-	.controller('mainController', ['$scope', '$rootScope', '$window', 'modalService', function ($scope, $rootScope, $window, modalService) {
+	.controller('mainController', ['$scope', '$rootScope', '$window', 'modalService', '$http', 'toastService', function ($scope, $rootScope, $window, modalService, $http, toastService) {
 
 		$scope.user = {};
 
@@ -20,35 +20,36 @@
 			}).then(function () {
 				$window.location = '#/login';
 				$scope.user = {};
+				localStorage['id'] = '';
+				localStorage['username'] = '';
 			})
 		};
 
 		$scope.login = function () {
-			$scope.user.name = $scope.user.login;
-			$window.location = '#/home';
+			var promise = $http.post('/home/login', { username: $scope.user.login, password: $scope.user.password });
+
+			promise.then(function (response) {
+				console.log(response);
+				localStorage['id'] = response.data.id;
+				localStorage['username'] = response.data.username;
+				$scope.user = response.data;
+				$window.location = '#/home';
+			});
+
 		};
 
-		$scope.slides = [
-			{
-				image: '/Content/Images/slider1.jpg',
-				text: 'Новейшее оборудование'
-			},
-			{
-				image: '/Content/Images/slider2.jpg',
-				text: 'Команда квалифицированных специалистов'
+		$scope.$on('$routeChangeSuccess', function (params, route, next) {
+			if ($window.location !== '#/login' && $window.location.hash !== '#/register') {
+				if (!localStorage['id']) {
+					$window.location = '#/login';
+				} else {
+					$scope.user.name = localStorage['username'];
+					$scope.user.id = localStorage['id'];
+				}
 			}
-		];
 
-		//$scope.$on('$locationChangeSuccess', function (params, route, next) {
-		//	if (next.originalPath !== '/login' && route.originalPath !== '/login') {
-		//		if (!$scope.user.name) {
 
-		//			$window.location = '#/login';
-
-		//		}
-		//	}
-
-		//});
+		});
 	}]);
 
 }());

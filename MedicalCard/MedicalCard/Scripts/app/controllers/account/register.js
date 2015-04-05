@@ -3,11 +3,18 @@
 
 	angular.module('medicalCardApp')
 
-	.controller('registerController', ['$scope', 'Accounts', 'Enums', 'Doctors', '$window', 'toastService', 'Patients', function ($scope, Accounts, Enums, Doctors, $window, toastService, Patients) {
+	.controller('registerController', ['$scope', 'Accounts', 'Enums', 'Doctors', '$window', 'toastService', 'Patients', 'Positions', function ($scope, Accounts, Enums, Doctors, $window, toastService, Patients, Positions) {
 
 		$scope.account = new Accounts();
 
 		$scope.registerFirstStep = true;
+
+		var positions = Positions.query(function () {
+			$scope.positions = positions;
+		});
+
+
+
 
 		$scope.register = function () {
 
@@ -48,9 +55,8 @@
 					text: 'Вы успешно зарегистрировались!',
 					title: 'Регистрация'
 				});
+				$scope.user.name = $scope.doctor.FirstName;
 				$window.location = '#/doctors';
-			}, function (response) {
-				toastService.showHttpErrorToast(response);
 			})
 		};
 
@@ -60,13 +66,11 @@
 					text: 'Вы успешно зарегистрировались!',
 					title: 'Регистрация'
 				});
+				$scope.user.name = $scope.patient.FirstName;
 				$window.location = '#/patients';
-			}, function (response) {
-				toastService.showHttpErrorToast(response);
 			})
 		}
-
-	}])
+	}]);
 
 
 }());

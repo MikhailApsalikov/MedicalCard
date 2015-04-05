@@ -4,8 +4,9 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>@ViewBag.Title</title>
-		@Styles.Render("~/Content/css")
-		<link href="~/Content/angular-toastr.css" rel="stylesheet" />
+	@Styles.Render("~/Content/css")
+	<link href="~/Content/angular-ui.css" rel="stylesheet" />
+	<link href="~/Content/angular-toastr.css" rel="stylesheet" />
 	@Scripts.Render("~/bundles/modernizr")
 	<link href="/Content/Pages/Main/main.css" rel="stylesheet" />
 </head>
@@ -45,7 +46,7 @@
 					<li><a ng-bind="user.name"></a></li>
 
 					<li ng-if="!user.name"><a href="#/login">Войти</a></li>
-					<li ng-if="user.name" ng-click="logout()"><a>Выход</a></li>
+					<li ng-if="user.name" ng-click="logout()"><a href="">Выход</a></li>
 					<li ng-if="!user.name"> <a href="#/register">Регистрация</a></li>
 				</ul>
 			</div><!-- /.navbar-collapse -->
@@ -78,12 +79,15 @@
 	<script src="~/Scripts/app/controllers/patients/edit.js"></script>
 	<script src="~/Scripts/app/controllers/home/home.js"></script>
 	<script src="~/Scripts/app/filters/fullName.js"></script>
+	<script src="~/Scripts/app/filters/doctorPosition.js"></script>
 	<script src="~/Scripts/app/services/Patients.js"></script>
 	<script src="~/Scripts/app/services/Accounts.js"></script>
 	<script src="~/Scripts/app/controllers/account/register.js"></script>
 	<script src="~/Scripts/app/shared/Enum.js"></script>
 	<script src="~/Scripts/app/directives/setActiveTab.js"></script>
 	<script src="~/Scripts/app/services/toastService.js"></script>
+	<script src="~/Scripts/app/services/Positions.js"></script>
+	<script src="~/Scripts/app/system/httpErrorHandler.js"></script>
 	@RenderSection("scripts", required: false)
 </body>
 </html>

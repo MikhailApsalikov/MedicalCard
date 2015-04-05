@@ -1,6 +1,8 @@
 ﻿namespace MedicalCard.Controllers
 {
 	using System.Linq;
+	using System.Net;
+	using System.Web;
 	using System.Web.Mvc;
 	using BLL;
 	using BLL.Repositories;
@@ -20,25 +22,30 @@
 				repository.GetAll().FirstOrDefault(acc => acc.Username == username);
 			if (account == null)
 			{
+				Response.StatusCode = (int)HttpStatusCode.NotFound;
 				return Json(new
 				{
-					success = false,
-					reason = "Пользователь не найден"
+					data = new
+					{
+						message = "Пользователь с указанным именем не найден"
+					}
 				});
 			}
 
 			if (account.Password != password)
 			{
+				Response.StatusCode = (int)HttpStatusCode.NotFound;
 				return Json(new
 				{
-					success = false,
-					reason = "Неверный пароль"
+					data = new
+						{
+							message = "Неверный пароль"
+						}
 				});
 			}
 
 			return Json(new
 			{
-				success = true,
 				id = account.Id,
 				username = account.Username,
 				role = account.Role,

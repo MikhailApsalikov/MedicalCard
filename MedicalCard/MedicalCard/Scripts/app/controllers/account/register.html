@@ -1,4 +1,4 @@
-﻿<div class="row text-center">
+﻿<div class="row">
 	<form class="form-horizontal" ng-if="registerFirstStep">
 		<div class="panel-heading text-center">
 			<h4 class="text-info">Регистрация:</h4>
@@ -27,7 +27,7 @@
 		<div class="form-group">
 			<label for="role" class="col-xs-5 control-label"></label>
 			<div class="col-xs-7 reg-button">
-				<input type="button" class="btn btn-default form-control" ng-click="register()" ng-disabled="!account.username || !account.password" value="Регистрация" />
+				<input type="button" class="btn btn-default form-control" ng-click="register()" ng-disabled="!account.username || !account.password || !account.role" value="Регистрация" />
 			</div>
 		</div>
 	</form>
@@ -36,39 +36,45 @@
 
 		</div>
 		<div class="col-xs-4">
-			<div class="text-center">
+			<div class="">
 				<div class="modal-header">
 					<h3>Заполните указанные поля:</h3>
 				</div>
 				<div class="modal-body">
 					<form class="form-horizontal">
 						<div class="form-group">
-							<label for="lastName" class="col-sm-4 control-label">Фамилия</label>
-							<div class="col-sm-8">
+							<label for="lastName" class="col-xs-4 control-label">Фамилия</label>
+							<div class="col-xs-8">
 								<input type="text" class="form-control" id="lastName" placeholder="Фамилия" ng-model="doctor.LastName">
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="firstName" class="col-sm-4 control-label">Имя</label>
-							<div class="col-sm-8">
+							<label for="firstName" class="col-xs-4 control-label">Имя</label>
+							<div class="col-xs-8">
 								<input type="text" class="form-control" id="firstName" placeholder="Имя" ng-model="doctor.FirstName">
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="middleName" class="col-sm-4 control-label">Отчество</label>
-							<div class="col-sm-8">
+							<label for="middleName" class="col-xs-4 control-label">Отчество</label>
+							<div class="col-xs-8">
 								<input type="text" class="form-control" id="middleName" placeholder="Отчество" ng-model="doctor.MiddleName">
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="birthdate" class="col-sm-4 control-label">Дата рождения</label>
-							<div class="col-sm-8">
-								<input type="text" class="form-control" id="birthdate" placeholder="Дата рождения" ng-model="doctor.BirthDate">
+							<label class="col-xs-4 control-label">Дата рождения</label>
+							<div class="col-xs-8">
+								<input type="text"
+									   datepicker-popup="dd.MM.yyyy"
+									   ng-model="doctor.BirthDate"
+									   is-open="opened"
+									   ng-click="opened = true"
+									   close-text="Close"
+									   class="form-control" />
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="col-sm-4 control-label">Пол</label>
-							<div class="col-sm-8">
+							<label class="col-xs-4 control-label">Пол</label>
+							<div class="col-xs-8">
 								<select class="form-control" ng-model="doctor.Gender">
 									<option ng-selected="doctor.Gender === 1" value="1">Муж.</option>
 									<option ng-selected="doctor.Gender === 2" value="2">Жен.</option>
@@ -76,33 +82,29 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="birthdate" class="col-sm-4 control-label">Должность</label>
-							<div class="col-sm-8">
-								<select class="form-control" ng-model="doctor.position">
-									<option value="1">Хирург</option>
-									<option value="2">Мясник</option>
-									<option value="3">Проктолог</option>
-									<option value="4">Окулист</option>
-									<option value="5">Терапевт</option>
+							<label for="birthdate" class="col-xs-4 control-label">Должность</label>
+							<div class="col-xs-8">
+								<select class="form-control" ng-model="doctor.PositionId">
+									<option ng-repeat="position in positions" ng-bind="position.Name" ng-selected="position.Id === doctor.PositionId" value="{{position.Id}}"></option>
 								</select>
 							</div>
 
 						</div>
 						<div class="form-group">
-							<label for="address" class="col-sm-4 control-label">Адрес</label>
-							<div class="col-sm-8">
+							<label for="address" class="col-xs-4 control-label">Адрес</label>
+							<div class="col-xs-8">
 								<input type="text" class="form-control" id="address" placeholder="Адрес" ng-model="doctor.Address">
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="phone" class="col-sm-4 control-label">Телефон</label>
-							<div class="col-sm-8">
+							<label for="phone" class="col-xs-4 control-label">Телефон</label>
+							<div class="col-xs-8">
 								<input type="text" class="form-control" id="phone" placeholder="Телефон" ng-model="doctor.Phone">
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="text" class="col-sm-4 control-label">Электронная почта</label>
-							<div class="col-sm-8">
+							<label for="text" class="col-xs-4 control-label">Электронная почта</label>
+							<div class="col-xs-8">
 								<input type="email" class="form-control" id="email" placeholder="Электронная почта" ng-model="doctor.Email">
 							</div>
 						</div>
@@ -125,32 +127,38 @@
 			<div class="modal-body">
 				<form class="form-horizontal">
 					<div class="form-group">
-						<label class="col-sm-4 control-label">Фамилия</label>
-						<div class="col-sm-8">
+						<label class="col-xs-4 control-label">Фамилия</label>
+						<div class="col-xs-8">
 							<input type="text" class="form-control" placeholder="Фамилия" ng-model="patient.LastName">
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-4 control-label">Имя</label>
-						<div class="col-sm-8">
+						<label class="col-xs-4 control-label">Имя</label>
+						<div class="col-xs-8">
 							<input type="text" class="form-control" placeholder="Имя" ng-model="patient.FirstName">
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-4 control-label">Отчество</label>
-						<div class="col-sm-8">
+						<label class="col-xs-4 control-label">Отчество</label>
+						<div class="col-xs-8">
 							<input type="text" class="form-control" placeholder="Отчество" ng-model="patient.MiddleName">
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-4 control-label">Дата рождения</label>
-						<div class="col-sm-8">
-							<input type="text" class="form-control" placeholder="Дата рождения" ng-model="patient.BirthDate">
+						<label class="col-xs-4 control-label">Дата рождения</label>
+						<div class="col-xs-8">
+							<input type="text"
+								   datepicker-popup="dd.MM.yyyy"
+								   ng-model="patient.BirthDate"
+								   is-open="opened"
+								   ng-click="opened = true"
+								   close-text="Close"
+								   class="form-control" />
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-4 control-label">Пол</label>
-						<div class="col-sm-8">
+						<label class="col-xs-4 control-label">Пол</label>
+						<div class="col-xs-8">
 							<select class="form-control" ng-model="patient.Gender">
 								<option ng-selected="patient.Gender === 1" value="1">Муж.</option>
 								<option ng-selected="patient.Gender === 2" value="2">Жен.</option>
@@ -158,45 +166,51 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-4 control-label">Телефон</label>
-						<div class="col-sm-8">
+						<label class="col-xs-4 control-label">Телефон</label>
+						<div class="col-xs-8">
 							<input type="text" class="form-control" placeholder="Телефон" ng-model="patient.Phone">
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-4 control-label">Адрес</label>
-						<div class="col-sm-8">
+						<label class="col-xs-4 control-label">Адрес</label>
+						<div class="col-xs-8">
 							<input type="text" class="form-control" placeholder="Адрес" ng-model="patient.Address">
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-4 control-label">Документ об инвалидности</label>
-						<div class="col-sm-8">
-							<input type="text" class="form-control" placeholder="Документ об инвалидности" ng-model="patient.Disability">
+						<label class="col-xs-4 control-label">Документ об инвалидности</label>
+						<div class="col-xs-8">
+							<input type="text" class="form-control" placeholder="Документ об инвалидности" ng-model="patient.DisabilityDocument">
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-4 control-label">Инвалидность</label>
-						<div class="col-sm-8">
-							<input type="text" class="form-control" placeholder="Инвалидность" ng-model="patient.Address">
+						<label class="col-xs-4 control-label">Инвалидность</label>
+						<div class="col-xs-8">
+							<select class="form-control" ng-model="patient.Disability">
+								<option value="0">Нет</option>
+								<option ng-selected="patient.Disability === 1" value="1">I</option>
+								<option ng-selected="patient.Disability === 2" value="2">II</option>
+								<option ng-selected="patient.Disability === 3" value="3">III</option>
+								<option ng-selected="patient.Disability === 4" value="4">IV</option>
+							</select>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-4 control-label">СНИЛС</label>
-						<div class="col-sm-8">
+						<label class="col-xs-4 control-label">СНИЛС</label>
+						<div class="col-xs-8">
 							<input type="text" class="form-control" placeholder="СНИЛС" ng-model="patient.Snils">
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-4 control-label">Номер страхового полиса</label>
-						<div class="col-sm-8">
+						<label class="col-xs-4 control-label">Номер страхового полиса</label>
+						<div class="col-xs-8">
 							<input type="text" class="form-control" placeholder="Номер страхового полиса" ng-model="patient.InsurancePolicy">
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-4 control-label">Место учёбы/работы</label>
-						<div class="col-sm-8">
-							<input type="text" class="form-control" placeholder="Место учёбы/работы" ng-model="patient.Email">
+						<label class="col-xs-4 control-label">Место учёбы/работы</label>
+						<div class="col-xs-8">
+							<input type="text" class="form-control" placeholder="Место учёбы/работы" ng-model="patient.JobStudyPosition">
 						</div>
 					</div>
 				</form>

@@ -184,7 +184,6 @@
     <Compile Include="ControllersApi\AccountsController.cs" />
     <Compile Include="ControllersApi\BaseController.cs" />
     <Compile Include="ControllersApi\DoctorsController.cs" />
-    <Compile Include="ControllersApi\MedCardsController.cs" />
     <Compile Include="ControllersApi\PatientsController.cs" />
     <Compile Include="ControllersApi\PhotosController.cs" />
     <Compile Include="ControllersApi\PositionController.cs" />
@@ -279,15 +278,18 @@
     <Content Include="Scripts\app\controllers\patients\patients.js" />
     <Content Include="Scripts\app\directives\setActiveTab.js" />
     <Content Include="Scripts\app\directives\slider.js" />
+    <Content Include="Scripts\app\filters\doctorPosition.js" />
     <Content Include="Scripts\app\filters\fullName.js" />
     <Content Include="Scripts\app\filters\searchFilter.js" />
     <Content Include="Scripts\app\services\Accounts.js" />
     <Content Include="Scripts\app\services\Doctors.js" />
     <Content Include="Scripts\app\services\modalService.js" />
     <Content Include="Scripts\app\services\Patients.js" />
+    <Content Include="Scripts\app\services\Positions.js" />
     <Content Include="Scripts\app\services\toastService.js" />
     <Content Include="Scripts\app\shared\Enum.js" />
     <Content Include="Scripts\app\shared\modals\confirm.html" />
+    <Content Include="Scripts\app\system\httpErrorHandler.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\errors.json" />
