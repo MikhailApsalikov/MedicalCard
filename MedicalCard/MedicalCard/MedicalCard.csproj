@@ -1128,6 +1128,10 @@
       <Project>{42f3b05f-249d-4840-a2b5-76b59e39e429}</Project>
       <Name>MedicalCard.Entities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MedicalCard.Exporter\MedicalCard.Exporter.csproj">
+      <Project>{7e12aea9-b496-4a0e-b468-3ed9236c5a78}</Project>
+      <Name>MedicalCard.Exporter</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
