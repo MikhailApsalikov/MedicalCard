@@ -44,7 +44,7 @@
 			this.label1.Size = new System.Drawing.Size(360, 53);
 			this.label1.TabIndex = 0;
 			this.label1.Text = "Добро пожаловать в информационную систему \"MedCard\". Для начала работы войдите по" +
-    "д своим логином или зарегистрируйтесь.";
+    "д своим логином.";
 			// 
 			// label2
 			// 

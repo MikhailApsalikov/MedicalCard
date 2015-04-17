@@ -17,10 +17,10 @@
 			repository = new AccountRepository(new MedicalCardDbContext());
 		}
 
-		private void button1_Click(object sender, System.EventArgs e)
+		private void button1_Click(object sender, EventArgs e)
 		{
-			string login = loginTextBox.Text;
-			string password = passwordTextBox.Text;
+			var login = loginTextBox.Text;
+			var password = passwordTextBox.Text;
 			if (login == String.Empty)
 			{
 				MessageBox.Show("Введите логин", "Введите логин", MessageBoxButtons.OK,
@@ -47,7 +47,6 @@
 			{
 				MessageBox.Show("Неверный пароль", "Неверный пароль", MessageBoxButtons.OK,
 					MessageBoxIcon.Error);
-				return;
 			}
 
 			//OpenMainWindowForm();
