@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedicalCard", "MedicalCard\MedicalCard.csproj", "{B457D709-46FF-4F80-BA6C-5FD6D1DDB53E}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Front-End", "Front-End", "{8F661547-EC88-4EC8-94F1-03BF0BD86372}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Back-End", "Back-End", "{A9D4A92F-63DF-4FF3-8629-9D26F7333820}"
@@ -33,10 +31,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B457D709-46FF-4F80-BA6C-5FD6D1DDB53E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B457D709-46FF-4F80-BA6C-5FD6D1DDB53E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B457D709-46FF-4F80-BA6C-5FD6D1DDB53E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B457D709-46FF-4F80-BA6C-5FD6D1DDB53E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{786AEE1F-780C-47C0-824A-0FFEFA0D4843}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{786AEE1F-780C-47C0-824A-0FFEFA0D4843}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{786AEE1F-780C-47C0-824A-0FFEFA0D4843}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -66,7 +60,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{B457D709-46FF-4F80-BA6C-5FD6D1DDB53E} = {8F661547-EC88-4EC8-94F1-03BF0BD86372}
 		{786AEE1F-780C-47C0-824A-0FFEFA0D4843} = {171A076B-FD4F-477B-9E23-E19F47FE3735}
 		{F3797235-C7F1-4F87-9F11-555F5B89DBBB} = {409FDC01-B2A4-46A4-87B2-A17837511515}
 		{42F3B05F-249D-4840-A2B5-76B59E39E429} = {409FDC01-B2A4-46A4-87B2-A17837511515}

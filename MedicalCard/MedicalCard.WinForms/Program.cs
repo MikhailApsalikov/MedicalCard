@@ -2,6 +2,7 @@
 {
 	using System;
 	using System.Windows.Forms;
+	using MedicalCard.WinForms.Forms;
 
 	internal static class Program
 	{
