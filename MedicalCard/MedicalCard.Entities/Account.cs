@@ -11,14 +11,15 @@
 	{
 		public Role Role { get; set; }
 
-		[Required]
-		[StringLength(255, ErrorMessage = "{0} должен иметь длину от {2} до {1} символов", MinimumLength = 3)]
 		[DisplayName("Логин")]
+		[Required(ErrorMessage = "Логин не может быть пустым")]
+		[StringLength(255, ErrorMessage = "Логин должен иметь длину от {2} до {1} символов", MinimumLength = 3)]
+		[Index(IsUnique = true)]
 		public String Username { get; set; }
 
-		[Required]
-		[StringLength(255, ErrorMessage = "{0} должен иметь длину от {2} до {1} символов", MinimumLength = 3)]
 		[DisplayName("Пароль")]
+		[Required(ErrorMessage = "Пароль не может быть пустым")]
+		[StringLength(255, ErrorMessage = "Пароль должен иметь длину от {2} до {1} символов", MinimumLength = 3)]
 		public String Password { get; set; }
 
 		[ForeignKey("Patient")]

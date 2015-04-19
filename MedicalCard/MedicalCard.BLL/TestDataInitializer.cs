@@ -11,14 +11,8 @@
 	{
 		protected override void Seed(MedicalCardDbContext context)
 		{
-			try
-			{
-				InitializePositions(context);
-				Initialize(context);
-			}
-			catch
-			{
-			}
+			InitializePositions(context);
+			Initialize(context);
 		}
 
 		private void InitializePositions(MedicalCardDbContext context)

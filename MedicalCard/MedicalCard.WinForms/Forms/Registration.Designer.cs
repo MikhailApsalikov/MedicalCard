@@ -36,6 +36,16 @@
 			this.loginTextBox = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.patientPanel = new System.Windows.Forms.Panel();
+			this.positionTextBox = new System.Windows.Forms.TextBox();
+			this.disabliltyDocumentTextBox = new System.Windows.Forms.TextBox();
+			this.label17 = new System.Windows.Forms.Label();
+			this.label16 = new System.Windows.Forms.Label();
+			this.disabilityComboBox = new System.Windows.Forms.ComboBox();
+			this.label15 = new System.Windows.Forms.Label();
+			this.insurancePolicyTextBox = new System.Windows.Forms.TextBox();
+			this.label14 = new System.Windows.Forms.Label();
+			this.snilsTextBox = new System.Windows.Forms.TextBox();
+			this.label13 = new System.Windows.Forms.Label();
 			this.doctorPanel = new System.Windows.Forms.Panel();
 			this.lastNameTextBox = new System.Windows.Forms.TextBox();
 			this.label5 = new System.Windows.Forms.Label();
@@ -47,12 +57,15 @@
 			this.birthDateTimePicker = new System.Windows.Forms.DateTimePicker();
 			this.GenderComboBox = new System.Windows.Forms.ComboBox();
 			this.label9 = new System.Windows.Forms.Label();
-			this.emailTextBox1 = new System.Windows.Forms.TextBox();
+			this.emailTextBox = new System.Windows.Forms.TextBox();
 			this.label10 = new System.Windows.Forms.Label();
-			this.phoneTextBox2 = new System.Windows.Forms.TextBox();
+			this.phoneTextBox = new System.Windows.Forms.TextBox();
 			this.label11 = new System.Windows.Forms.Label();
 			this.addressTextBox = new System.Windows.Forms.TextBox();
 			this.label12 = new System.Windows.Forms.Label();
+			this.button1 = new System.Windows.Forms.Button();
+			this.button2 = new System.Windows.Forms.Button();
+			this.patientPanel.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// roleComboBox
@@ -82,6 +95,7 @@
 			// 
 			this.passwordTextBox.Location = new System.Drawing.Point(87, 62);
 			this.passwordTextBox.Name = "passwordTextBox";
+			this.passwordTextBox.PasswordChar = '*';
 			this.passwordTextBox.Size = new System.Drawing.Size(226, 20);
 			this.passwordTextBox.TabIndex = 5;
 			// 
@@ -121,16 +135,115 @@
 			// 
 			// patientPanel
 			// 
-			this.patientPanel.Location = new System.Drawing.Point(0, 367);
+			this.patientPanel.Controls.Add(this.positionTextBox);
+			this.patientPanel.Controls.Add(this.disabliltyDocumentTextBox);
+			this.patientPanel.Controls.Add(this.label17);
+			this.patientPanel.Controls.Add(this.label16);
+			this.patientPanel.Controls.Add(this.disabilityComboBox);
+			this.patientPanel.Controls.Add(this.label15);
+			this.patientPanel.Controls.Add(this.insurancePolicyTextBox);
+			this.patientPanel.Controls.Add(this.label14);
+			this.patientPanel.Controls.Add(this.snilsTextBox);
+			this.patientPanel.Controls.Add(this.label13);
+			this.patientPanel.Location = new System.Drawing.Point(330, 34);
 			this.patientPanel.Name = "patientPanel";
-			this.patientPanel.Size = new System.Drawing.Size(331, 82);
+			this.patientPanel.Size = new System.Drawing.Size(418, 217);
 			this.patientPanel.TabIndex = 0;
+			// 
+			// positionTextBox
+			// 
+			this.positionTextBox.Location = new System.Drawing.Point(135, 175);
+			this.positionTextBox.Name = "positionTextBox";
+			this.positionTextBox.Size = new System.Drawing.Size(280, 20);
+			this.positionTextBox.TabIndex = 26;
+			// 
+			// disabliltyDocumentTextBox
+			// 
+			this.disabliltyDocumentTextBox.Location = new System.Drawing.Point(15, 101);
+			this.disabliltyDocumentTextBox.Multiline = true;
+			this.disabliltyDocumentTextBox.Name = "disabliltyDocumentTextBox";
+			this.disabliltyDocumentTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+			this.disabliltyDocumentTextBox.Size = new System.Drawing.Size(400, 65);
+			this.disabliltyDocumentTextBox.TabIndex = 32;
+			// 
+			// label17
+			// 
+			this.label17.AutoSize = true;
+			this.label17.Location = new System.Drawing.Point(12, 178);
+			this.label17.Name = "label17";
+			this.label17.Size = new System.Drawing.Size(117, 13);
+			this.label17.TabIndex = 25;
+			this.label17.Text = "Место работы/учебы:";
+			// 
+			// label16
+			// 
+			this.label16.AutoSize = true;
+			this.label16.Location = new System.Drawing.Point(12, 85);
+			this.label16.Name = "label16";
+			this.label16.Size = new System.Drawing.Size(150, 13);
+			this.label16.TabIndex = 31;
+			this.label16.Text = "Документ об инвалидности:";
+			// 
+			// disabilityComboBox
+			// 
+			this.disabilityComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.disabilityComboBox.FormattingEnabled = true;
+			this.disabilityComboBox.Items.AddRange(new object[] {
+            "Нет",
+            "3-ей группы",
+            "2-ой группы",
+            "1-ой группы"});
+			this.disabilityComboBox.Location = new System.Drawing.Point(101, 55);
+			this.disabilityComboBox.Name = "disabilityComboBox";
+			this.disabilityComboBox.Size = new System.Drawing.Size(314, 21);
+			this.disabilityComboBox.TabIndex = 30;
+			// 
+			// label15
+			// 
+			this.label15.AutoSize = true;
+			this.label15.Location = new System.Drawing.Point(12, 60);
+			this.label15.Name = "label15";
+			this.label15.Size = new System.Drawing.Size(83, 13);
+			this.label15.TabIndex = 29;
+			this.label15.Text = "Инвалидность:";
+			// 
+			// insurancePolicyTextBox
+			// 
+			this.insurancePolicyTextBox.Location = new System.Drawing.Point(161, 29);
+			this.insurancePolicyTextBox.Name = "insurancePolicyTextBox";
+			this.insurancePolicyTextBox.Size = new System.Drawing.Size(254, 20);
+			this.insurancePolicyTextBox.TabIndex = 28;
+			// 
+			// label14
+			// 
+			this.label14.AutoSize = true;
+			this.label14.Location = new System.Drawing.Point(12, 32);
+			this.label14.Name = "label14";
+			this.label14.Size = new System.Drawing.Size(143, 13);
+			this.label14.TabIndex = 27;
+			this.label14.Text = "Номер страхового полиса:";
+			// 
+			// snilsTextBox
+			// 
+			this.snilsTextBox.Location = new System.Drawing.Point(87, 3);
+			this.snilsTextBox.Name = "snilsTextBox";
+			this.snilsTextBox.Size = new System.Drawing.Size(328, 20);
+			this.snilsTextBox.TabIndex = 26;
+			// 
+			// label13
+			// 
+			this.label13.AutoSize = true;
+			this.label13.Location = new System.Drawing.Point(12, 6);
+			this.label13.Name = "label13";
+			this.label13.Size = new System.Drawing.Size(48, 13);
+			this.label13.TabIndex = 25;
+			this.label13.Text = "СНИЛС:";
 			// 
 			// doctorPanel
 			// 
-			this.doctorPanel.Location = new System.Drawing.Point(66, 469);
+			this.doctorPanel.Location = new System.Drawing.Point(350, 267);
 			this.doctorPanel.Name = "doctorPanel";
-			this.doctorPanel.Size = new System.Drawing.Size(200, 100);
+			this.doctorPanel.Size = new System.Drawing.Size(75, 54);
 			this.doctorPanel.TabIndex = 8;
 			// 
 			// lastNameTextBox
@@ -219,12 +332,12 @@
 			this.label9.TabIndex = 17;
 			this.label9.Text = "Пол:";
 			// 
-			// emailTextBox1
+			// emailTextBox
 			// 
-			this.emailTextBox1.Location = new System.Drawing.Point(87, 301);
-			this.emailTextBox1.Name = "emailTextBox1";
-			this.emailTextBox1.Size = new System.Drawing.Size(226, 20);
-			this.emailTextBox1.TabIndex = 24;
+			this.emailTextBox.Location = new System.Drawing.Point(87, 301);
+			this.emailTextBox.Name = "emailTextBox";
+			this.emailTextBox.Size = new System.Drawing.Size(226, 20);
+			this.emailTextBox.TabIndex = 24;
 			// 
 			// label10
 			// 
@@ -235,12 +348,12 @@
 			this.label10.TabIndex = 23;
 			this.label10.Text = "E-mail:";
 			// 
-			// phoneTextBox2
+			// phoneTextBox
 			// 
-			this.phoneTextBox2.Location = new System.Drawing.Point(87, 275);
-			this.phoneTextBox2.Name = "phoneTextBox2";
-			this.phoneTextBox2.Size = new System.Drawing.Size(226, 20);
-			this.phoneTextBox2.TabIndex = 22;
+			this.phoneTextBox.Location = new System.Drawing.Point(87, 275);
+			this.phoneTextBox.Name = "phoneTextBox";
+			this.phoneTextBox.Size = new System.Drawing.Size(226, 20);
+			this.phoneTextBox.TabIndex = 22;
 			// 
 			// label11
 			// 
@@ -267,14 +380,36 @@
 			this.label12.TabIndex = 19;
 			this.label12.Text = "Адрес:";
 			// 
+			// button1
+			// 
+			this.button1.Location = new System.Drawing.Point(619, 298);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(129, 23);
+			this.button1.TabIndex = 25;
+			this.button1.Text = "Зарегистрироваться";
+			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.button1_Click);
+			// 
+			// button2
+			// 
+			this.button2.Location = new System.Drawing.Point(538, 298);
+			this.button2.Name = "button2";
+			this.button2.Size = new System.Drawing.Size(75, 23);
+			this.button2.TabIndex = 26;
+			this.button2.Text = " Отмена";
+			this.button2.UseVisualStyleBackColor = true;
+			this.button2.Click += new System.EventHandler(this.button2_Click);
+			// 
 			// Registration
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(331, 604);
-			this.Controls.Add(this.emailTextBox1);
+			this.ClientSize = new System.Drawing.Size(755, 339);
+			this.Controls.Add(this.button2);
+			this.Controls.Add(this.button1);
+			this.Controls.Add(this.emailTextBox);
 			this.Controls.Add(this.label10);
-			this.Controls.Add(this.phoneTextBox2);
+			this.Controls.Add(this.phoneTextBox);
 			this.Controls.Add(this.label11);
 			this.Controls.Add(this.addressTextBox);
 			this.Controls.Add(this.label12);
@@ -299,6 +434,8 @@
 			this.Controls.Add(this.patientPanel);
 			this.Name = "Registration";
 			this.Text = "Registration";
+			this.patientPanel.ResumeLayout(false);
+			this.patientPanel.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -325,11 +462,23 @@
 		private System.Windows.Forms.DateTimePicker birthDateTimePicker;
 		private System.Windows.Forms.ComboBox GenderComboBox;
 		private System.Windows.Forms.Label label9;
-		private System.Windows.Forms.TextBox emailTextBox1;
+		private System.Windows.Forms.TextBox emailTextBox;
 		private System.Windows.Forms.Label label10;
-		private System.Windows.Forms.TextBox phoneTextBox2;
+		private System.Windows.Forms.TextBox phoneTextBox;
 		private System.Windows.Forms.Label label11;
 		private System.Windows.Forms.TextBox addressTextBox;
 		private System.Windows.Forms.Label label12;
+		private System.Windows.Forms.TextBox insurancePolicyTextBox;
+		private System.Windows.Forms.Label label14;
+		private System.Windows.Forms.TextBox snilsTextBox;
+		private System.Windows.Forms.Label label13;
+		private System.Windows.Forms.Label label15;
+		private System.Windows.Forms.ComboBox disabilityComboBox;
+		private System.Windows.Forms.TextBox disabliltyDocumentTextBox;
+		private System.Windows.Forms.Label label16;
+		private System.Windows.Forms.TextBox positionTextBox;
+		private System.Windows.Forms.Label label17;
+		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Button button2;
 	}
 }

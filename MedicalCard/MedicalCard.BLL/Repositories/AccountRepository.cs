@@ -15,18 +15,5 @@
 		{
 			return dbContext.Accounts;
 		}
-
-		protected override void OnAdding(Account item)
-		{
-			if (item.Role == Role.Patient)
-			{
-				item.Patient = new Patient();
-			}
-
-			if (item.Role == Role.Doctor)
-			{
-				item.Doctor = new Doctor();
-			}
-		}
 	}
 }

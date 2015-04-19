@@ -4,7 +4,7 @@
 
 	public enum Gender
 	{
-		[Description("Мужской")] Male = 1,
-		[Description("Женский")] Female = 2
+		[Description("Мужской")] Male = 0,
+		[Description("Женский")] Female = 1
 	}
 }

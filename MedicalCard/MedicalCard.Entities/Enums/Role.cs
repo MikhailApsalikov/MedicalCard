@@ -5,8 +5,8 @@
 	public enum Role
 	{
 		[Description("Пациент")]
-		Patient = 1,
+		Patient = 0,
 		[Description("Врач")]
-		Doctor = 2,
+		Doctor = 1,
 	}
 }

@@ -1,8 +1,10 @@
 ﻿namespace MedicalCard.WinForms
 {
 	using System;
+	using System.Data.Entity;
 	using System.Windows.Forms;
-	using MedicalCard.WinForms.Forms;
+	using BLL;
+	using Forms;
 
 	internal static class Program
 	{
@@ -14,6 +16,7 @@
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
+			Database.SetInitializer(new TestDataInitializer());
 			Application.Run(new Login());
 		}
 	}
