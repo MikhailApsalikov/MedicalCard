@@ -47,6 +47,12 @@
 			this.snilsTextBox = new System.Windows.Forms.TextBox();
 			this.label13 = new System.Windows.Forms.Label();
 			this.doctorPanel = new System.Windows.Forms.Panel();
+			this.removePhotoButton = new System.Windows.Forms.Button();
+			this.photoPictureBox = new System.Windows.Forms.PictureBox();
+			this.photoPickButton = new System.Windows.Forms.Button();
+			this.label19 = new System.Windows.Forms.Label();
+			this.positionComboBox = new System.Windows.Forms.ComboBox();
+			this.label18 = new System.Windows.Forms.Label();
 			this.lastNameTextBox = new System.Windows.Forms.TextBox();
 			this.label5 = new System.Windows.Forms.Label();
 			this.firstNameTextBox = new System.Windows.Forms.TextBox();
@@ -66,6 +72,8 @@
 			this.button1 = new System.Windows.Forms.Button();
 			this.button2 = new System.Windows.Forms.Button();
 			this.patientPanel.SuspendLayout();
+			this.doctorPanel.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.photoPictureBox)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// roleComboBox
@@ -241,10 +249,73 @@
 			// 
 			// doctorPanel
 			// 
-			this.doctorPanel.Location = new System.Drawing.Point(350, 267);
+			this.doctorPanel.Controls.Add(this.removePhotoButton);
+			this.doctorPanel.Controls.Add(this.photoPictureBox);
+			this.doctorPanel.Controls.Add(this.photoPickButton);
+			this.doctorPanel.Controls.Add(this.label19);
+			this.doctorPanel.Controls.Add(this.positionComboBox);
+			this.doctorPanel.Controls.Add(this.label18);
+			this.doctorPanel.Location = new System.Drawing.Point(330, 34);
 			this.doctorPanel.Name = "doctorPanel";
-			this.doctorPanel.Size = new System.Drawing.Size(75, 54);
+			this.doctorPanel.Size = new System.Drawing.Size(418, 217);
 			this.doctorPanel.TabIndex = 8;
+			// 
+			// removePhotoButton
+			// 
+			this.removePhotoButton.Location = new System.Drawing.Point(268, 75);
+			this.removePhotoButton.Name = "removePhotoButton";
+			this.removePhotoButton.Size = new System.Drawing.Size(142, 23);
+			this.removePhotoButton.TabIndex = 5;
+			this.removePhotoButton.Text = "Удалить фото";
+			this.removePhotoButton.UseVisualStyleBackColor = true;
+			this.removePhotoButton.Click += new System.EventHandler(this.removePhotoButton_Click);
+			// 
+			// photoPictureBox
+			// 
+			this.photoPictureBox.Image = global::MedicalCard.WinForms.Properties.Resources.DefaultPhoto;
+			this.photoPictureBox.Location = new System.Drawing.Point(101, 48);
+			this.photoPictureBox.Name = "photoPictureBox";
+			this.photoPictureBox.Size = new System.Drawing.Size(161, 161);
+			this.photoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.photoPictureBox.TabIndex = 4;
+			this.photoPictureBox.TabStop = false;
+			// 
+			// photoPickButton
+			// 
+			this.photoPickButton.Location = new System.Drawing.Point(268, 47);
+			this.photoPickButton.Name = "photoPickButton";
+			this.photoPickButton.Size = new System.Drawing.Size(142, 23);
+			this.photoPickButton.TabIndex = 3;
+			this.photoPickButton.Text = "Обзор...";
+			this.photoPickButton.UseVisualStyleBackColor = true;
+			this.photoPickButton.Click += new System.EventHandler(this.photoPickButton_Click);
+			// 
+			// label19
+			// 
+			this.label19.AutoSize = true;
+			this.label19.Location = new System.Drawing.Point(12, 57);
+			this.label19.Name = "label19";
+			this.label19.Size = new System.Drawing.Size(38, 13);
+			this.label19.TabIndex = 2;
+			this.label19.Text = "Фото:";
+			// 
+			// positionComboBox
+			// 
+			this.positionComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.positionComboBox.FormattingEnabled = true;
+			this.positionComboBox.Location = new System.Drawing.Point(101, 16);
+			this.positionComboBox.Name = "positionComboBox";
+			this.positionComboBox.Size = new System.Drawing.Size(309, 21);
+			this.positionComboBox.TabIndex = 1;
+			// 
+			// label18
+			// 
+			this.label18.AutoSize = true;
+			this.label18.Location = new System.Drawing.Point(10, 19);
+			this.label18.Name = "label18";
+			this.label18.Size = new System.Drawing.Size(71, 13);
+			this.label18.TabIndex = 0;
+			this.label18.Text = "Должность: ";
 			// 
 			// lastNameTextBox
 			// 
@@ -436,6 +507,9 @@
 			this.Text = "Registration";
 			this.patientPanel.ResumeLayout(false);
 			this.patientPanel.PerformLayout();
+			this.doctorPanel.ResumeLayout(false);
+			this.doctorPanel.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.photoPictureBox)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -480,5 +554,11 @@
 		private System.Windows.Forms.Label label17;
 		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.Button button2;
+		private System.Windows.Forms.PictureBox photoPictureBox;
+		private System.Windows.Forms.Button photoPickButton;
+		private System.Windows.Forms.Label label19;
+		private System.Windows.Forms.ComboBox positionComboBox;
+		private System.Windows.Forms.Label label18;
+		private System.Windows.Forms.Button removePhotoButton;
 	}
 }

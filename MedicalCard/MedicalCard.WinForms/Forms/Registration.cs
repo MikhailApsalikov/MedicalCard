@@ -3,6 +3,8 @@
 	using System;
 	using System.Collections.Generic;
 	using System.Data.Entity.Validation;
+	using System.Drawing;
+	using System.IO;
 	using System.Linq;
 	using System.Windows.Forms;
 	using BLL;
@@ -10,11 +12,13 @@
 	using Common.Extensions;
 	using Entities;
 	using Entities.Enums;
+	using Properties;
 
 	public partial class Registration : BaseForm
 	{
 		private PositionRepository positionRepository;
 		private List<Position> positions;
+		private byte[] image = null;
 
 		public Registration()
 		{
@@ -29,12 +33,15 @@
 			roleComboBox.SelectedIndex = 0;
 			disabilityComboBox.SelectedIndex = 0;
 			GenderComboBox.SelectedIndex = 0;
+			positionComboBox.SelectedIndex = 0;
 		}
 
 		private void InitRepositories()
 		{
 			positionRepository = new PositionRepository(new MedicalCardDbContext());
 			positions = positionRepository.GetAll().ToList();
+			positionComboBox.Items.Clear();
+			positionComboBox.Items.AddRange(positions.Select(i => i.Name).ToArray<Object>());
 		}
 
 		private void roleComboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -67,29 +74,67 @@
 
 			try
 			{
-				if ((Role) roleComboBox.SelectedIndex == Role.Patient)
+				switch ((Role) roleComboBox.SelectedIndex)
 				{
-					account.Patient = new Patient
+					case Role.Patient:
 					{
-						Id = account.Id,
-						Address = addressTextBox.Text,
-						BirthDate = birthDateTimePicker.Value,
-						Disability = (Disability) disabilityComboBox.SelectedIndex,
-						DisabilityDocument = disabliltyDocumentTextBox.Text,
-						Email = emailTextBox.Text,
-						FirstName = firstNameTextBox.Text,
-						Gender = (Gender) GenderComboBox.SelectedIndex,
-						InsurancePolicy = insurancePolicyTextBox.Text,
-						JobStudyPosition = positionTextBox.Text,
-						LastName = lastNameTextBox.Text,
-						MiddleName = middleNameTextBox.Text,
-						Phone = phoneTextBox.Text,
-						Snils = snilsTextBox.Text
-					};
+						account.Patient = new Patient
+						{
+							Id = account.Id,
+							Address = addressTextBox.Text,
+							BirthDate = birthDateTimePicker.Value,
+							Disability = (Disability) disabilityComboBox.SelectedIndex,
+							DisabilityDocument = disabliltyDocumentTextBox.Text,
+							Email = emailTextBox.Text,
+							FirstName = firstNameTextBox.Text,
+							Gender = (Gender) GenderComboBox.SelectedIndex,
+							InsurancePolicy = insurancePolicyTextBox.Text,
+							JobStudyPosition = positionTextBox.Text,
+							LastName = lastNameTextBox.Text,
+							MiddleName = middleNameTextBox.Text,
+							Phone = phoneTextBox.Text,
+							Snils = snilsTextBox.Text
+						};
+						break;
+					}
 
-					accountRepository.Add(account);
+					case Role.Doctor:
+					{
+						var position = positions.FirstOrDefault(p => p.Name == positionComboBox.Text);
+						if (position == null)
+						{
+							throw new ArgumentOutOfRangeException();
+						}
+						account.Doctor = new Doctor
+						{
+							Id = account.Id,
+							Address = addressTextBox.Text,
+							BirthDate = birthDateTimePicker.Value,
+							Email = emailTextBox.Text,
+							FirstName = firstNameTextBox.Text,
+							Gender = (Gender) GenderComboBox.SelectedIndex,
+							LastName = lastNameTextBox.Text,
+							MiddleName = middleNameTextBox.Text,
+							Phone = phoneTextBox.Text,
+							PositionId = position.Id
+						};
+						if (image != null)
+						{
+							account.Doctor.Photo = new Photo
+							{
+								Content = image
+							};
+						}
+
+						break;
+					}
+					default:
+					{
+						throw new ArgumentOutOfRangeException();
+					}
 				}
 
+				accountRepository.Add(account);
 				MessageBox.Show(
 					String.Format("Регистрация прошла успешно. Теперь вы можете зайти под своей учетной записью."),
 					"Регистрация", MessageBoxButtons.OK,
@@ -114,6 +159,39 @@
 					MessageBoxButtons.OK,
 					MessageBoxIcon.Error);
 			}
+		}
+
+		private void photoPickButton_Click(object sender, EventArgs e)
+		{
+			OpenFileDialog odf = new OpenFileDialog()
+			{
+				CheckFileExists = true,
+				Filter = "Картинки|*.bmp;*.jpg;*.png;*.gif",
+				Multiselect = false,
+			};
+			if (odf.ShowDialog() != DialogResult.OK)
+			{
+				return;
+			}
+
+			try
+			{
+				photoPictureBox.Image = Image.FromFile(odf.FileName);
+				image = File.ReadAllBytes(odf.FileName);
+			}
+			catch
+			{
+				MessageBox.Show("Ошибка при загрузке картинки", "Ошибка",
+					MessageBoxButtons.OK,
+					MessageBoxIcon.Error);
+			}
+			
+		}
+
+		private void removePhotoButton_Click(object sender, EventArgs e)
+		{
+			image = null;
+			photoPictureBox.Image = Resources.DefaultPhoto;
 		}
 	}
 }
