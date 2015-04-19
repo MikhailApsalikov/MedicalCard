@@ -3,8 +3,10 @@
 	using System;
 	using System.Linq;
 	using System.Windows.Forms;
-	using MedicalCard.BLL;
-	using MedicalCard.BLL.Repositories;
+	using BLL;
+	using BLL.Repositories;
+	using Entities;
+	using Entities.Enums;
 
 	public partial class Login : BaseForm
 	{
@@ -49,7 +51,22 @@
 					MessageBoxIcon.Error);
 			}
 
-			//OpenMainWindowForm();
+			OpenMainWindowForm(account);
+		}
+
+		private void OpenMainWindowForm(Account account)
+		{
+			Form form = null;
+			switch (account.Role)
+			{
+				case Role.Patient:
+				{
+					form = new PatientMainWindow(account.Patient);
+					break;
+				}
+			}
+			form.Show();
+			Hide();
 		}
 
 		private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

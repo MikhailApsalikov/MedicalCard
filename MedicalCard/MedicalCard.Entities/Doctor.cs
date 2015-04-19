@@ -27,6 +27,12 @@
 		public int? PhotoId { get; set; }
 		public virtual Photo Photo { get; set; }
 
+		[NotMapped]
+		public string FullName
+		{
+			get { return String.Format("{0} {1} {2}", FirstName, LastName, MiddleName); }
+		}
+
 		[Key, ForeignKey("Account")]
 		public int Id { get; set; }
 	}

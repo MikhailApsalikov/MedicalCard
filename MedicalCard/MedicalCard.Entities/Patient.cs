@@ -23,6 +23,7 @@
 
 		[DisplayName("Отчество")]
 		public String MiddleName { get; set; }
+
 		public DateTime? BirthDate { get; set; }
 		public Gender Gender { get; set; }
 		public String Address { get; set; }
@@ -33,6 +34,12 @@
 		public Disability Disability { get; set; }
 		public String DisabilityDocument { get; set; }
 		public String JobStudyPosition { get; set; }
+
+		[NotMapped]
+		public string FullName
+		{
+			get { return String.Format("{0} {1} {2}", FirstName, LastName, MiddleName); }
+		}
 
 		[Key, ForeignKey("Account")]
 		public int Id { get; set; }
