@@ -144,10 +144,8 @@
 			}
 			catch (DbEntityValidationException exception)
 			{
-				MessageBox.Show(
-					String.Format("Обнаружены ошибки при заполнении:{0}{1}", Environment.NewLine, exception.GetErrorMessage()),
-					"Некорректные данные", MessageBoxButtons.OK,
-					MessageBoxIcon.Error);
+				Error(String.Format("Обнаружены ошибки при заполнении:{0}{1}", Environment.NewLine, exception.GetErrorMessage()),
+					"Некорректные данные");
 			}
 			catch (Exception exception)
 			{
@@ -155,9 +153,7 @@
 				{
 					exception = exception.InnerException;
 				}
-				MessageBox.Show(exception.Message, "Ошибка",
-					MessageBoxButtons.OK,
-					MessageBoxIcon.Error);
+				Error(exception.Message, "Ошибка");
 			}
 		}
 

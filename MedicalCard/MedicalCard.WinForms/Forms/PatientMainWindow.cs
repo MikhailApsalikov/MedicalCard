@@ -20,5 +20,17 @@
 			base.OnClosed(e);
 			Application.Exit();
 		}
+
+		private void toolStripMenuItem2_Click(object sender, EventArgs e)
+		{
+			Application.Exit();
+		}
+
+		private void редактироватьЛичныеДанныеToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			var accountDataEdit = new PatientEditWindow(patient);
+			accountDataEdit.ShowDialog();
+			SetParameters(String.Format("Пациент " + patient.FullName));
+		}
 	}
 }

@@ -1,6 +1,7 @@
 ﻿namespace MedicalCard.Entities
 {
 	using System;
+	using System.ComponentModel;
 	using System.ComponentModel.DataAnnotations;
 	using System.ComponentModel.DataAnnotations.Schema;
 	using Enums;
@@ -14,8 +15,18 @@
 		}
 
 		public virtual Account Account { get; set; }
+
+		[DisplayName("Фамилия")]
+		[StringLength(255, ErrorMessage = "Фамилия должна иметь длину от {2} до {1} символов", MinimumLength = 3)]
+		[DefaultValue("Фамилия")]
 		public String LastName { get; set; }
+
+		[DisplayName("Имя")]
+		[StringLength(255, ErrorMessage = "Имя должно иметь длину от {2} до {1} символов", MinimumLength = 3)]
+		[DefaultValue("Имя")]
 		public String FirstName { get; set; }
+
+		[DisplayName("Отчество")]
 		public String MiddleName { get; set; }
 		public DateTime? BirthDate { get; set; }
 		public Gender Gender { get; set; }

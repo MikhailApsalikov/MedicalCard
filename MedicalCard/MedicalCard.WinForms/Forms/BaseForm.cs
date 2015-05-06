@@ -1,5 +1,7 @@
 ﻿namespace MedicalCard.WinForms.Forms
 {
+	using System;
+	using System.ComponentModel;
 	using System.Windows.Forms;
 
 	public class BaseForm : Form
@@ -14,20 +16,26 @@
 		protected void SetParameters(string caption)
 		{
 			Text = caption;
-
 		}
 
-		private void InitializeComponent()
+		protected void Error(string message, string title = null)
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BaseForm));
-			this.SuspendLayout();
-			// 
-			// BaseForm
-			// 
-			resources.ApplyResources(this, "$this");
-			this.Name = "BaseForm";
-			this.ResumeLayout(false);
+			if (String.IsNullOrWhiteSpace(title))
+			{
+				title = message;
+			}
 
+			MessageBox.Show(message, title, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
+		protected void Message(string message, string title = null)
+		{
+			if (String.IsNullOrWhiteSpace(title))
+			{
+				title = message;
+			}
+
+			MessageBox.Show(message, title, MessageBoxButtons.OK, MessageBoxIcon.Information);
 		}
 	}
 }

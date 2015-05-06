@@ -49,6 +49,7 @@
 			{
 				MessageBox.Show("Неверный пароль", "Неверный пароль", MessageBoxButtons.OK,
 					MessageBoxIcon.Error);
+				return;
 			}
 
 			OpenMainWindowForm(account);
@@ -73,6 +74,14 @@
 		{
 			var registration = new Registration();
 			registration.ShowDialog();
+		}
+
+		private void passwordTextBox_KeyUp(object sender, KeyEventArgs e)
+		{
+			if (e.KeyCode == Keys.Enter)
+			{
+				button1_Click(sender, null);
+			}
 		}
 	}
 }
