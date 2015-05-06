@@ -35,6 +35,7 @@
 			this.мояКартаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.записьКВрачуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.редактироватьЛичныеДанныеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.выходИзСистемыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -52,6 +53,7 @@
 			// файлToolStripMenuItem
 			// 
 			this.файлToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.выходИзСистемыToolStripMenuItem,
             this.toolStripMenuItem2});
 			this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
 			this.файлToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
@@ -60,8 +62,8 @@
 			// toolStripMenuItem2
 			// 
 			this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-			this.toolStripMenuItem2.Size = new System.Drawing.Size(108, 22);
-			this.toolStripMenuItem2.Text = "Выход";
+			this.toolStripMenuItem2.Size = new System.Drawing.Size(193, 22);
+			this.toolStripMenuItem2.Text = "Закрыть приложение";
 			this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
 			// 
 			// медицинскаяКартаToolStripMenuItem
@@ -93,6 +95,13 @@
 			this.редактироватьЛичныеДанныеToolStripMenuItem.Text = "Редактировать личные данные";
 			this.редактироватьЛичныеДанныеToolStripMenuItem.Click += new System.EventHandler(this.редактироватьЛичныеДанныеToolStripMenuItem_Click);
 			// 
+			// выходИзСистемыToolStripMenuItem
+			// 
+			this.выходИзСистемыToolStripMenuItem.Name = "выходИзСистемыToolStripMenuItem";
+			this.выходИзСистемыToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+			this.выходИзСистемыToolStripMenuItem.Text = "Выход из системы";
+			this.выходИзСистемыToolStripMenuItem.Click += new System.EventHandler(this.выходИзСистемыToolStripMenuItem_Click);
+			// 
 			// PatientMainWindow
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -118,5 +127,6 @@
 		private System.Windows.Forms.ToolStripMenuItem мояКартаToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem записьКВрачуToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem редактироватьЛичныеДанныеToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem выходИзСистемыToolStripMenuItem;
 	}
 }

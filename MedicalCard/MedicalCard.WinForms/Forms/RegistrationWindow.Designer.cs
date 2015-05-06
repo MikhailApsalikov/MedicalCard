@@ -1,6 +1,6 @@
 ﻿namespace MedicalCard.WinForms.Forms
 {
-	partial class Registration
+	partial class RegistrationWindow
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -255,7 +255,7 @@
 			this.doctorPanel.Controls.Add(this.label19);
 			this.doctorPanel.Controls.Add(this.positionComboBox);
 			this.doctorPanel.Controls.Add(this.label18);
-			this.doctorPanel.Location = new System.Drawing.Point(330, 34);
+			this.doctorPanel.Location = new System.Drawing.Point(400, 318);
 			this.doctorPanel.Name = "doctorPanel";
 			this.doctorPanel.Size = new System.Drawing.Size(418, 217);
 			this.doctorPanel.TabIndex = 8;

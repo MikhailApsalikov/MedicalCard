@@ -1,6 +1,6 @@
 ﻿namespace MedicalCard.WinForms.Forms
 {
-	partial class Login
+	partial class LoginWindow
 	{
 		/// <summary>
 		/// Required designer variable.

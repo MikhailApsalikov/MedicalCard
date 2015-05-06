@@ -8,11 +8,11 @@
 	using Entities;
 	using Entities.Enums;
 
-	public partial class Login : BaseForm
+	public partial class LoginWindow : BaseForm
 	{
 		private readonly AccountRepository repository;
 
-		public Login()
+		public LoginWindow()
 		{
 			InitializeComponent();
 			SetParameters("Авторизация");
@@ -58,17 +58,24 @@
 			{
 				case Role.Patient:
 				{
-					form = new PatientMainWindow(account.Patient);
+					form = new PatientMainWindow(this, account.Patient);
 					break;
 				}
 			}
 			form.Show();
 			Hide();
+			ClearTextFields();
+		}
+
+		private void ClearTextFields()
+		{
+			loginTextBox.Text = String.Empty;
+			passwordTextBox.Text = String.Empty;
 		}
 
 		private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
-			var registration = new Registration();
+			var registration = new RegistrationWindow();
 			registration.ShowDialog();
 		}
 

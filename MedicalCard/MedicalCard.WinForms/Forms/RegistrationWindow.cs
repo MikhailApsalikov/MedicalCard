@@ -14,13 +14,13 @@
 	using Entities.Enums;
 	using Properties;
 
-	public partial class Registration : BaseForm
+	public partial class RegistrationWindow : BaseForm
 	{
 		private PositionRepository positionRepository;
 		private List<Position> positions;
 		private byte[] image = null;
 
-		public Registration()
+		public RegistrationWindow()
 		{
 			InitializeComponent();
 			SetParameters("Регистрация");
