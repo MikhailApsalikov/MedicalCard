@@ -25,30 +25,26 @@
 			var password = passwordTextBox.Text;
 			if (login == String.Empty)
 			{
-				MessageBox.Show("Введите логин", "Введите логин", MessageBoxButtons.OK,
-					MessageBoxIcon.Error);
+				Error("Введите логин");
 				return;
 			}
 
 			if (password == String.Empty)
 			{
-				MessageBox.Show("Введите пароль", "Введите пароль", MessageBoxButtons.OK,
-					MessageBoxIcon.Error);
+				Error("Введите пароль");
 				return;
 			}
 
 			var account = repository.GetAll().FirstOrDefault(d => d.Username == login);
 			if (account == null)
 			{
-				MessageBox.Show("Пользователя с таким логином не существует", "Пользователь не найден", MessageBoxButtons.OK,
-					MessageBoxIcon.Error);
+				Error("Пользователя с таким логином не существует", "Пользователь не найден");
 				return;
 			}
 
 			if (account.Password != password)
 			{
-				MessageBox.Show("Неверный пароль", "Неверный пароль", MessageBoxButtons.OK,
-					MessageBoxIcon.Error);
+				Error("Неверный пароль");
 				return;
 			}
 

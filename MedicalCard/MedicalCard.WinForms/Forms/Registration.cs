@@ -67,8 +67,7 @@
 			var accountRepository = new AccountRepository(new MedicalCardDbContext());
 			if (accountRepository.GetAll().FirstOrDefault(d => d.Username == account.Username) != null)
 			{
-				MessageBox.Show("Пользователь с таким логином уже существует", "Ошибка", MessageBoxButtons.OK,
-					MessageBoxIcon.Error);
+				Error("Пользователь с таким логином уже существует");
 				return;
 			}
 
@@ -135,11 +134,7 @@
 				}
 
 				accountRepository.Add(account);
-				MessageBox.Show(
-					String.Format("Регистрация прошла успешно. Теперь вы можете зайти под своей учетной записью."),
-					"Регистрация", MessageBoxButtons.OK,
-					MessageBoxIcon.None);
-
+				Message("Регистрация прошла успешно. Теперь вы можете зайти под своей учетной записью.", "Регистрация");
 				Close();
 			}
 			catch (DbEntityValidationException exception)
@@ -175,11 +170,13 @@
 				photoPictureBox.Image = Image.FromFile(odf.FileName);
 				image = File.ReadAllBytes(odf.FileName);
 			}
-			catch
+			catch (Exception exception)
 			{
-				MessageBox.Show("Ошибка при загрузке картинки", "Ошибка",
-					MessageBoxButtons.OK,
-					MessageBoxIcon.Error);
+				while (exception.InnerException != null)
+				{
+					exception = exception.InnerException;
+				}
+				Error(exception.Message, "Ошибка");
 			}
 			
 		}
