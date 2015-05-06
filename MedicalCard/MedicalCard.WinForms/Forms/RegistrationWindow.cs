@@ -7,18 +7,18 @@
 	using System.IO;
 	using System.Linq;
 	using System.Windows.Forms;
-	using BLL;
-	using BLL.Repositories;
-	using Common.Extensions;
-	using Entities;
-	using Entities.Enums;
-	using Properties;
+	using MedicalCard.BLL;
+	using MedicalCard.BLL.Repositories;
+	using MedicalCard.Common.Extensions;
+	using MedicalCard.Entities;
+	using MedicalCard.Entities.Enums;
+	using MedicalCard.WinForms.Properties;
 
 	public partial class RegistrationWindow : BaseForm
 	{
+		private byte[] image;
 		private PositionRepository positionRepository;
 		private List<Position> positions;
-		private byte[] image = null;
 
 		public RegistrationWindow()
 		{
@@ -154,11 +154,11 @@
 
 		private void photoPickButton_Click(object sender, EventArgs e)
 		{
-			OpenFileDialog odf = new OpenFileDialog()
+			var odf = new OpenFileDialog
 			{
 				CheckFileExists = true,
 				Filter = "Картинки|*.bmp;*.jpg;*.png;*.gif",
-				Multiselect = false,
+				Multiselect = false
 			};
 			if (odf.ShowDialog() != DialogResult.OK)
 			{
@@ -178,7 +178,6 @@
 				}
 				Error(exception.Message, "Ошибка");
 			}
-			
 		}
 
 		private void removePhotoButton_Click(object sender, EventArgs e)

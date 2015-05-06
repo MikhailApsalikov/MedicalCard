@@ -10,7 +10,7 @@
 
 	public partial class LoginWindow : BaseForm
 	{
-		private readonly AccountRepository repository;
+		private AccountRepository repository;
 
 		public LoginWindow()
 		{
@@ -35,6 +35,7 @@
 				return;
 			}
 
+			repository = new AccountRepository(new MedicalCardDbContext());
 			var account = repository.GetAll().FirstOrDefault(d => d.Username == login);
 			if (account == null)
 			{
@@ -59,6 +60,11 @@
 				case Role.Patient:
 				{
 					form = new PatientMainWindow(this, account.Patient);
+					break;
+				}
+				case Role.Doctor:
+				{
+					form = new DoctorMainWindow(this, account.Doctor);
 					break;
 				}
 			}

@@ -6,17 +6,17 @@
 	using MedicalCard.BLL;
 	using MedicalCard.BLL.Repositories;
 
-	public partial class PatientMainWindow : BaseForm
+	public partial class DoctorMainWindow : BaseForm
 	{
-		private Patient patient;
+		private Doctor doctor;
 		private readonly LoginWindow loginWindow;
 
-		public PatientMainWindow(LoginWindow loginWindow, Patient patient)
+		public DoctorMainWindow(LoginWindow loginWindow, Doctor doctor)
 		{
-			this.patient = patient;
+			this.doctor = doctor;
 			this.loginWindow = loginWindow;
 			InitializeComponent();
-			SetParameters(String.Format("Пациент " + patient.FullName));
+			SetParameters(String.Format("Врач " + doctor.FullName));
 		}
 
 		protected override void OnClosed(EventArgs e)
@@ -32,10 +32,10 @@
 
 		private void редактироватьЛичныеДанныеToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			var accountDataEdit = new PatientEditWindow(patient);
+			var accountDataEdit = new DoctorEditWindow(doctor);
 			accountDataEdit.ShowDialog();
-			patient = new PatientRepository(new MedicalCardDbContext()).GetById(patient.Id);
-			SetParameters(String.Format("Пациент " + patient.FullName));
+			doctor = new DoctorRepository(new MedicalCardDbContext()).GetById(doctor.Id);
+			SetParameters(String.Format("Врач " + doctor.FullName));
 		}
 
 		private void выходИзСистемыToolStripMenuItem_Click(object sender, EventArgs e)

@@ -255,7 +255,7 @@
 			this.doctorPanel.Controls.Add(this.label19);
 			this.doctorPanel.Controls.Add(this.positionComboBox);
 			this.doctorPanel.Controls.Add(this.label18);
-			this.doctorPanel.Location = new System.Drawing.Point(400, 318);
+			this.doctorPanel.Location = new System.Drawing.Point(330, 34);
 			this.doctorPanel.Name = "doctorPanel";
 			this.doctorPanel.Size = new System.Drawing.Size(418, 217);
 			this.doctorPanel.TabIndex = 8;
@@ -471,7 +471,7 @@
 			this.button2.UseVisualStyleBackColor = true;
 			this.button2.Click += new System.EventHandler(this.button2_Click);
 			// 
-			// Registration
+			// RegistrationWindow
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -503,7 +503,7 @@
 			this.Controls.Add(this.loginTextBox);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.patientPanel);
-			this.Name = "Registration";
+			this.Name = "RegistrationWindow";
 			this.Text = "Registration";
 			this.patientPanel.ResumeLayout(false);
 			this.patientPanel.PerformLayout();
