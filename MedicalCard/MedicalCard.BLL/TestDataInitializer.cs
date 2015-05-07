@@ -140,7 +140,7 @@
 						Email = "doctor@bk.ru",
 						FirstName = "Петр",
 						Gender = Gender.Male,
-						LastName = "",
+						LastName = "Петров",
 						MiddleName = "Петрович",
 						Phone = "+79177894561",
 						PositionId = 1
