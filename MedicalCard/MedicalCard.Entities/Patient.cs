@@ -38,7 +38,7 @@
 		[NotMapped]
 		public string FullName
 		{
-			get { return String.Format("{0} {1} {2}", FirstName, LastName, MiddleName); }
+			get { return String.Format("{0} {1} {2}", LastName, FirstName, MiddleName); }
 		}
 
 		[Key, ForeignKey("Account")]

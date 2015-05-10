@@ -43,5 +43,11 @@
 			loginWindow.Show();
 			Hide();
 		}
+
+		private void записьКВрачуToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			var initiateExaminationWindow = new InitiateExaminationWindow(patient);
+			initiateExaminationWindow.ShowDialog();
+		}
 	}
 }

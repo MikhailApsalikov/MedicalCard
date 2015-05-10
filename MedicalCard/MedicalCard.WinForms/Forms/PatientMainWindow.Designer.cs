@@ -30,12 +30,12 @@
 		{
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.выходИзСистемыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
 			this.медицинскаяКартаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.мояКартаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.записьКВрачуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.редактироватьЛичныеДанныеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.выходИзСистемыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -58,6 +58,13 @@
 			this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
 			this.файлToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
 			this.файлToolStripMenuItem.Text = "Файл";
+			// 
+			// выходИзСистемыToolStripMenuItem
+			// 
+			this.выходИзСистемыToolStripMenuItem.Name = "выходИзСистемыToolStripMenuItem";
+			this.выходИзСистемыToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+			this.выходИзСистемыToolStripMenuItem.Text = "Выход из системы";
+			this.выходИзСистемыToolStripMenuItem.Click += new System.EventHandler(this.выходИзСистемыToolStripMenuItem_Click);
 			// 
 			// toolStripMenuItem2
 			// 
@@ -87,6 +94,7 @@
 			this.записьКВрачуToolStripMenuItem.Name = "записьКВрачуToolStripMenuItem";
 			this.записьКВрачуToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
 			this.записьКВрачуToolStripMenuItem.Text = "Запись к врачу";
+			this.записьКВрачуToolStripMenuItem.Click += new System.EventHandler(this.записьКВрачуToolStripMenuItem_Click);
 			// 
 			// редактироватьЛичныеДанныеToolStripMenuItem
 			// 
@@ -94,13 +102,6 @@
 			this.редактироватьЛичныеДанныеToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
 			this.редактироватьЛичныеДанныеToolStripMenuItem.Text = "Редактировать личные данные";
 			this.редактироватьЛичныеДанныеToolStripMenuItem.Click += new System.EventHandler(this.редактироватьЛичныеДанныеToolStripMenuItem_Click);
-			// 
-			// выходИзСистемыToolStripMenuItem
-			// 
-			this.выходИзСистемыToolStripMenuItem.Name = "выходИзСистемыToolStripMenuItem";
-			this.выходИзСистемыToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
-			this.выходИзСистемыToolStripMenuItem.Text = "Выход из системы";
-			this.выходИзСистемыToolStripMenuItem.Click += new System.EventHandler(this.выходИзСистемыToolStripMenuItem_Click);
 			// 
 			// PatientMainWindow
 			// 
