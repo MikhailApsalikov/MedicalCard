@@ -34,7 +34,6 @@
 			this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
 			this.медицинскаяКартаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.мояКартаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.записьКВрачуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.редактироватьЛичныеДанныеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
@@ -76,9 +75,8 @@
 			// медицинскаяКартаToolStripMenuItem
 			// 
 			this.медицинскаяКартаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.мояКартаToolStripMenuItem,
-            this.записьКВрачуToolStripMenuItem,
-            this.редактироватьЛичныеДанныеToolStripMenuItem});
+            this.редактироватьЛичныеДанныеToolStripMenuItem,
+            this.мояКартаToolStripMenuItem});
 			this.медицинскаяКартаToolStripMenuItem.Name = "медицинскаяКартаToolStripMenuItem";
 			this.медицинскаяКартаToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
 			this.медицинскаяКартаToolStripMenuItem.Text = "ЭМК";
@@ -87,13 +85,8 @@
 			// 
 			this.мояКартаToolStripMenuItem.Name = "мояКартаToolStripMenuItem";
 			this.мояКартаToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
-			this.мояКартаToolStripMenuItem.Text = "Моя карта";
-			// 
-			// записьКВрачуToolStripMenuItem
-			// 
-			this.записьКВрачуToolStripMenuItem.Name = "записьКВрачуToolStripMenuItem";
-			this.записьКВрачуToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
-			this.записьКВрачуToolStripMenuItem.Text = "Запись к врачу";
+			this.мояКартаToolStripMenuItem.Text = "Мои часы приема";
+			this.мояКартаToolStripMenuItem.Click += new System.EventHandler(this.workTimeToolStripMenuItem_Click);
 			// 
 			// редактироватьЛичныеДанныеToolStripMenuItem
 			// 
@@ -125,7 +118,6 @@
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
 		private System.Windows.Forms.ToolStripMenuItem медицинскаяКартаToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem мояКартаToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem записьКВрачуToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem редактироватьЛичныеДанныеToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem выходИзСистемыToolStripMenuItem;
 	}

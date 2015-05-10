@@ -7,20 +7,20 @@
 	using System.IO;
 	using System.Linq;
 	using System.Windows.Forms;
-	using MedicalCard.BLL;
-	using MedicalCard.BLL.Repositories;
-	using MedicalCard.Common.Extensions;
-	using MedicalCard.Entities;
-	using MedicalCard.Entities.Enums;
-	using MedicalCard.WinForms.Properties;
+	using BLL;
+	using BLL.Repositories;
+	using Common.Extensions;
+	using Entities;
+	using Entities.Enums;
+	using Properties;
 
 	public partial class DoctorEditWindow : BaseForm
 	{
-		private readonly Doctor doctor;
-		private readonly DoctorRepository repository = new DoctorRepository(new MedicalCardDbContext());
 		private byte[] image;
 		private PositionRepository positionRepository;
 		private List<Position> positions;
+		private readonly Doctor doctor;
+		private readonly DoctorRepository repository = new DoctorRepository(new MedicalCardDbContext());
 
 		public DoctorEditWindow(Doctor doctor)
 		{

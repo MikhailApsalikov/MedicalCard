@@ -48,6 +48,7 @@
 		[Key, ForeignKey("Account")]
 		public int Id { get; set; }
 
-		public List<WorkTime> WorkTimes { get; set; }
+		
+		public virtual List<WorkTime> WorkTimes { get; set; }
 	}
 }

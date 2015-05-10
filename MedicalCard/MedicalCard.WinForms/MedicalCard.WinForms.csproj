@@ -42,6 +42,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -91,7 +92,12 @@
     <Compile Include="Forms\RegistrationWindow.Designer.cs">
       <DependentUpon>RegistrationWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Infrastructure\FormHelper.cs" />
+    <Compile Include="Forms\WorkTimeWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\WorkTimeWindow.Designer.cs">
+      <DependentUpon>WorkTimeWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\LoginWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\RegistrationWindow.resx">
       <DependentUpon>RegistrationWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\WorkTimeWindow.resx">
+      <DependentUpon>WorkTimeWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

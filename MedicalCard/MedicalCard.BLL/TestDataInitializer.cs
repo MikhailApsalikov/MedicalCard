@@ -125,7 +125,8 @@
 						LastName = "Иванов",
 						MiddleName = "Романович",
 						Phone = "123546678",
-						PositionId = 3
+						PositionId = 3,
+						WorkTimes = WorkTime.Default.ToList()
 					}
 				},
 				new Account
@@ -143,7 +144,8 @@
 						LastName = "Петров",
 						MiddleName = "Петрович",
 						Phone = "+79177894561",
-						PositionId = 1
+						PositionId = 1,
+						WorkTimes = WorkTime.Default.ToList()
 					}
 				},
 				new Account

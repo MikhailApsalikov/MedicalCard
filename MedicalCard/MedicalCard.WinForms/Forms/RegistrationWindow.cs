@@ -115,7 +115,8 @@
 							LastName = lastNameTextBox.Text,
 							MiddleName = middleNameTextBox.Text,
 							Phone = phoneTextBox.Text,
-							PositionId = position.Id
+							PositionId = position.Id,
+							WorkTimes = WorkTime.Default.ToList(),
 						};
 						if (image != null)
 						{

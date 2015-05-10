@@ -43,5 +43,11 @@
 			loginWindow.Show();
 			Hide();
 		}
+
+		private void workTimeToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			var workTimeWindow = new WorkTimeWindow(doctor);
+			workTimeWindow.ShowDialog();
+		}
 	}
 }
