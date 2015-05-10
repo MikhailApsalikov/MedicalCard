@@ -63,6 +63,7 @@
 			this.button1.TabIndex = 0;
 			this.button1.Text = "Сохранить";
 			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.button1_Click);
 			// 
 			// button2
 			// 
@@ -72,7 +73,7 @@
 			this.button2.TabIndex = 1;
 			this.button2.Text = "Отмена";
 			this.button2.UseVisualStyleBackColor = true;
-			this.button2.Click += new System.EventHandler(this.button2_Click);
+			this.button2.Click += new System.EventHandler(this.OnClickCancelButton);
 			// 
 			// label1
 			// 
@@ -127,6 +128,7 @@
 			this.mondayBegin.Name = "mondayBegin";
 			this.mondayBegin.Size = new System.Drawing.Size(85, 21);
 			this.mondayBegin.TabIndex = 7;
+			this.mondayBegin.SelectionChangeCommitted += new System.EventHandler(this.ComboBoxChanged);
 			// 
 			// comboBox1
 			// 
@@ -136,6 +138,7 @@
 			this.comboBox1.Name = "comboBox1";
 			this.comboBox1.Size = new System.Drawing.Size(85, 21);
 			this.comboBox1.TabIndex = 8;
+			this.comboBox1.SelectionChangeCommitted += new System.EventHandler(this.ComboBoxChanged);
 			// 
 			// comboBox2
 			// 
@@ -145,6 +148,7 @@
 			this.comboBox2.Name = "comboBox2";
 			this.comboBox2.Size = new System.Drawing.Size(85, 21);
 			this.comboBox2.TabIndex = 9;
+			this.comboBox2.SelectionChangeCommitted += new System.EventHandler(this.ComboBoxChanged);
 			// 
 			// comboBox3
 			// 
@@ -154,6 +158,7 @@
 			this.comboBox3.Name = "comboBox3";
 			this.comboBox3.Size = new System.Drawing.Size(85, 21);
 			this.comboBox3.TabIndex = 10;
+			this.comboBox3.SelectionChangeCommitted += new System.EventHandler(this.ComboBoxChanged);
 			// 
 			// comboBox4
 			// 
@@ -163,6 +168,7 @@
 			this.comboBox4.Name = "comboBox4";
 			this.comboBox4.Size = new System.Drawing.Size(85, 21);
 			this.comboBox4.TabIndex = 11;
+			this.comboBox4.SelectionChangeCommitted += new System.EventHandler(this.ComboBoxChanged);
 			// 
 			// comboBox5
 			// 
@@ -172,6 +178,7 @@
 			this.comboBox5.Name = "comboBox5";
 			this.comboBox5.Size = new System.Drawing.Size(85, 21);
 			this.comboBox5.TabIndex = 12;
+			this.comboBox5.SelectionChangeCommitted += new System.EventHandler(this.ComboBoxChanged);
 			// 
 			// comboBox6
 			// 
@@ -181,6 +188,7 @@
 			this.comboBox6.Name = "comboBox6";
 			this.comboBox6.Size = new System.Drawing.Size(85, 21);
 			this.comboBox6.TabIndex = 13;
+			this.comboBox6.SelectionChangeCommitted += new System.EventHandler(this.ComboBoxChanged);
 			// 
 			// comboBox7
 			// 
@@ -190,6 +198,7 @@
 			this.comboBox7.Name = "comboBox7";
 			this.comboBox7.Size = new System.Drawing.Size(85, 21);
 			this.comboBox7.TabIndex = 14;
+			this.comboBox7.SelectionChangeCommitted += new System.EventHandler(this.ComboBoxChanged);
 			// 
 			// comboBox8
 			// 
@@ -199,6 +208,7 @@
 			this.comboBox8.Name = "comboBox8";
 			this.comboBox8.Size = new System.Drawing.Size(85, 21);
 			this.comboBox8.TabIndex = 15;
+			this.comboBox8.SelectionChangeCommitted += new System.EventHandler(this.ComboBoxChanged);
 			// 
 			// comboBox9
 			// 
@@ -208,6 +218,7 @@
 			this.comboBox9.Name = "comboBox9";
 			this.comboBox9.Size = new System.Drawing.Size(85, 21);
 			this.comboBox9.TabIndex = 16;
+			this.comboBox9.SelectionChangeCommitted += new System.EventHandler(this.ComboBoxChanged);
 			// 
 			// label6
 			// 
@@ -244,6 +255,7 @@
 			this.checkBox1.Size = new System.Drawing.Size(15, 14);
 			this.checkBox1.TabIndex = 20;
 			this.checkBox1.UseVisualStyleBackColor = true;
+			this.checkBox1.CheckedChanged += new System.EventHandler(this.CheckedChanged);
 			// 
 			// checkBox2
 			// 
@@ -253,6 +265,7 @@
 			this.checkBox2.Size = new System.Drawing.Size(15, 14);
 			this.checkBox2.TabIndex = 21;
 			this.checkBox2.UseVisualStyleBackColor = true;
+			this.checkBox2.CheckedChanged += new System.EventHandler(this.CheckedChanged);
 			// 
 			// checkBox3
 			// 
@@ -262,6 +275,7 @@
 			this.checkBox3.Size = new System.Drawing.Size(15, 14);
 			this.checkBox3.TabIndex = 22;
 			this.checkBox3.UseVisualStyleBackColor = true;
+			this.checkBox3.CheckedChanged += new System.EventHandler(this.CheckedChanged);
 			// 
 			// checkBox4
 			// 
@@ -271,6 +285,7 @@
 			this.checkBox4.Size = new System.Drawing.Size(15, 14);
 			this.checkBox4.TabIndex = 23;
 			this.checkBox4.UseVisualStyleBackColor = true;
+			this.checkBox4.CheckStateChanged += new System.EventHandler(this.CheckedChanged);
 			// 
 			// checkBox5
 			// 
@@ -280,6 +295,7 @@
 			this.checkBox5.Size = new System.Drawing.Size(15, 14);
 			this.checkBox5.TabIndex = 24;
 			this.checkBox5.UseVisualStyleBackColor = true;
+			this.checkBox5.CheckedChanged += new System.EventHandler(this.CheckedChanged);
 			// 
 			// WorkTimeWindow
 			// 

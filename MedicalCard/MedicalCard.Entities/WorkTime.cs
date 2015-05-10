@@ -8,8 +8,10 @@
 
 	public class WorkTime
 	{
-		private const int BeginDefaultTime = 9;
-		private const int EndDefaultTime = 17;
+		public const int BeginDefaultTime = 9;
+		public const int EndDefaultTime = 17;
+		public const int MinBeginTime = 7;
+		public const int MaxEndTime = 21;
 
 		[Key]
 		[Column(Order = 1)]

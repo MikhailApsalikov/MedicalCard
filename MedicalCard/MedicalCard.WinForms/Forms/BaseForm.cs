@@ -1,7 +1,6 @@
 ﻿namespace MedicalCard.WinForms.Forms
 {
 	using System;
-	using System.ComponentModel;
 	using System.Windows.Forms;
 
 	public class BaseForm : Form
@@ -36,6 +35,11 @@
 			}
 
 			MessageBox.Show(message, title, MessageBoxButtons.OK, MessageBoxIcon.Information);
+		}
+
+		protected void OnClickCancelButton(object sender, EventArgs e)
+		{
+			Close();
 		}
 	}
 }
