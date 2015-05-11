@@ -1,10 +1,13 @@
 ﻿namespace MedicalCard.WinForms.Forms
 {
 	using System;
+	using System.Collections.Generic;
+	using System.Linq;
 	using System.Windows.Forms;
+	using BLL;
+	using BLL.Repositories;
 	using Entities;
-	using MedicalCard.BLL;
-	using MedicalCard.BLL.Repositories;
+	using Entities.Enums;
 
 	public partial class PatientMainWindow : BaseForm
 	{
@@ -16,7 +19,7 @@
 			this.patient = patient;
 			this.loginWindow = loginWindow;
 			InitializeComponent();
-			SetParameters(String.Format("Пациент " + patient.FullName));
+			RefreshAllData();
 		}
 
 		protected override void OnClosed(EventArgs e)
@@ -34,8 +37,7 @@
 		{
 			var accountDataEdit = new PatientEditWindow(patient);
 			accountDataEdit.ShowDialog();
-			patient = new PatientRepository(new MedicalCardDbContext()).GetById(patient.Id);
-			SetParameters(String.Format("Пациент " + patient.FullName));
+			RefreshAllData();
 		}
 
 		private void выходИзСистемыToolStripMenuItem_Click(object sender, EventArgs e)
@@ -48,6 +50,52 @@
 		{
 			var initiateExaminationWindow = new InitiateExaminationWindow(patient);
 			initiateExaminationWindow.ShowDialog();
+			RefreshAllData();
+		}
+
+		private void RefreshAllData()
+		{
+			patient = new PatientRepository(new MedicalCardDbContext()).GetById(patient.Id);
+			SetParameters(String.Format("Пациент " + patient.FullName));
+			RefreshExaminationLists();
+		}
+
+		private void RefreshExaminationLists()
+		{
+			var examinations = patient.Examinations;
+			RefreshCurrentExaminationList(examinations);
+		}
+
+		private void RefreshCurrentExaminationList(List<Examination> examinations)
+		{
+			var current = patient.Examinations.Where(e => e.Status != ExaminationStatus.Closed).ToList();
+			if (!current.Any())
+			{
+				currentExaminationListView.Visible = false;
+				initiateExaminationButton.Visible = true;
+				initiateExaminationLabel.Visible = true;
+				return;
+			}
+
+			currentExaminationListView.Visible = true;
+			initiateExaminationButton.Visible = false;
+			initiateExaminationLabel.Visible = false;
+
+			foreach (var examination in current)
+			{
+				var item = new ListViewItem
+				{
+					Text = examination.Id.ToString(),
+					SubItems =
+					{
+						examination.Doctor.Position.Name,
+						examination.Doctor.FullName,
+						examination.ExaminationDate.ToString("dd.MM.yyyy HH:mm"),
+						examination.Status.GetString()
+					}
+				};
+				currentExaminationListView.Items.Add(item);
+			}
 		}
 	}
 }

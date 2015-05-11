@@ -1,6 +1,7 @@
 ﻿namespace MedicalCard.Entities
 {
 	using System;
+	using System.Collections.Generic;
 	using System.ComponentModel;
 	using System.ComponentModel.DataAnnotations;
 	using System.ComponentModel.DataAnnotations.Schema;
@@ -43,5 +44,7 @@
 
 		[Key, ForeignKey("Account")]
 		public int Id { get; set; }
+
+		public virtual List<Examination> Examinations { get; set; }
 	}
 }

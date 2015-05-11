@@ -55,6 +55,7 @@
     <Compile Include="ArgumentGuard.cs" />
     <Compile Include="Extensions\DbEntityValidationExceptionExtensions.cs" />
     <Compile Include="Extensions\DbSetExtensions.cs" />
+    <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="Extensions\ImageExtensions.cs" />
     <Compile Include="Holder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
