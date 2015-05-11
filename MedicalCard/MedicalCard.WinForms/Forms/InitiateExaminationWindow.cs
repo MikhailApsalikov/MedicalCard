@@ -169,8 +169,8 @@
 
 		private DateTime GetExaminationDate()
 		{
-			DateTime dateTimePickerValue = dateTimePicker1.Value;
-			DateTime result = new DateTime(dateTimePickerValue.Year, dateTimePickerValue.Month, dateTimePickerValue.Day);
+			var dateTimePickerValue = dateTimePicker1.Value;
+			var result = new DateTime(dateTimePickerValue.Year, dateTimePickerValue.Month, dateTimePickerValue.Day);
 			var groups = Regex.Match(timeComboBox.Text, @"(\d+):(\d+)").Groups;
 			var hours = Int32.Parse(groups[1].Value);
 			var minutes = Int32.Parse(groups[2].Value);
@@ -200,18 +200,33 @@
 			}
 
 			SetAvailableTimes(workTime);
+			if (timeComboBox.Items.Count == 0)
+			{
+				SetTimeError("Нет свободных мест");
+				return;
+			}
+
 			RemoveTimeError();
 		}
 
 		private void SetAvailableTimes(WorkTime workTime)
 		{
 			var availableTime = new List<TimeSpan>();
-			var end = TimeSpan.FromHours(workTime.End);
-			var interval = TimeSpan.FromMinutes(Examination.Interval);
+			TimeSpan end = TimeSpan.FromHours(workTime.End);
+			TimeSpan interval = TimeSpan.FromMinutes(Examination.Interval);
+			List<DateTime> alreadyExist =
+				selectedDoctor.Examinations.Where(e => e.ExaminationDate.Year == dateTimePicker1.Value.Year &&
+													   e.ExaminationDate.Month == dateTimePicker1.Value.Month&&
+													   e.ExaminationDate.Day == dateTimePicker1.Value.Day)
+										   .Select(e=>e.ExaminationDate).ToList();
+
 
 			for (var i = TimeSpan.FromHours(workTime.Begin); i < end; i = i.Add(interval))
 			{
-				availableTime.Add(i);
+				if (!alreadyExist.Any(d=>d.Hour == i.Hours && d.Minute == i.Minutes))
+				{
+					availableTime.Add(i);
+				}
 			}
 
 			timeComboBox.Items.Clear();
