@@ -238,7 +238,7 @@
 						LastName = "Городнов",
 						MiddleName = "Владимирович",
 						Phone = "8 (928) 287-74-96",
-						PositionId = 21,
+						PositionId = 19,
 						WorkTimes = WorkTime.Default.ToList(),
 						Photo = new Photo()
 						{
@@ -284,7 +284,7 @@
 						LastName = "Баландин",
 						MiddleName = "Сергеевич",
 						Phone = "8 (905) 936-16-48",
-						PositionId = 31,
+						PositionId = 32,
 						WorkTimes = WorkTime.Default.ToList(),
 						Photo = new Photo()
 						{

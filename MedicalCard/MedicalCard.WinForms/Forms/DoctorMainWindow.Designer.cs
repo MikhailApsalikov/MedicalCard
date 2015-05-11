@@ -33,9 +33,17 @@
 			this.выходИзСистемыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
 			this.медицинскаяКартаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.мояКартаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.редактироватьЛичныеДанныеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.мояКартаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.checkBox1 = new System.Windows.Forms.CheckBox();
+			this.currentExaminationListView = new System.Windows.Forms.ListView();
+			this.columnId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.menuStrip1.SuspendLayout();
+			this.groupBox1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// menuStrip1
@@ -45,7 +53,7 @@
             this.медицинскаяКартаToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(873, 24);
+			this.menuStrip1.Size = new System.Drawing.Size(499, 24);
 			this.menuStrip1.TabIndex = 0;
 			this.menuStrip1.Text = "menuStrip1";
 			// 
@@ -81,13 +89,6 @@
 			this.медицинскаяКартаToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
 			this.медицинскаяКартаToolStripMenuItem.Text = "ЭМК";
 			// 
-			// мояКартаToolStripMenuItem
-			// 
-			this.мояКартаToolStripMenuItem.Name = "мояКартаToolStripMenuItem";
-			this.мояКартаToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
-			this.мояКартаToolStripMenuItem.Text = "Мои часы приема";
-			this.мояКартаToolStripMenuItem.Click += new System.EventHandler(this.workTimeToolStripMenuItem_Click);
-			// 
 			// редактироватьЛичныеДанныеToolStripMenuItem
 			// 
 			this.редактироватьЛичныеДанныеToolStripMenuItem.Name = "редактироватьЛичныеДанныеToolStripMenuItem";
@@ -95,17 +96,84 @@
 			this.редактироватьЛичныеДанныеToolStripMenuItem.Text = "Редактировать личные данные";
 			this.редактироватьЛичныеДанныеToolStripMenuItem.Click += new System.EventHandler(this.редактироватьЛичныеДанныеToolStripMenuItem_Click);
 			// 
+			// мояКартаToolStripMenuItem
+			// 
+			this.мояКартаToolStripMenuItem.Name = "мояКартаToolStripMenuItem";
+			this.мояКартаToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
+			this.мояКартаToolStripMenuItem.Text = "Мои часы приема";
+			this.мояКартаToolStripMenuItem.Click += new System.EventHandler(this.workTimeToolStripMenuItem_Click);
+			// 
+			// groupBox1
+			// 
+			this.groupBox1.Controls.Add(this.currentExaminationListView);
+			this.groupBox1.Controls.Add(this.checkBox1);
+			this.groupBox1.Location = new System.Drawing.Point(12, 27);
+			this.groupBox1.Name = "groupBox1";
+			this.groupBox1.Size = new System.Drawing.Size(467, 434);
+			this.groupBox1.TabIndex = 1;
+			this.groupBox1.TabStop = false;
+			this.groupBox1.Text = "Мои пациенты";
+			// 
+			// checkBox1
+			// 
+			this.checkBox1.AutoSize = true;
+			this.checkBox1.Location = new System.Drawing.Point(333, 19);
+			this.checkBox1.Name = "checkBox1";
+			this.checkBox1.Size = new System.Drawing.Size(122, 17);
+			this.checkBox1.TabIndex = 0;
+			this.checkBox1.Text = "Только на сегодня";
+			this.checkBox1.UseVisualStyleBackColor = true;
+			// 
+			// currentExaminationListView
+			// 
+			this.currentExaminationListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnId,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4});
+			this.currentExaminationListView.FullRowSelect = true;
+			this.currentExaminationListView.Location = new System.Drawing.Point(6, 42);
+			this.currentExaminationListView.MultiSelect = false;
+			this.currentExaminationListView.Name = "currentExaminationListView";
+			this.currentExaminationListView.Size = new System.Drawing.Size(449, 386);
+			this.currentExaminationListView.TabIndex = 2;
+			this.currentExaminationListView.UseCompatibleStateImageBehavior = false;
+			this.currentExaminationListView.View = System.Windows.Forms.View.Details;
+			// 
+			// columnId
+			// 
+			this.columnId.Text = "Id";
+			this.columnId.Width = 0;
+			// 
+			// columnHeader2
+			// 
+			this.columnHeader2.Text = "ФИО";
+			this.columnHeader2.Width = 200;
+			// 
+			// columnHeader3
+			// 
+			this.columnHeader3.Text = "Время";
+			this.columnHeader3.Width = 120;
+			// 
+			// columnHeader4
+			// 
+			this.columnHeader4.Text = "Статус";
+			this.columnHeader4.Width = 120;
+			// 
 			// DoctorMainWindow
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(873, 473);
+			this.ClientSize = new System.Drawing.Size(499, 473);
+			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.menuStrip1);
 			this.MainMenuStrip = this.menuStrip1;
 			this.Name = "DoctorMainWindow";
 			this.Text = "DoctorMainWindow";
 			this.menuStrip1.ResumeLayout(false);
 			this.menuStrip1.PerformLayout();
+			this.groupBox1.ResumeLayout(false);
+			this.groupBox1.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -120,5 +188,12 @@
 		private System.Windows.Forms.ToolStripMenuItem мояКартаToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem редактироватьЛичныеДанныеToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem выходИзСистемыToolStripMenuItem;
+		private System.Windows.Forms.GroupBox groupBox1;
+		private System.Windows.Forms.CheckBox checkBox1;
+		private System.Windows.Forms.ListView currentExaminationListView;
+		private System.Windows.Forms.ColumnHeader columnId;
+		private System.Windows.Forms.ColumnHeader columnHeader2;
+		private System.Windows.Forms.ColumnHeader columnHeader3;
+		private System.Windows.Forms.ColumnHeader columnHeader4;
 	}
 }

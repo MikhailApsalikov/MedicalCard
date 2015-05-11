@@ -2,9 +2,9 @@
 {
 	using System;
 	using System.Windows.Forms;
+	using BLL;
+	using BLL.Repositories;
 	using Entities;
-	using MedicalCard.BLL;
-	using MedicalCard.BLL.Repositories;
 
 	public partial class DoctorMainWindow : BaseForm
 	{
