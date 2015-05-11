@@ -7,6 +7,8 @@
 
 	public class Examination : IEntityWithId<int>
 	{
+		public const int Interval = 15;
+
 		public DateTime ExaminationDate { get; set; }
 		public int PatientId { get; set; }
 		public virtual Patient Patient { get; set; }

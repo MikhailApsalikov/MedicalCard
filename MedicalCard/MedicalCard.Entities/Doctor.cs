@@ -50,5 +50,7 @@
 
 		
 		public virtual List<WorkTime> WorkTimes { get; set; }
+
+		public virtual List<Examination> Examinations { get; set; }
 	}
 }

@@ -7,12 +7,12 @@
 	using System.IO;
 	using System.Linq;
 	using System.Windows.Forms;
-	using MedicalCard.BLL;
-	using MedicalCard.BLL.Repositories;
-	using MedicalCard.Common.Extensions;
-	using MedicalCard.Entities;
-	using MedicalCard.Entities.Enums;
-	using MedicalCard.WinForms.Properties;
+	using BLL;
+	using BLL.Repositories;
+	using Common.Extensions;
+	using Entities;
+	using Entities.Enums;
+	using Properties;
 
 	public partial class RegistrationWindow : BaseForm
 	{
@@ -111,7 +111,7 @@
 							MiddleName = middleNameTextBox.Text,
 							Phone = phoneTextBox.Text,
 							PositionId = position.Id,
-							WorkTimes = WorkTime.Default.ToList(),
+							WorkTimes = WorkTime.Default.ToList()
 						};
 						if (image != null)
 						{

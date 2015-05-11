@@ -60,6 +60,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -74,6 +75,11 @@
     <Compile Include="Interfaces\ITransaction.cs" />
     <Compile Include="MedicalCardDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Repositories\ExaminationRepository.cs" />
     <Compile Include="Repositories\AccountRepository.cs" />
     <Compile Include="Repositories\DoctorRepository.cs" />
@@ -112,9 +118,44 @@
       <Name>MedicalCard.Entities</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\test1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\test2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\test3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\test4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\test5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\test6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\test7.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\test8.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\test9.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\test10.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
