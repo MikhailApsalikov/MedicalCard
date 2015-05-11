@@ -32,10 +32,10 @@
 			SelectedIndexChanged(null, null);
 		}
 
-		private void UpdateDoctorList()
+		private void UpdateDoctorList(String filter = null)
 		{
 			doctorListView.Items.Clear();
-			var doctors = GetDoctorsByFilter();
+			var doctors = GetDoctorsByFilter(filter);
 			foreach (var doctor in doctors)
 			{
 				var item = new ListViewItem
@@ -64,28 +64,16 @@
 			};
 		}
 
-		private List<Doctor> GetDoctorsByFilter(String firstName = null, String lastName = null, String midName = null,
-			String position = null)
+		private List<Doctor> GetDoctorsByFilter(String filter = null)
 		{
 			var doctors = doctorRepository.GetAll();
-			if (!String.IsNullOrWhiteSpace(firstName))
-			{
-				doctors = doctors.Where(d => d.FirstName.Contains(firstName));
-			}
 
-			if (!String.IsNullOrWhiteSpace(lastName))
+			if (!String.IsNullOrWhiteSpace(filter))
 			{
-				doctors = doctors.Where(d => d.LastName.Contains(lastName));
-			}
-
-			if (!String.IsNullOrWhiteSpace(midName))
-			{
-				doctors = doctors.Where(d => d.MiddleName.Contains(midName));
-			}
-
-			if (!String.IsNullOrWhiteSpace(position))
-			{
-				doctors = doctors.Where(d => d.Position.Name.Contains(position));
+				doctors = doctors.Where(d => d.FirstName.Contains(filter)||
+					d.LastName.Contains(filter)||
+					d.MiddleName.Contains(filter)||
+					d.Position.Name.Contains(filter));
 			}
 
 			return doctors.ToList();
@@ -247,6 +235,11 @@
 		{
 			errorLabel.Visible = false;
 			timeComboBox.Enabled = true;
+		}
+
+		private void FilterTextChanged(object sender, EventArgs e)
+		{
+			UpdateDoctorList(searchTextBox.Text);
 		}
 	}
 }

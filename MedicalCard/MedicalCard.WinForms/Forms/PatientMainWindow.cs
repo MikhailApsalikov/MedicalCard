@@ -68,7 +68,7 @@
 
 		private void RefreshCurrentExaminationList(List<Examination> examinations)
 		{
-			var current = patient.Examinations.Where(e => e.Status != ExaminationStatus.Closed).ToList();
+			var current = patient.Examinations.Where(e => e.Status != ExaminationStatus.Closed).OrderByDescending(x => x.ExaminationDate).ToList();
 			if (!current.Any())
 			{
 				currentExaminationListView.Visible = false;

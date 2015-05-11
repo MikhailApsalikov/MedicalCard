@@ -45,6 +45,8 @@
 			this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
+			this.экспортToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.excelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.groupBox1.SuspendLayout();
 			this.SuspendLayout();
@@ -53,7 +55,8 @@
 			// 
 			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.файлToolStripMenuItem,
-            this.медицинскаяКартаToolStripMenuItem});
+            this.медицинскаяКартаToolStripMenuItem,
+            this.экспортToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
 			this.menuStrip1.Size = new System.Drawing.Size(873, 24);
@@ -190,6 +193,20 @@
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "История записей:";
 			// 
+			// экспортToolStripMenuItem
+			// 
+			this.экспортToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.excelToolStripMenuItem});
+			this.экспортToolStripMenuItem.Name = "экспортToolStripMenuItem";
+			this.экспортToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
+			this.экспортToolStripMenuItem.Text = "Экспорт";
+			// 
+			// excelToolStripMenuItem
+			// 
+			this.excelToolStripMenuItem.Name = "excelToolStripMenuItem";
+			this.excelToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.excelToolStripMenuItem.Text = "Excel";
+			// 
 			// PatientMainWindow
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -229,5 +246,7 @@
 		private System.Windows.Forms.ColumnHeader columnHeader4;
 		private System.Windows.Forms.Button initiateExaminationButton;
 		private System.Windows.Forms.Label initiateExaminationLabel;
+		private System.Windows.Forms.ToolStripMenuItem экспортToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem excelToolStripMenuItem;
 	}
 }

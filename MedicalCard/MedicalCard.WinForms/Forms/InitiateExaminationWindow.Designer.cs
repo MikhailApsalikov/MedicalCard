@@ -59,6 +59,8 @@
 			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
 			this.button1 = new System.Windows.Forms.Button();
 			this.button2 = new System.Windows.Forms.Button();
+			this.searchTextBox = new System.Windows.Forms.TextBox();
+			this.label14 = new System.Windows.Forms.Label();
 			this.groupBox1.SuspendLayout();
 			this.doctorInfoGroupBox.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.photoPictureBox)).BeginInit();
@@ -67,6 +69,8 @@
 			// 
 			// groupBox1
 			// 
+			this.groupBox1.Controls.Add(this.label14);
+			this.groupBox1.Controls.Add(this.searchTextBox);
 			this.groupBox1.Controls.Add(this.doctorListView);
 			this.groupBox1.Location = new System.Drawing.Point(12, 12);
 			this.groupBox1.Name = "groupBox1";
@@ -83,10 +87,10 @@
             this.columnHeader2,
             this.columnHeader3});
 			this.doctorListView.FullRowSelect = true;
-			this.doctorListView.Location = new System.Drawing.Point(6, 19);
+			this.doctorListView.Location = new System.Drawing.Point(6, 58);
 			this.doctorListView.MultiSelect = false;
 			this.doctorListView.Name = "doctorListView";
-			this.doctorListView.Size = new System.Drawing.Size(436, 380);
+			this.doctorListView.Size = new System.Drawing.Size(436, 341);
 			this.doctorListView.TabIndex = 0;
 			this.doctorListView.UseCompatibleStateImageBehavior = false;
 			this.doctorListView.View = System.Windows.Forms.View.Details;
@@ -376,7 +380,6 @@
 			this.button1.TabIndex = 3;
 			this.button1.Text = "Отмена";
 			this.button1.UseVisualStyleBackColor = true;
-			this.button1.Click += new System.EventHandler(this.OnClickCancelButton);
 			// 
 			// button2
 			// 
@@ -387,6 +390,24 @@
 			this.button2.Text = "Записаться";
 			this.button2.UseVisualStyleBackColor = true;
 			this.button2.Click += new System.EventHandler(this.button2_Click);
+			// 
+			// searchTextBox
+			// 
+			this.searchTextBox.Location = new System.Drawing.Point(119, 21);
+			this.searchTextBox.Name = "searchTextBox";
+			this.searchTextBox.Size = new System.Drawing.Size(323, 20);
+			this.searchTextBox.TabIndex = 1;
+			this.searchTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.searchTextBox.TextChanged += new System.EventHandler(this.FilterTextChanged);
+			// 
+			// label14
+			// 
+			this.label14.AutoSize = true;
+			this.label14.Location = new System.Drawing.Point(6, 24);
+			this.label14.Name = "label14";
+			this.label14.Size = new System.Drawing.Size(42, 13);
+			this.label14.TabIndex = 2;
+			this.label14.Text = "Поиск:";
 			// 
 			// InitiateExaminationWindow
 			// 
@@ -401,6 +422,7 @@
 			this.Name = "InitiateExaminationWindow";
 			this.Text = "InitiateExaminationWindow";
 			this.groupBox1.ResumeLayout(false);
+			this.groupBox1.PerformLayout();
 			this.doctorInfoGroupBox.ResumeLayout(false);
 			this.doctorInfoGroupBox.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.photoPictureBox)).EndInit();
@@ -443,5 +465,7 @@
 		private System.Windows.Forms.ComboBox timeComboBox;
 		private System.Windows.Forms.DateTimePicker dateTimePicker1;
 		private System.Windows.Forms.Label errorLabel;
+		private System.Windows.Forms.Label label14;
+		private System.Windows.Forms.TextBox searchTextBox;
 	}
 }
