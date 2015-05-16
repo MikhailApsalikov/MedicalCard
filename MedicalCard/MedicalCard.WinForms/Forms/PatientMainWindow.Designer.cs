@@ -35,6 +35,8 @@
 			this.медицинскаяКартаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.записьКВрачуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.редактироватьЛичныеДанныеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.экспортToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.excelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.initiateExaminationButton = new System.Windows.Forms.Button();
 			this.initiateExaminationLabel = new System.Windows.Forms.Label();
@@ -45,10 +47,15 @@
 			this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
-			this.экспортToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.excelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.historyIsEmptyLabel = new System.Windows.Forms.Label();
+			this.historyListView = new System.Windows.Forms.ListView();
+			this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.menuStrip1.SuspendLayout();
 			this.groupBox1.SuspendLayout();
+			this.groupBox2.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// menuStrip1
@@ -59,7 +66,7 @@
             this.экспортToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(873, 24);
+			this.menuStrip1.Size = new System.Drawing.Size(713, 24);
 			this.menuStrip1.TabIndex = 0;
 			this.menuStrip1.Text = "menuStrip1";
 			// 
@@ -109,6 +116,20 @@
 			this.редактироватьЛичныеДанныеToolStripMenuItem.Text = "Редактировать личные данные";
 			this.редактироватьЛичныеДанныеToolStripMenuItem.Click += new System.EventHandler(this.редактироватьЛичныеДанныеToolStripMenuItem_Click);
 			// 
+			// экспортToolStripMenuItem
+			// 
+			this.экспортToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.excelToolStripMenuItem});
+			this.экспортToolStripMenuItem.Name = "экспортToolStripMenuItem";
+			this.экспортToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
+			this.экспортToolStripMenuItem.Text = "Экспорт";
+			// 
+			// excelToolStripMenuItem
+			// 
+			this.excelToolStripMenuItem.Name = "excelToolStripMenuItem";
+			this.excelToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+			this.excelToolStripMenuItem.Text = "Excel";
+			// 
 			// groupBox1
 			// 
 			this.groupBox1.Controls.Add(this.initiateExaminationButton);
@@ -116,14 +137,14 @@
 			this.groupBox1.Controls.Add(this.currentExaminationListView);
 			this.groupBox1.Location = new System.Drawing.Point(12, 37);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(849, 182);
+			this.groupBox1.Size = new System.Drawing.Size(693, 182);
 			this.groupBox1.TabIndex = 1;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Я записан к:";
 			// 
 			// initiateExaminationButton
 			// 
-			this.initiateExaminationButton.Location = new System.Drawing.Point(354, 113);
+			this.initiateExaminationButton.Location = new System.Drawing.Point(256, 106);
 			this.initiateExaminationButton.Name = "initiateExaminationButton";
 			this.initiateExaminationButton.Size = new System.Drawing.Size(145, 23);
 			this.initiateExaminationButton.TabIndex = 3;
@@ -136,7 +157,7 @@
 			this.initiateExaminationLabel.AutoSize = true;
 			this.initiateExaminationLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.initiateExaminationLabel.ForeColor = System.Drawing.Color.Green;
-			this.initiateExaminationLabel.Location = new System.Drawing.Point(272, 70);
+			this.initiateExaminationLabel.Location = new System.Drawing.Point(178, 67);
 			this.initiateExaminationLabel.Name = "initiateExaminationLabel";
 			this.initiateExaminationLabel.Size = new System.Drawing.Size(333, 16);
 			this.initiateExaminationLabel.TabIndex = 2;
@@ -154,7 +175,7 @@
 			this.currentExaminationListView.Location = new System.Drawing.Point(6, 19);
 			this.currentExaminationListView.MultiSelect = false;
 			this.currentExaminationListView.Name = "currentExaminationListView";
-			this.currentExaminationListView.Size = new System.Drawing.Size(837, 157);
+			this.currentExaminationListView.Size = new System.Drawing.Size(678, 157);
 			this.currentExaminationListView.TabIndex = 1;
 			this.currentExaminationListView.UseCompatibleStateImageBehavior = false;
 			this.currentExaminationListView.View = System.Windows.Forms.View.Details;
@@ -182,36 +203,71 @@
 			// columnHeader4
 			// 
 			this.columnHeader4.Text = "Статус";
-			this.columnHeader4.Width = 120;
+			this.columnHeader4.Width = 180;
 			// 
 			// groupBox2
 			// 
+			this.groupBox2.Controls.Add(this.historyIsEmptyLabel);
+			this.groupBox2.Controls.Add(this.historyListView);
 			this.groupBox2.Location = new System.Drawing.Point(12, 225);
 			this.groupBox2.Name = "groupBox2";
-			this.groupBox2.Size = new System.Drawing.Size(849, 236);
+			this.groupBox2.Size = new System.Drawing.Size(693, 236);
 			this.groupBox2.TabIndex = 2;
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "История записей:";
 			// 
-			// экспортToolStripMenuItem
+			// historyIsEmptyLabel
 			// 
-			this.экспортToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.excelToolStripMenuItem});
-			this.экспортToolStripMenuItem.Name = "экспортToolStripMenuItem";
-			this.экспортToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
-			this.экспортToolStripMenuItem.Text = "Экспорт";
+			this.historyIsEmptyLabel.AutoSize = true;
+			this.historyIsEmptyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.historyIsEmptyLabel.ForeColor = System.Drawing.Color.Green;
+			this.historyIsEmptyLabel.Location = new System.Drawing.Point(275, 93);
+			this.historyIsEmptyLabel.Name = "historyIsEmptyLabel";
+			this.historyIsEmptyLabel.Size = new System.Drawing.Size(104, 16);
+			this.historyIsEmptyLabel.TabIndex = 4;
+			this.historyIsEmptyLabel.Text = "История пуста";
 			// 
-			// excelToolStripMenuItem
+			// historyListView
 			// 
-			this.excelToolStripMenuItem.Name = "excelToolStripMenuItem";
-			this.excelToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-			this.excelToolStripMenuItem.Text = "Excel";
+			this.historyListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader5,
+            this.columnHeader6,
+            this.columnHeader7,
+            this.columnHeader8});
+			this.historyListView.FullRowSelect = true;
+			this.historyListView.Location = new System.Drawing.Point(6, 19);
+			this.historyListView.MultiSelect = false;
+			this.historyListView.Name = "historyListView";
+			this.historyListView.Size = new System.Drawing.Size(678, 211);
+			this.historyListView.TabIndex = 4;
+			this.historyListView.UseCompatibleStateImageBehavior = false;
+			this.historyListView.View = System.Windows.Forms.View.Details;
+			// 
+			// columnHeader5
+			// 
+			this.columnHeader5.Text = "Id";
+			this.columnHeader5.Width = 0;
+			// 
+			// columnHeader6
+			// 
+			this.columnHeader6.Text = "Должность";
+			this.columnHeader6.Width = 150;
+			// 
+			// columnHeader7
+			// 
+			this.columnHeader7.Text = "ФИО";
+			this.columnHeader7.Width = 400;
+			// 
+			// columnHeader8
+			// 
+			this.columnHeader8.Text = "Время";
+			this.columnHeader8.Width = 120;
 			// 
 			// PatientMainWindow
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(873, 473);
+			this.ClientSize = new System.Drawing.Size(713, 473);
 			this.Controls.Add(this.groupBox2);
 			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.menuStrip1);
@@ -222,6 +278,8 @@
 			this.menuStrip1.PerformLayout();
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
+			this.groupBox2.ResumeLayout(false);
+			this.groupBox2.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -248,5 +306,11 @@
 		private System.Windows.Forms.Label initiateExaminationLabel;
 		private System.Windows.Forms.ToolStripMenuItem экспортToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem excelToolStripMenuItem;
+		private System.Windows.Forms.ListView historyListView;
+		private System.Windows.Forms.ColumnHeader columnHeader5;
+		private System.Windows.Forms.ColumnHeader columnHeader6;
+		private System.Windows.Forms.ColumnHeader columnHeader7;
+		private System.Windows.Forms.ColumnHeader columnHeader8;
+		private System.Windows.Forms.Label historyIsEmptyLabel;
 	}
 }

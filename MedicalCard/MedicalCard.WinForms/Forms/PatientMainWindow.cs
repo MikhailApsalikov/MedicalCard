@@ -64,6 +64,37 @@
 		{
 			var examinations = patient.Examinations;
 			RefreshCurrentExaminationList(examinations);
+			RefreshHistoryList(examinations);
+		}
+
+		private void RefreshHistoryList(List<Examination> examinations)
+		{
+			var history = patient.Examinations.Where(e => e.Status == ExaminationStatus.Closed).OrderByDescending(x => x.ExaminationDate).ToList();
+
+			if (!history.Any())
+			{
+				historyListView.Visible = false;
+				historyIsEmptyLabel.Visible = true;
+				return;
+			}
+
+			historyListView.Visible = true;
+			historyIsEmptyLabel.Visible = false;
+
+			foreach (var examination in history)
+			{
+				var item = new ListViewItem
+				{
+					Text = examination.Id.ToString(),
+					SubItems =
+					{
+						examination.Doctor.Position.Name,
+						examination.Doctor.FullName,
+						examination.ExaminationDate.ToString("dd.MM.yyyy HH:mm")
+					}
+				};
+				historyListView.Items.Add(item);
+			}
 		}
 
 		private void RefreshCurrentExaminationList(List<Examination> examinations)

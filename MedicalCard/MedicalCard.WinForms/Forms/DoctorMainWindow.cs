@@ -7,6 +7,7 @@
 	using BLL;
 	using BLL.Repositories;
 	using Entities;
+	using Entities.Enums;
 
 	public partial class DoctorMainWindow : BaseForm
 	{
@@ -71,8 +72,10 @@
 					SubItems =
 					{
 						examination.Patient.FullName,
-						isTodayOnly?examination.ExaminationDate.ToString("hh:mm"):examination.ExaminationDate.ToString("hh:mm (dd.MM.yyyy)"),
-						examination.Status.GetString(),
+						isTodayOnly
+							? examination.ExaminationDate.ToString("hh:mm")
+							: examination.ExaminationDate.ToString("hh:mm (dd.MM.yyyy)"),
+						examination.Status.GetString()
 					}
 				};
 				currentExaminationListView.Items.Add(item);
@@ -81,15 +84,32 @@
 
 		private List<Examination> GetExaminations(bool isTodayOnly)
 		{
-			IEnumerable<Examination> examinations = repository.GetById(doctor.Id).Examinations;
-			DateTime now = DateTime.Now;
+			repository = new DoctorRepository(new MedicalCardDbContext());
+			IEnumerable<Examination> examinations = repository.GetById(doctor.Id).Examinations.Where(e=>e.Status != ExaminationStatus.Closed);
+			var now = DateTime.Now;
 
 			if (isTodayOnly)
 			{
-				examinations = examinations.Where(d => d.ExaminationDate.Year == now.Year && d.ExaminationDate.Month == now.Month && d.ExaminationDate.Day == now.Day);
+				examinations =
+					examinations.Where(
+						d =>
+							d.ExaminationDate.Year == now.Year && d.ExaminationDate.Month == now.Month && d.ExaminationDate.Day == now.Day);
 			}
 
-			return examinations.OrderByDescending(e=>e.ExaminationDate).ToList();
+			return examinations.OrderByDescending(e => e.ExaminationDate).ToList();
+		}
+
+		private void currentExaminationListView_DoubleClick(object sender, EventArgs e)
+		{
+			if (currentExaminationListView.SelectedItems.Count != 1)
+			{
+				return;
+			}
+			int selectedId = Int32.Parse(currentExaminationListView.SelectedItems[0].Text);
+			var examinationForm = new ExaminationForm(doctor.Account, selectedId);
+			examinationForm.ShowDialog();
+
+			UpdateExaminationList(checkBox1.Checked);
 		}
 	}
 }

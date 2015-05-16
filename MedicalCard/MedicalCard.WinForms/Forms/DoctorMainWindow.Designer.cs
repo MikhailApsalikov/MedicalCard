@@ -129,6 +129,7 @@
 			this.currentExaminationListView.TabIndex = 2;
 			this.currentExaminationListView.UseCompatibleStateImageBehavior = false;
 			this.currentExaminationListView.View = System.Windows.Forms.View.Details;
+			this.currentExaminationListView.DoubleClick += new System.EventHandler(this.currentExaminationListView_DoubleClick);
 			// 
 			// columnId
 			// 
