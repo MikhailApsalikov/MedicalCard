@@ -61,7 +61,26 @@
 						Phone = "+7915468741",
 						Disability = Disability.None,
 						InsurancePolicy = "4897693246237940",
-						Snils = "434836472683"
+						Snils = "434836472683",
+						Notes = new List<Note>()
+						{
+							new Note()
+							{
+								CreateDate = DateTime.Now,
+								ExpirationDate = DateTime.Now.AddDays(30),
+								DoctorId = 2,
+								Title = "Справка о состоянии здоровья",
+								Text = "Данная справка подтверждает, что пациент здоров.",
+							},
+							new Note()
+							{
+								CreateDate = DateTime.Now,
+								ExpirationDate = DateTime.Now.AddDays(60),
+								DoctorId = 3,
+								Title = "Справка от ортопеда",
+								Text = "У пациента все хорошо.",
+							}
+						}
 					}
 				},
 				new Account

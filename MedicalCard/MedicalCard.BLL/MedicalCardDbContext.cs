@@ -15,6 +15,7 @@
 		public DbSet<Photo> Photos { get; set; }
 		public DbSet<Position> Positions { get; set; }
 		public DbSet<Examination> Examinations { get; set; }
+		public DbSet<Note> Notes { get; set; }
 
 		public void Update<TEntity>(TEntity entity) where TEntity : class
 		{

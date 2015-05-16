@@ -5,6 +5,7 @@
 	using System.ComponentModel;
 	using System.ComponentModel.DataAnnotations;
 	using System.ComponentModel.DataAnnotations.Schema;
+	using System.Text;
 	using Enums;
 	using Interfaces;
 
@@ -29,6 +30,7 @@
 
 		[DisplayName("Отчество")]
 		public String MiddleName { get; set; }
+
 		public DateTime? BirthDate { get; set; }
 		public Gender Gender { get; set; }
 		public int PositionId { get; set; }
@@ -45,12 +47,29 @@
 			get { return String.Format("{0} {1} {2}", LastName, FirstName, MiddleName); }
 		}
 
+		[NotMapped]
+		public string Initials
+		{
+			get
+			{
+				var sb = new StringBuilder(LastName);
+				if (FirstName != null)
+				{
+					sb.AppendFormat(" {0}.", FirstName[0]);
+				}
+
+				if (MiddleName != null)
+				{
+					sb.AppendFormat(" {0}.", MiddleName[0]);
+				}
+				return sb.ToString();
+			}
+		}
+
+		public virtual List<WorkTime> WorkTimes { get; set; }
+		public virtual List<Examination> Examinations { get; set; }
+
 		[Key, ForeignKey("Account")]
 		public int Id { get; set; }
-
-		
-		public virtual List<WorkTime> WorkTimes { get; set; }
-
-		public virtual List<Examination> Examinations { get; set; }
 	}
 }

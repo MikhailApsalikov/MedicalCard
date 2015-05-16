@@ -83,6 +83,7 @@
     <Compile Include="Repositories\ExaminationRepository.cs" />
     <Compile Include="Repositories\AccountRepository.cs" />
     <Compile Include="Repositories\DoctorRepository.cs" />
+    <Compile Include="Repositories\NoteRepository.cs" />
     <Compile Include="Repositories\PatientRepository.cs" />
     <Compile Include="Repositories\PositionRepository.cs" />
     <Compile Include="TestDataInitializer.cs" />

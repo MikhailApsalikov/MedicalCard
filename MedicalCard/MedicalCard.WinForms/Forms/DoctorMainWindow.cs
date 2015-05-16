@@ -20,7 +20,7 @@
 			this.doctor = doctor;
 			this.loginWindow = loginWindow;
 			InitializeComponent();
-			SetParameters(String.Format("Врач " + doctor.FullName));
+			SetName(String.Format("Врач " + doctor.FullName));
 			UpdateExaminationList(checkBox1.Checked);
 		}
 
@@ -40,7 +40,7 @@
 			var accountDataEdit = new DoctorEditWindow(doctor);
 			accountDataEdit.ShowDialog();
 			doctor = new DoctorRepository(new MedicalCardDbContext()).GetById(doctor.Id);
-			SetParameters(String.Format("Врач " + doctor.FullName));
+			SetName(String.Format("Врач " + doctor.FullName));
 		}
 
 		private void выходИзСистемыToolStripMenuItem_Click(object sender, EventArgs e)

@@ -15,7 +15,7 @@
 		public LoginWindow()
 		{
 			InitializeComponent();
-			SetParameters("Авторизация");
+			SetName("Авторизация");
 			repository = new AccountRepository(new MedicalCardDbContext());
 		}
 

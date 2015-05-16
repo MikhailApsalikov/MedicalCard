@@ -56,7 +56,7 @@
 		private void RefreshAllData()
 		{
 			patient = new PatientRepository(new MedicalCardDbContext()).GetById(patient.Id);
-			SetParameters(String.Format("Пациент " + patient.FullName));
+			SetName(String.Format("Пациент " + patient.FullName));
 			RefreshExaminationLists();
 		}
 
@@ -127,6 +127,23 @@
 				};
 				currentExaminationListView.Items.Add(item);
 			}
+		}
+
+		private void historyListView_DoubleClick(object sender, EventArgs e)
+		{
+			if (historyListView.SelectedItems.Count != 1)
+			{
+				return;
+			}
+			int selectedId = Int32.Parse(historyListView.SelectedItems[0].Text);
+			var examinationForm = new ExaminationForm(patient.Account, selectedId);
+			examinationForm.ShowDialog();
+		}
+
+		private void моиСправкиToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			var window = new NoteListWindow(patient);
+			window.ShowDialog();
 		}
 	}
 }

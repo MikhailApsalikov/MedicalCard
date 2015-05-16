@@ -60,6 +60,7 @@
     <Compile Include="Examination.cs" />
     <Compile Include="Exceptions\EntityNotFoundException.cs" />
     <Compile Include="Interfaces\IEntityWithId.cs" />
+    <Compile Include="Note.cs" />
     <Compile Include="Patient.cs" />
     <Compile Include="Photo.cs" />
     <Compile Include="Position.cs" />

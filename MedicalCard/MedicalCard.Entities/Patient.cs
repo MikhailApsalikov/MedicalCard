@@ -46,5 +46,7 @@
 		public int Id { get; set; }
 
 		public virtual List<Examination> Examinations { get; set; }
+
+		public virtual List<Note> Notes { get; set; }
 	}
 }

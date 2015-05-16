@@ -23,7 +23,7 @@
 		public RegistrationWindow()
 		{
 			InitializeComponent();
-			SetParameters("Регистрация");
+			SetName("Регистрация");
 			InitRepositories();
 			InitComboBoxes();
 		}

@@ -27,7 +27,7 @@
 			this.patient = patient;
 			InitializeComponent();
 			InitializeWorkTimeLabels();
-			SetParameters("Запись к врачу");
+			SetName("Запись к врачу");
 			UpdateDoctorList();
 			SelectedIndexChanged(null, null);
 		}

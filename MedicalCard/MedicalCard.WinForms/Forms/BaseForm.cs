@@ -12,7 +12,7 @@
 			MaximizeBox = false;
 		}
 
-		protected void SetParameters(string caption)
+		protected void SetName(string caption)
 		{
 			Text = caption;
 		}

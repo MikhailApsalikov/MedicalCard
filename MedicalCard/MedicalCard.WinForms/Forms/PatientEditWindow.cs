@@ -18,7 +18,7 @@
 		{
 			this.patient = repository.GetById(patient.Id);
 			InitializeComponent();
-			SetParameters("Редактирование данных пациента");
+			SetName("Редактирование данных пациента");
 			SetValues();
 		}
 

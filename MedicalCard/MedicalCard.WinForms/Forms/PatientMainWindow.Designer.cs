@@ -53,6 +53,7 @@
 			this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.моиСправкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
@@ -97,7 +98,8 @@
 			// 
 			this.медицинскаяКартаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.записьКВрачуToolStripMenuItem,
-            this.редактироватьЛичныеДанныеToolStripMenuItem});
+            this.редактироватьЛичныеДанныеToolStripMenuItem,
+            this.моиСправкиToolStripMenuItem});
 			this.медицинскаяКартаToolStripMenuItem.Name = "медицинскаяКартаToolStripMenuItem";
 			this.медицинскаяКартаToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
 			this.медицинскаяКартаToolStripMenuItem.Text = "ЭМК";
@@ -127,7 +129,7 @@
 			// excelToolStripMenuItem
 			// 
 			this.excelToolStripMenuItem.Name = "excelToolStripMenuItem";
-			this.excelToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+			this.excelToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.excelToolStripMenuItem.Text = "Excel";
 			// 
 			// groupBox1
@@ -242,6 +244,7 @@
 			this.historyListView.TabIndex = 4;
 			this.historyListView.UseCompatibleStateImageBehavior = false;
 			this.historyListView.View = System.Windows.Forms.View.Details;
+			this.historyListView.DoubleClick += new System.EventHandler(this.historyListView_DoubleClick);
 			// 
 			// columnHeader5
 			// 
@@ -262,6 +265,13 @@
 			// 
 			this.columnHeader8.Text = "Время";
 			this.columnHeader8.Width = 120;
+			// 
+			// моиСправкиToolStripMenuItem
+			// 
+			this.моиСправкиToolStripMenuItem.Name = "моиСправкиToolStripMenuItem";
+			this.моиСправкиToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
+			this.моиСправкиToolStripMenuItem.Text = "Мои справки";
+			this.моиСправкиToolStripMenuItem.Click += new System.EventHandler(this.моиСправкиToolStripMenuItem_Click);
 			// 
 			// PatientMainWindow
 			// 
@@ -312,5 +322,6 @@
 		private System.Windows.Forms.ColumnHeader columnHeader7;
 		private System.Windows.Forms.ColumnHeader columnHeader8;
 		private System.Windows.Forms.Label historyIsEmptyLabel;
+		private System.Windows.Forms.ToolStripMenuItem моиСправкиToolStripMenuItem;
 	}
 }

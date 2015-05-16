@@ -71,6 +71,18 @@
     <Compile Include="Forms\InitiateExaminationWindow.Designer.cs">
       <DependentUpon>InitiateExaminationWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\NoteEditWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NoteEditWindow.Designer.cs">
+      <DependentUpon>NoteEditWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\NoteListWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NoteListWindow.Designer.cs">
+      <DependentUpon>NoteListWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\PatientEditWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +132,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\InitiateExaminationWindow.resx">
       <DependentUpon>InitiateExaminationWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NoteEditWindow.resx">
+      <DependentUpon>NoteEditWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NoteListWindow.resx">
+      <DependentUpon>NoteListWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PatientEditWindow.resx">
       <DependentUpon>PatientEditWindow.cs</DependentUpon>

@@ -25,7 +25,7 @@
 			repository = new DoctorRepository(new MedicalCardDbContext());
 			this.doctor = repository.GetById(doctor.Id);
 			InitializeComponent();
-			SetParameters("Изменить часы приема");
+			SetName("Изменить часы приема");
 			InitializeForm();
 			SetValues(this.doctor.WorkTimes);
 		}
