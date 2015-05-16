@@ -26,56 +26,9 @@
 			var positions = new List<Position>
 			{
 				new Position("Терапевт"),
-				new Position("Лаборант"),
-				new Position("Хирург"),
-				new Position("Окулист"),
-				new Position("Нейрохирург"),
-				new Position("Невролог"),
-				new Position("Нарколог"),
-				new Position("Маммолог"),
-				new Position("Косметолог"),
-				new Position("Кардиохирург"),
-				new Position("Кардиолог"),
-				new Position("Иммунолог"),
-				new Position("Диетолог"),
-				new Position("Дерматолог"),
-				new Position("Дерматовенеролог"),
-				new Position("Гинеколог"),
-				new Position("Генетик"),
-				new Position("Гематолог"),
-				new Position("Гастроэнтеролог"),
-				new Position("Врач общей практики"),
-				new Position("Врач лечебной физкультуры"),
-				new Position("Вирусолог"),
-				new Position("Венеролог"),
-				new Position("Анестезиолог"),
-				new Position("Андролог"),
-				new Position("Ангиохирург"),
-				new Position("Аллерголог-иммунолог"),
-				new Position("Аллерголог"),
-				new Position("Акушер-гинеколог"),
-				new Position("Физиотерапевт"),
-				new Position("Эметолог"),
-				new Position("Эндокринолог"),
-				new Position("Эндоскопист"),
-				new Position("Фармаколог"),
-				new Position("Уролог"),
-				new Position("Травматолог"),
-				new Position("Токсиколог"),
-				new Position("Сурдолог"),
-				new Position("Стоматолог"),
-				new Position("Сексопатолог"),
-				new Position("Рентгенолог"),
-				new Position("Ревматолог"),
-				new Position("Реаниматолог"),
-				new Position("Пульмонолог"),
-				new Position("Психиатр"),
-				new Position("Проктолог"),
-				new Position("Педиатр"),
-				new Position("Оториноларинголог"),
-				new Position("Остеопат"),
 				new Position("Ортопед"),
-				new Position("Эпидемиолог")
+				new Position("Хирург"),
+				new Position("Невропатолог")
 			};
 
 			context.Positions.AddRange(positions);
@@ -126,8 +79,13 @@
 						LastName = "Иванов",
 						MiddleName = "Романович",
 						Phone = "+7123546678",
-						PositionId = 3,
-						WorkTimes = WorkTime.Default.ToList(),
+						PositionId = 1,
+						WorkTimes = new List<WorkTime>()
+						{
+							new WorkTime(DayOfWeek.Monday, 9, 11),
+							new WorkTime(DayOfWeek.Wednesday, 13, 16),
+							new WorkTime(DayOfWeek.Friday, 9, 19),
+						},
 						Photo = new Photo()
 						{
 							Content = Resources.test1.ImageToByteArray()
@@ -149,7 +107,7 @@
 						LastName = "Петров",
 						MiddleName = "Петрович",
 						Phone = "+79177894561",
-						PositionId = 1,
+						PositionId = 2,
 						WorkTimes = WorkTime.Default.ToList(),
 						Photo = new Photo()
 						{
@@ -192,8 +150,14 @@
 						LastName = "Пономарёва",
 						MiddleName = "Григорьевна",
 						Phone = "8 (908) 205-31-12",
-						PositionId = 4,
-						WorkTimes = WorkTime.Default.ToList(),
+						PositionId = 3,
+						WorkTimes = new List<WorkTime>()
+						{
+							new WorkTime(DayOfWeek.Tuesday, 8, 15),
+							new WorkTime(DayOfWeek.Wednesday, 8, 15),
+							new WorkTime(DayOfWeek.Thursday, 8, 12),
+							new WorkTime(DayOfWeek.Friday, 12, 19),
+						},
 						Photo = new Photo()
 						{
 							Content = Resources.test10.ImageToByteArray()
@@ -215,8 +179,12 @@
 						LastName = "Наумова",
 						MiddleName = "Кирилловна",
 						Phone = "8 (908) 205-31-13",
-						PositionId = 12,
-						WorkTimes = WorkTime.Default.ToList(),
+						PositionId = 4,
+						WorkTimes = new List<WorkTime>()
+						{
+							new WorkTime(DayOfWeek.Monday, 9, 17),
+							new WorkTime(DayOfWeek.Thursday, 13, 17),
+						},
 						Photo = new Photo()
 						{
 							Content = Resources.test9.ImageToByteArray()
@@ -238,8 +206,15 @@
 						LastName = "Городнов",
 						MiddleName = "Владимирович",
 						Phone = "8 (928) 287-74-96",
-						PositionId = 19,
-						WorkTimes = WorkTime.Default.ToList(),
+						PositionId = 3,
+						WorkTimes = new List<WorkTime>()
+						{
+							new WorkTime(DayOfWeek.Monday, 9, 11),
+							new WorkTime(DayOfWeek.Tuesday, 8, 10),
+							new WorkTime(DayOfWeek.Wednesday, 11, 13),
+							new WorkTime(DayOfWeek.Thursday, 17, 19),
+							new WorkTime(DayOfWeek.Friday, 17, 20),
+						},
 						Photo = new Photo()
 						{
 							Content = Resources.test3.ImageToByteArray()
@@ -261,8 +236,14 @@
 						LastName = "Александров",
 						MiddleName = "Максимович",
 						Phone = "8 (978) 843-87-66",
-						PositionId = 26,
-						WorkTimes = WorkTime.Default.ToList(),
+						PositionId = 2,
+						WorkTimes = new List<WorkTime>()
+						{
+							new WorkTime(DayOfWeek.Monday, 17, 20),
+							new WorkTime(DayOfWeek.Tuesday, 8, 15),
+							new WorkTime(DayOfWeek.Wednesday, 12, 17),
+							new WorkTime(DayOfWeek.Friday, 11, 14),
+						},
 						Photo = new Photo()
 						{
 							Content = Resources.test4.ImageToByteArray()
@@ -284,8 +265,15 @@
 						LastName = "Баландин",
 						MiddleName = "Сергеевич",
 						Phone = "8 (905) 936-16-48",
-						PositionId = 32,
-						WorkTimes = WorkTime.Default.ToList(),
+						PositionId = 4,
+						WorkTimes = new List<WorkTime>()
+						{
+							new WorkTime(DayOfWeek.Monday, 8, 15),
+							new WorkTime(DayOfWeek.Tuesday, 8, 15),
+							new WorkTime(DayOfWeek.Wednesday, 11, 15),
+							new WorkTime(DayOfWeek.Thursday, 11, 15),
+							new WorkTime(DayOfWeek.Friday, 8, 15),
+						},
 						Photo = new Photo()
 						{
 							Content = Resources.test5.ImageToByteArray()
@@ -307,8 +295,11 @@
 						LastName = "Ичёткина",
 						MiddleName = "Матвеевна",
 						Phone = "8 (905) 459-26-71",
-						PositionId = 32,
-						WorkTimes = WorkTime.Default.ToList(),
+						PositionId = 1,
+						WorkTimes = new List<WorkTime>()
+						{
+							new WorkTime(DayOfWeek.Monday, 10, 20),
+						},
 						Photo = new Photo()
 						{
 							Content = Resources.test8.ImageToByteArray()
@@ -330,8 +321,14 @@
 						LastName = "Соболева",
 						MiddleName = "Антоновна",
 						Phone = "8 (900) 685-31-46",
-						PositionId = 36,
-						WorkTimes = WorkTime.Default.ToList(),
+						PositionId = 2,
+						WorkTimes = new List<WorkTime>()
+						{
+							new WorkTime(DayOfWeek.Monday, 14, 20),
+							new WorkTime(DayOfWeek.Friday, 14, 20),
+							new WorkTime(DayOfWeek.Wednesday, 14, 20),
+							new WorkTime(DayOfWeek.Thursday, 14, 20),
+						},
 						Photo = new Photo()
 						{
 							Content = Resources.test7.ImageToByteArray()
@@ -353,7 +350,7 @@
 						LastName = "Трифонова",
 						MiddleName = "Владиславовна",
 						Phone = "8 (900) 387-44-52",
-						PositionId = 41,
+						PositionId = 3,
 						WorkTimes = WorkTime.Default.ToList(),
 						Photo = new Photo()
 						{

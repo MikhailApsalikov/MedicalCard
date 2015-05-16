@@ -13,6 +13,17 @@
 		public const int MinBeginTime = 7;
 		public const int MaxEndTime = 21;
 
+		public WorkTime()
+		{
+		}
+
+		public WorkTime(DayOfWeek dayOfWeek, int begin, int end)
+		{
+			DayOfWeek = dayOfWeek;
+			Begin = begin;
+			End = end;
+		}
+
 		[Key]
 		[Column(Order = 1)]
 		public int DoctorId { get; set; }
@@ -29,11 +40,11 @@
 		{
 			get
 			{
-				return WorkDays.Select(item => new WorkTime()
+				return WorkDays.Select(item => new WorkTime
 				{
 					DayOfWeek = item,
 					Begin = BeginDefaultTime,
-					End = EndDefaultTime,
+					End = EndDefaultTime
 				});
 			}
 		}

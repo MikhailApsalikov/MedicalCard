@@ -36,12 +36,12 @@
 			this.редактироватьЛичныеДанныеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.мояКартаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
-			this.checkBox1 = new System.Windows.Forms.CheckBox();
 			this.currentExaminationListView = new System.Windows.Forms.ListView();
 			this.columnId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.checkBox1 = new System.Windows.Forms.CheckBox();
 			this.menuStrip1.SuspendLayout();
 			this.groupBox1.SuspendLayout();
 			this.SuspendLayout();
@@ -114,16 +114,6 @@
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Мои пациенты";
 			// 
-			// checkBox1
-			// 
-			this.checkBox1.AutoSize = true;
-			this.checkBox1.Location = new System.Drawing.Point(333, 19);
-			this.checkBox1.Name = "checkBox1";
-			this.checkBox1.Size = new System.Drawing.Size(122, 17);
-			this.checkBox1.TabIndex = 0;
-			this.checkBox1.Text = "Только на сегодня";
-			this.checkBox1.UseVisualStyleBackColor = true;
-			// 
 			// currentExaminationListView
 			// 
 			this.currentExaminationListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -159,6 +149,19 @@
 			// 
 			this.columnHeader4.Text = "Статус";
 			this.columnHeader4.Width = 120;
+			// 
+			// checkBox1
+			// 
+			this.checkBox1.AutoSize = true;
+			this.checkBox1.Checked = true;
+			this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.checkBox1.Location = new System.Drawing.Point(333, 19);
+			this.checkBox1.Name = "checkBox1";
+			this.checkBox1.Size = new System.Drawing.Size(122, 17);
+			this.checkBox1.TabIndex = 0;
+			this.checkBox1.Text = "Только на сегодня";
+			this.checkBox1.UseVisualStyleBackColor = true;
+			this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
 			// 
 			// DoctorMainWindow
 			// 
