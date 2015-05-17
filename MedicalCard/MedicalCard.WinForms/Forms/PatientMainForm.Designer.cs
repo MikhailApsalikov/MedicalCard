@@ -35,8 +35,7 @@
 			this.медицинскаяКартаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.записьКВрачуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.редактироватьЛичныеДанныеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.экспортToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.excelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.моиСправкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.initiateExaminationButton = new System.Windows.Forms.Button();
 			this.initiateExaminationLabel = new System.Windows.Forms.Label();
@@ -53,7 +52,7 @@
 			this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.моиСправкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.моиАнализыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
@@ -63,8 +62,7 @@
 			// 
 			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.файлToolStripMenuItem,
-            this.медицинскаяКартаToolStripMenuItem,
-            this.экспортToolStripMenuItem});
+            this.медицинскаяКартаToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
 			this.menuStrip1.Size = new System.Drawing.Size(713, 24);
@@ -99,7 +97,8 @@
 			this.медицинскаяКартаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.записьКВрачуToolStripMenuItem,
             this.редактироватьЛичныеДанныеToolStripMenuItem,
-            this.моиСправкиToolStripMenuItem});
+            this.моиСправкиToolStripMenuItem,
+            this.моиАнализыToolStripMenuItem});
 			this.медицинскаяКартаToolStripMenuItem.Name = "медицинскаяКартаToolStripMenuItem";
 			this.медицинскаяКартаToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
 			this.медицинскаяКартаToolStripMenuItem.Text = "ЭМК";
@@ -118,19 +117,12 @@
 			this.редактироватьЛичныеДанныеToolStripMenuItem.Text = "Редактировать личные данные";
 			this.редактироватьЛичныеДанныеToolStripMenuItem.Click += new System.EventHandler(this.редактироватьЛичныеДанныеToolStripMenuItem_Click);
 			// 
-			// экспортToolStripMenuItem
+			// моиСправкиToolStripMenuItem
 			// 
-			this.экспортToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.excelToolStripMenuItem});
-			this.экспортToolStripMenuItem.Name = "экспортToolStripMenuItem";
-			this.экспортToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
-			this.экспортToolStripMenuItem.Text = "Экспорт";
-			// 
-			// excelToolStripMenuItem
-			// 
-			this.excelToolStripMenuItem.Name = "excelToolStripMenuItem";
-			this.excelToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-			this.excelToolStripMenuItem.Text = "Excel";
+			this.моиСправкиToolStripMenuItem.Name = "моиСправкиToolStripMenuItem";
+			this.моиСправкиToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
+			this.моиСправкиToolStripMenuItem.Text = "Мои справки";
+			this.моиСправкиToolStripMenuItem.Click += new System.EventHandler(this.моиСправкиToolStripMenuItem_Click);
 			// 
 			// groupBox1
 			// 
@@ -266,12 +258,12 @@
 			this.columnHeader8.Text = "Время";
 			this.columnHeader8.Width = 120;
 			// 
-			// моиСправкиToolStripMenuItem
+			// моиАнализыToolStripMenuItem
 			// 
-			this.моиСправкиToolStripMenuItem.Name = "моиСправкиToolStripMenuItem";
-			this.моиСправкиToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
-			this.моиСправкиToolStripMenuItem.Text = "Мои справки";
-			this.моиСправкиToolStripMenuItem.Click += new System.EventHandler(this.моиСправкиToolStripMenuItem_Click);
+			this.моиАнализыToolStripMenuItem.Name = "моиАнализыToolStripMenuItem";
+			this.моиАнализыToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
+			this.моиАнализыToolStripMenuItem.Text = "Мои анализы";
+			this.моиАнализыToolStripMenuItem.Click += new System.EventHandler(this.моиАнализыToolStripMenuItem_Click);
 			// 
 			// PatientMainForm
 			// 
@@ -314,8 +306,6 @@
 		private System.Windows.Forms.ColumnHeader columnHeader4;
 		private System.Windows.Forms.Button initiateExaminationButton;
 		private System.Windows.Forms.Label initiateExaminationLabel;
-		private System.Windows.Forms.ToolStripMenuItem экспортToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem excelToolStripMenuItem;
 		private System.Windows.Forms.ListView historyListView;
 		private System.Windows.Forms.ColumnHeader columnHeader5;
 		private System.Windows.Forms.ColumnHeader columnHeader6;
@@ -323,5 +313,6 @@
 		private System.Windows.Forms.ColumnHeader columnHeader8;
 		private System.Windows.Forms.Label historyIsEmptyLabel;
 		private System.Windows.Forms.ToolStripMenuItem моиСправкиToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem моиАнализыToolStripMenuItem;
 	}
 }

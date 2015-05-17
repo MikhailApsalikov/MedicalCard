@@ -44,6 +44,7 @@
 
 		public virtual List<Examination> Examinations { get; set; }
 		public virtual List<Note> Notes { get; set; }
+		public virtual List<Analysis> Analyses { get; set; }
 
 		[Key, ForeignKey("Account")]
 		public int Id { get; set; }

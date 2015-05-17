@@ -142,5 +142,18 @@
 			window.ShowDialog();
 			// TODO: refresh analyses list
 		}
+
+		private void button5_Click(object sender, EventArgs e)
+		{
+			if (!examination.Patient.Analyses.Any())
+			{
+				Error("У пациента нет назначенных анализов. Вы можете назначить ему анализ.",
+					"Анализов нет.");
+				return;
+			}
+
+			var window = new AnalysisListForm(examination.Patient);
+			window.ShowDialog();
+		}
 	}
 }

@@ -160,5 +160,18 @@
 			var window = new NoteListForm(patient);
 			window.ShowDialog();
 		}
+
+		private void моиАнализыToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			if (!patient.Analyses.Any())
+			{
+				Error("У вас нет текущих анализов. Запишитесь к врачу и, возможно, он назначит вам сдачу анализов.",
+					"У вас нет текущих анализов.");
+				return;
+			}
+
+			var window = new AnalysisListForm(patient);
+			window.ShowDialog();
+		}
 	}
 }

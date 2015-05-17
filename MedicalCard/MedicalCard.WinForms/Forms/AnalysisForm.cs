@@ -21,7 +21,7 @@
 			this.currentAccount = currentAccount;
 			currentRole = currentAccount.Role;
 			InitializeComponent();
-			SetName(String.Format("Направление на анализ: " + analysis.Name));
+			SetName("Направление на анализ: " + analysis.Name);
 			InitReadOnlyMode();
 			InitGroupBoxes();
 			InitFields();
@@ -44,7 +44,7 @@
 		{
 			textBox1.Text = analysis.Text;
 			label3.Text = analysis.Status.GetString();
-			doctorLabel.Text = analysis.Doctor.FullName;
+			doctorLabel.Text = String.Format("{0} ({1})", analysis.Doctor.FullName, analysis.Doctor.Position.Name);
 			patientLabel.Text = analysis.Patient.FullName;
 		}
 

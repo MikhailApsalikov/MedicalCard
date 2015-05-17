@@ -46,12 +46,14 @@
 			this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.historyIsEmptyLabel = new System.Windows.Forms.Label();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.button5 = new System.Windows.Forms.Button();
 			this.manageButtons.SuspendLayout();
 			this.groupBox1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// manageButtons
 			// 
+			this.manageButtons.Controls.Add(this.button5);
 			this.manageButtons.Controls.Add(this.button4);
 			this.manageButtons.Controls.Add(this.button3);
 			this.manageButtons.Controls.Add(this.button2);
@@ -64,7 +66,7 @@
 			// 
 			// button4
 			// 
-			this.button4.Location = new System.Drawing.Point(6, 101);
+			this.button4.Location = new System.Drawing.Point(6, 130);
 			this.button4.Name = "button4";
 			this.button4.Size = new System.Drawing.Size(143, 23);
 			this.button4.TabIndex = 3;
@@ -215,6 +217,16 @@
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Предыдущие осмотры:";
 			// 
+			// button5
+			// 
+			this.button5.Location = new System.Drawing.Point(6, 101);
+			this.button5.Name = "button5";
+			this.button5.Size = new System.Drawing.Size(143, 23);
+			this.button5.TabIndex = 4;
+			this.button5.Text = "Посмотреть анализы";
+			this.button5.UseVisualStyleBackColor = true;
+			this.button5.Click += new System.EventHandler(this.button5_Click);
+			// 
 			// ExaminationForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -258,5 +270,6 @@
 		private System.Windows.Forms.ColumnHeader columnHeader8;
 		private System.Windows.Forms.GroupBox groupBox1;
 		private System.Windows.Forms.ListView historyListView;
+		private System.Windows.Forms.Button button5;
 	}
 }
