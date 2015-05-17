@@ -1,12 +1,14 @@
 ﻿namespace MedicalCard.Entities
 {
 	using System;
+	using System.ComponentModel.DataAnnotations;
 	using Enums;
 	using Interfaces;
 
 	public class Analysis : IEntityWithId<int>
 	{
 		public const int Interval = 5;
+		[StringLength(200, ErrorMessage = "Тип анализа должен иметь длину от {2} до {1} символов", MinimumLength = 3)]
 		public string Name { get; set; }
 		public string Text { get; set; }
 		public DateTime Date { get; set; }

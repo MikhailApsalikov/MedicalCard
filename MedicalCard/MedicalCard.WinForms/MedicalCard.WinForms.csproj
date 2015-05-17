@@ -77,6 +77,12 @@
     <Compile Include="Forms\ExaminationForm.Designer.cs">
       <DependentUpon>ExaminationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\InitiateAnalysisWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\InitiateAnalysisWindow.Designer.cs">
+      <DependentUpon>InitiateAnalysisWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\InitiateExaminationWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ExaminationForm.resx">
       <DependentUpon>ExaminationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\InitiateAnalysisWindow.resx">
+      <DependentUpon>InitiateAnalysisWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\InitiateExaminationWindow.resx">
       <DependentUpon>InitiateExaminationWindow.cs</DependentUpon>

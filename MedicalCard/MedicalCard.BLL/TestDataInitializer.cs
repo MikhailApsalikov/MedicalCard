@@ -15,6 +15,44 @@
 			InitializePositions(context);
 			Initialize(context);
 			InitializeNotes(context);
+			InitializeExaminations(context);
+		}
+
+		private void InitializeExaminations(MedicalCardDbContext context)
+		{
+			DateTime now = DateTime.Now;
+			if (context.Examinations.Any())
+			{
+				return;
+			}
+
+			context.Examinations.AddRange(new List<Examination>()
+			{
+				new Examination()
+				{
+					ExaminationDate = new DateTime(now.Year, now.Month, now.Day, 14, 00, 00),
+					Status = ExaminationStatus.Pending,
+					DoctorId = 9,
+					PatientId = 4,
+				},
+				new Examination()
+				{
+					ExaminationDate = new DateTime(now.Year, now.Month, now.Day, 14, 00, 00).AddDays(-1),
+					Status = ExaminationStatus.Closed,
+					DoctorId = 9,
+					PatientId = 4,
+					Text = "Пациент осмотрен. Жалоб нет."
+				},
+				new Examination()
+				{
+					ExaminationDate = new DateTime(now.Year, now.Month, now.Day, 14, 00, 00).AddDays(1),
+					Status = ExaminationStatus.Pending,
+					DoctorId = 9,
+					PatientId = 4,
+				}
+			});
+
+			context.SaveChanges();
 		}
 
 		private void InitializeNotes(MedicalCardDbContext context)

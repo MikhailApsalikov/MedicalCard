@@ -135,5 +135,12 @@
 			var examinationForm = new ExaminationForm(currentAccount, selectedId);
 			examinationForm.ShowDialog();
 		}
+
+		private void button4_Click(object sender, EventArgs e)
+		{
+			var window = new InitiateAnalysisWindow(examination.Patient, examination.Doctor);
+			window.ShowDialog();
+			// TODO: refresh analyses list
+		}
 	}
 }
