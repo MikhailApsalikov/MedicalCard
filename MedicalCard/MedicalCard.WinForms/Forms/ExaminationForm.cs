@@ -152,7 +152,7 @@
 				return;
 			}
 
-			var window = new AnalysisListForm(examination.Patient);
+			var window = new AnalysisListForm(currentAccount, examination.Patient);
 			window.ShowDialog();
 		}
 	}

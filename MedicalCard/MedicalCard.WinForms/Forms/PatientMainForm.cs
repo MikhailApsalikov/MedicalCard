@@ -170,7 +170,7 @@
 				return;
 			}
 
-			var window = new AnalysisListForm(patient);
+			var window = new AnalysisListForm(patient.Account, patient);
 			window.ShowDialog();
 		}
 	}
