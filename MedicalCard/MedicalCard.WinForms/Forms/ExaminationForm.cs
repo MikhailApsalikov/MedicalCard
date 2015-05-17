@@ -1,6 +1,9 @@
 ﻿namespace MedicalCard.WinForms.Forms
 {
 	using System;
+	using System.Collections.Generic;
+	using System.Linq;
+	using System.Windows.Forms;
 	using BLL;
 	using BLL.Repositories;
 	using Entities;
@@ -13,12 +16,11 @@
 	public partial class ExaminationForm : BaseForm
 	{
 		private const int ReadOnlyWidth = 539;
-
+		private bool isReadOnly;
 		private readonly Account currentAccount;
 		private readonly Role currentRole;
 		private readonly Examination examination;
 		private readonly ExaminationRepository repository = new ExaminationRepository(new MedicalCardDbContext());
-		private bool isReadOnly;
 
 		public ExaminationForm(Account currentAccount, int examinationId)
 		{
@@ -31,6 +33,9 @@
 			InitGroupBoxes();
 			InitFields();
 			SetInprogressStatusIfItIsDoctor();
+			RefreshHistoryList(
+				examination.Patient.Examinations.Where(
+					e => e.ExaminationDate < examination.ExaminationDate).OrderByDescending(e=>e.ExaminationDate).ToList());
 		}
 
 		private void InitReadOnlyMode()
@@ -41,7 +46,7 @@
 				return;
 			}
 
-			textBox1.ReadOnly = true; 
+			textBox1.ReadOnly = true;
 			Width = ReadOnlyWidth;
 		}
 
@@ -91,6 +96,46 @@
 		{
 			var window = new NoteEditWindow(examination.Patient, examination.Doctor);
 			window.ShowDialog();
+		}
+
+		private void RefreshHistoryList(List<Examination> history)
+		{
+			if (!history.Any())
+			{
+				historyListView.Visible = false;
+				historyIsEmptyLabel.Visible = true;
+				return;
+			}
+
+			historyListView.Visible = true;
+			historyIsEmptyLabel.Visible = false;
+			historyListView.Items.Clear();
+
+			foreach (var ex in history)
+			{
+				var item = new ListViewItem
+				{
+					Text = ex.Id.ToString(),
+					SubItems =
+					{
+						ex.Doctor.Position.Name,
+						ex.Doctor.FullName,
+						ex.ExaminationDate.ToString("dd.MM.yyyy HH:mm")
+					}
+				};
+				historyListView.Items.Add(item);
+			}
+		}
+
+		private void historyListView_DoubleClick(object sender, EventArgs e)
+		{
+			if (historyListView.SelectedItems.Count != 1)
+			{
+				return;
+			}
+			int selectedId = Int32.Parse(historyListView.SelectedItems[0].Text);
+			var examinationForm = new ExaminationForm(currentAccount, selectedId);
+			examinationForm.ShowDialog();
 		}
 	}
 }

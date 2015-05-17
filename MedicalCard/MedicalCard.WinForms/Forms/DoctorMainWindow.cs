@@ -73,8 +73,8 @@
 					{
 						examination.Patient.FullName,
 						isTodayOnly
-							? examination.ExaminationDate.ToString("hh:mm")
-							: examination.ExaminationDate.ToString("hh:mm (dd.MM.yyyy)"),
+							? examination.ExaminationDate.ToString("HH:mm")
+							: examination.ExaminationDate.ToString("HH:mm (dd.MM.yyyy)"),
 						examination.Status.GetString()
 					}
 				};

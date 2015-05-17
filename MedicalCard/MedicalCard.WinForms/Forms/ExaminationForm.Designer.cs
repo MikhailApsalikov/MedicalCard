@@ -39,7 +39,15 @@
 			this.label3 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
+			this.historyListView = new System.Windows.Forms.ListView();
+			this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.historyIsEmptyLabel = new System.Windows.Forms.Label();
+			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.doctorActionsGroupBox.SuspendLayout();
+			this.groupBox1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// doctorActionsGroupBox
@@ -50,7 +58,7 @@
 			this.doctorActionsGroupBox.Controls.Add(this.button1);
 			this.doctorActionsGroupBox.Location = new System.Drawing.Point(532, 12);
 			this.doctorActionsGroupBox.Name = "doctorActionsGroupBox";
-			this.doctorActionsGroupBox.Size = new System.Drawing.Size(155, 290);
+			this.doctorActionsGroupBox.Size = new System.Drawing.Size(155, 532);
 			this.doctorActionsGroupBox.TabIndex = 0;
 			this.doctorActionsGroupBox.TabStop = false;
 			// 
@@ -147,11 +155,71 @@
 			this.label5.Text = "label5";
 			this.label5.TextAlign = System.Drawing.ContentAlignment.TopRight;
 			// 
+			// historyListView
+			// 
+			this.historyListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader5,
+            this.columnHeader6,
+            this.columnHeader7,
+            this.columnHeader8});
+			this.historyListView.FullRowSelect = true;
+			this.historyListView.Location = new System.Drawing.Point(6, 19);
+			this.historyListView.MultiSelect = false;
+			this.historyListView.Name = "historyListView";
+			this.historyListView.Size = new System.Drawing.Size(485, 211);
+			this.historyListView.TabIndex = 4;
+			this.historyListView.UseCompatibleStateImageBehavior = false;
+			this.historyListView.View = System.Windows.Forms.View.Details;
+			this.historyListView.DoubleClick += new System.EventHandler(this.historyListView_DoubleClick);
+			// 
+			// columnHeader5
+			// 
+			this.columnHeader5.Text = "Id";
+			this.columnHeader5.Width = 0;
+			// 
+			// columnHeader6
+			// 
+			this.columnHeader6.Text = "Должность";
+			this.columnHeader6.Width = 135;
+			// 
+			// columnHeader7
+			// 
+			this.columnHeader7.Text = "ФИО";
+			this.columnHeader7.Width = 220;
+			// 
+			// columnHeader8
+			// 
+			this.columnHeader8.Text = "Время";
+			this.columnHeader8.Width = 120;
+			// 
+			// historyIsEmptyLabel
+			// 
+			this.historyIsEmptyLabel.AutoSize = true;
+			this.historyIsEmptyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.historyIsEmptyLabel.ForeColor = System.Drawing.Color.Green;
+			this.historyIsEmptyLabel.Location = new System.Drawing.Point(117, 110);
+			this.historyIsEmptyLabel.Name = "historyIsEmptyLabel";
+			this.historyIsEmptyLabel.Size = new System.Drawing.Size(258, 16);
+			this.historyIsEmptyLabel.TabIndex = 4;
+			this.historyIsEmptyLabel.Text = "У пациента нет предыдущих осмотров";
+			// 
+			// groupBox1
+			// 
+			this.groupBox1.Controls.Add(this.historyIsEmptyLabel);
+			this.groupBox1.Controls.Add(this.historyListView);
+			this.groupBox1.Location = new System.Drawing.Point(6, 314);
+			this.groupBox1.Name = "groupBox1";
+			this.groupBox1.Size = new System.Drawing.Size(503, 236);
+			this.groupBox1.TabIndex = 7;
+			this.groupBox1.TabStop = false;
+			this.groupBox1.Text = "Предыдущие осмотры:";
+			// 
 			// ExaminationForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(699, 316);
+			this.ClientSize = new System.Drawing.Size(699, 562);
+			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.label5);
 			this.Controls.Add(this.label4);
 			this.Controls.Add(this.label3);
@@ -162,6 +230,8 @@
 			this.Name = "ExaminationForm";
 			this.Text = "ExaminationForm";
 			this.doctorActionsGroupBox.ResumeLayout(false);
+			this.groupBox1.ResumeLayout(false);
+			this.groupBox1.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -180,5 +250,12 @@
 		private System.Windows.Forms.Button button3;
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.Label label5;
+		private System.Windows.Forms.Label historyIsEmptyLabel;
+		private System.Windows.Forms.ColumnHeader columnHeader5;
+		private System.Windows.Forms.ColumnHeader columnHeader6;
+		private System.Windows.Forms.ColumnHeader columnHeader7;
+		private System.Windows.Forms.ColumnHeader columnHeader8;
+		private System.Windows.Forms.GroupBox groupBox1;
+		private System.Windows.Forms.ListView historyListView;
 	}
 }

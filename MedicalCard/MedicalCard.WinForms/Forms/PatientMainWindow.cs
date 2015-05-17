@@ -80,6 +80,7 @@
 
 			historyListView.Visible = true;
 			historyIsEmptyLabel.Visible = false;
+			historyListView.Items.Clear();
 
 			foreach (var examination in history)
 			{
@@ -111,6 +112,7 @@
 			currentExaminationListView.Visible = true;
 			initiateExaminationButton.Visible = false;
 			initiateExaminationLabel.Visible = false;
+			currentExaminationListView.Items.Clear();
 
 			foreach (var examination in current)
 			{
