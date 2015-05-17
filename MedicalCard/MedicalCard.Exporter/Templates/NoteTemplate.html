@@ -4,9 +4,35 @@
 <head>
 	<meta charset="utf-8"/>
 	<title>{0}</title>
+	<style>
+		.title {{ font-size: 18px; text-align: center; font-weight: bold; margin-bottom: 25px; }}
+
+		.label {{ font-style: italic; }}
+
+		.patient, .text, .footer {{ margin-bottom: 10px; }}
+	</style>
 </head>
 <body>
-	<div>{1}</div>
-	<div>fjsafhlkadsadsad</div>
+<div>
+	<div class="title">{0}</div>
+	<div class="patient">
+		<span class="label">Пациент</span>
+		<span class="value">{1}</span>
+	</div>
+	<div class="text">{2}</div>
+	<div class="footer">
+		<div>
+			<span class="label">Дата</span>
+			<span class="value">{3}</span>
+			<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><!--css не работает здесь, табуляции тоже нет (здесь 60 пробелов)-->
+			<span class="label">Врач</span>
+			<span class="value">{4}</span>
+		</div>
+		<div class="expires">
+			<span class="label">Действительна до:</span>
+			<span class="value">{5}</span>
+		</div>
+	</div>
+</div>
 </body>
 </html>
