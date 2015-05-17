@@ -28,10 +28,10 @@
 
 		public DateTime? BirthDate { get; set; }
 		public Gender Gender { get; set; }
-		
 		public String Address { get; set; }
 		public String Phone { get; set; }
 		public String Email { get; set; }
+		public virtual List<Analysis> Analyses { get; set; }
 
 		[NotMapped]
 		public string FullName

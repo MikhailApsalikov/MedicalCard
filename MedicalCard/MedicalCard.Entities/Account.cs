@@ -23,16 +23,9 @@
 		[StringLength(255, ErrorMessage = "Пароль должен иметь длину от {2} до {1} символов", MinimumLength = 3)]
 		public String Password { get; set; }
 
-		[ForeignKey("Patient")]
-		public int? PatientId { get; set; }
-
 		public virtual Patient Patient { get; set; }
-
-		[ForeignKey("Doctor")]
-		public int? DoctorId { get; set; }
-
 		public virtual Doctor Doctor { get; set; }
-
+		public virtual Assistant Assistant { get; set; }
 		public virtual List<WorkTime> WorkTimes { get; set; }
 
 		[Key]

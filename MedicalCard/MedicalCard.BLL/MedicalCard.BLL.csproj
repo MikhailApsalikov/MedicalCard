@@ -80,6 +80,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Repositories\AnalysesRepository.cs" />
+    <Compile Include="Repositories\AssistantRepository.cs" />
     <Compile Include="Repositories\ExaminationRepository.cs" />
     <Compile Include="Repositories\AccountRepository.cs" />
     <Compile Include="Repositories\DoctorRepository.cs" />

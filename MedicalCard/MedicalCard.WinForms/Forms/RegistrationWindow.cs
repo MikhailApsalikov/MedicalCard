@@ -126,6 +126,24 @@
 
 						break;
 					}
+
+					case Role.Assistant:
+					{
+						account.Assistant = new Assistant
+						{
+							Id = account.Id,
+							Address = addressTextBox.Text,
+							BirthDate = birthDateTimePicker.Value,
+							Email = emailTextBox.Text,
+							FirstName = firstNameTextBox.Text,
+							Gender = (Gender)GenderComboBox.SelectedIndex,
+							LastName = lastNameTextBox.Text,
+							MiddleName = middleNameTextBox.Text,
+							Phone = phoneTextBox.Text,
+						};
+
+						break;
+					}
 					default:
 					{
 						throw new ArgumentOutOfRangeException();

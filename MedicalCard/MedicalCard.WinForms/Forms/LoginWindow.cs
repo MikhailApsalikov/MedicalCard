@@ -67,6 +67,11 @@
 					form = new DoctorMainWindow(this, account.Doctor);
 					break;
 				}
+				case Role.Assistant:
+				{
+					form = new AssistantMainWindow(this, account.Assistant);
+					break;
+				}
 			}
 			form.Show();
 			Hide();

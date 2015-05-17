@@ -51,7 +51,7 @@
 
 		private void workTimeToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			var workTimeWindow = new WorkTimeWindow(doctor);
+			var workTimeWindow = new WorkTimeWindow(doctor.Account);
 			workTimeWindow.ShowDialog();
 		}
 

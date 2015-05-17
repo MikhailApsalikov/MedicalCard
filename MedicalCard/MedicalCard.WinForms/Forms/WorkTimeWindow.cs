@@ -17,17 +17,17 @@
 		private Dictionary<DayOfWeek, ComboBox> beginComboBoxes;
 		private Dictionary<DayOfWeek, CheckBox> checkBoxes;
 		private Dictionary<DayOfWeek, ComboBox> endComboBoxes;
-		private readonly Doctor doctor;
-		private readonly DoctorRepository repository;
+		private readonly Account account;
+		private readonly AccountRepository repository;
 
-		public WorkTimeWindow(Doctor doctor)
+		public WorkTimeWindow(Account account)
 		{
-			repository = new DoctorRepository(new MedicalCardDbContext());
-			this.doctor = repository.GetById(doctor.Id);
+			repository = new AccountRepository(new MedicalCardDbContext());
+			this.account = repository.GetById(account.Id);
 			InitializeComponent();
 			SetName("Изменить часы приема");
 			InitializeForm();
-			SetValues(this.doctor.Account.WorkTimes);
+			SetValues(this.account.WorkTimes);
 		}
 
 		private void InitializeForm()
@@ -124,12 +124,12 @@
 		{
 			try
 			{
-				doctor.Account.WorkTimes.Clear();
+				account.WorkTimes.Clear();
 				foreach (var dayOfWeek in WorkTime.WorkDays)
 				{
 					if (!checkBoxes[dayOfWeek].Checked)
 					{
-						doctor.Account.WorkTimes.Add(new WorkTime
+						account.WorkTimes.Add(new WorkTime
 						{
 							DayOfWeek = dayOfWeek,
 							Begin = GetValueFromComboBox(beginComboBoxes[dayOfWeek]),

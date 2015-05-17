@@ -389,7 +389,32 @@
 						}
 					},
 					WorkTimes = WorkTime.Default.ToList()
-				}
+				},
+				new Account
+				{
+					Username = "Assistant",
+					Password = "Assistant",
+					Role = Role.Assistant,
+					Assistant = new Assistant
+					{
+						Address = "г. Матросово, ул. Хрущёва, дом 88, квартира 282",
+						BirthDate = new DateTime(1992, 12, 31),
+						Email = "daniil@gmail.com",
+						FirstName = "Даниил",
+						Gender = Gender.Male,
+						LastName = "Васютин",
+						MiddleName = "Русланович",
+						Phone = "8 (979) 938-44-98",
+					},
+					WorkTimes = new List<WorkTime>
+					{
+						new WorkTime(DayOfWeek.Monday, 8, 9),
+						new WorkTime(DayOfWeek.Tuesday, 8, 10),
+						new WorkTime(DayOfWeek.Wednesday, 11, 9),
+						new WorkTime(DayOfWeek.Thursday, 11, 10),
+						new WorkTime(DayOfWeek.Friday, 8, 11)
+					}
+				},
 			};
 
 			context.Accounts.AddRange(accounts);

@@ -26,7 +26,7 @@
 		{
 			this.doctor = repository.GetById(doctor.Id);
 			InitializeComponent();
-			SetName("Редактирование данных пациента");
+			SetName("Редактирование данных врача");
 			InitRepositories();
 			InitComboBoxes();
 			SetValues();

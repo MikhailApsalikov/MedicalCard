@@ -53,11 +53,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\AssistantEditWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AssistantEditWindow.Designer.cs">
+      <DependentUpon>AssistantEditWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\DoctorEditWindow.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\DoctorEditWindow.Designer.cs">
       <DependentUpon>DoctorEditWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AssistantMainWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AssistantMainWindow.Designer.cs">
+      <DependentUpon>AssistantMainWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ExaminationForm.cs">
       <SubType>Form</SubType>
@@ -124,8 +136,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\AssistantEditWindow.resx">
+      <DependentUpon>AssistantEditWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\DoctorEditWindow.resx">
       <DependentUpon>DoctorEditWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AssistantMainWindow.resx">
+      <DependentUpon>AssistantMainWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ExaminationForm.resx">
       <DependentUpon>ExaminationForm.cs</DependentUpon>
