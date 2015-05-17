@@ -42,9 +42,10 @@
 					DoctorId = 3,
 					PatientId = 4,
 					Title = "Справка о болезни формы 095/у",
-					Text = "О том, что пациент освобожден от занятий в ",
+					Text = "Данная справка подтверждает, что пациент освобожден от занятий.",
 				}
 			});
+			context.SaveChanges();
 		}
 
 		private void InitializePositions(MedicalCardDbContext context)
