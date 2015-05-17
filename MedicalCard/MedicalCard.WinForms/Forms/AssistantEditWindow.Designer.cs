@@ -1,6 +1,6 @@
 ﻿namespace MedicalCard.WinForms.Forms
 {
-	partial class AssistantEditWindow
+	partial class AssistantEditForm
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -293,7 +293,7 @@
 			this.button3.Text = "Отмена";
 			this.button3.UseVisualStyleBackColor = true;
 			// 
-			// AssistantEditWindow
+			// AssistantEditForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -302,7 +302,7 @@
 			this.Controls.Add(this.button2);
 			this.Controls.Add(this.groupBox2);
 			this.Controls.Add(this.groupBox1);
-			this.Name = "AssistantEditWindow";
+			this.Name = "AssistantEditForm";
 			this.Text = "AccountDataEdit";
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();

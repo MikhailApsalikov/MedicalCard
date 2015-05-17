@@ -1,6 +1,6 @@
 ﻿namespace MedicalCard.WinForms.Forms
 {
-	partial class NoteEditWindow
+	partial class NoteEditForm
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -115,7 +115,7 @@
 			this.textBox2.Size = new System.Drawing.Size(314, 118);
 			this.textBox2.TabIndex = 7;
 			// 
-			// NoteEditWindow
+			// NoteEditForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -128,8 +128,8 @@
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.button2);
 			this.Controls.Add(this.button1);
-			this.Name = "NoteEditWindow";
-			this.Text = "NoteEditWindow";
+			this.Name = "NoteEditForm";
+			this.Text = "NoteEditForm";
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

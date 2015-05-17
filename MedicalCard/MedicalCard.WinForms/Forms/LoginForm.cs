@@ -8,11 +8,11 @@
 	using Entities;
 	using Entities.Enums;
 
-	public partial class LoginWindow : BaseForm
+	public partial class LoginForm : BaseForm
 	{
 		private AccountRepository repository;
 
-		public LoginWindow()
+		public LoginForm()
 		{
 			InitializeComponent();
 			SetName("Авторизация");
@@ -59,17 +59,17 @@
 			{
 				case Role.Patient:
 				{
-					form = new PatientMainWindow(this, account.Patient);
+					form = new PatientMainForm(this, account.Patient);
 					break;
 				}
 				case Role.Doctor:
 				{
-					form = new DoctorMainWindow(this, account.Doctor);
+					form = new DoctorMainForm(this, account.Doctor);
 					break;
 				}
 				case Role.Assistant:
 				{
-					form = new AssistantMainWindow(this, account.Assistant);
+					form = new AssistantMainForm(this, account.Assistant);
 					break;
 				}
 			}
@@ -86,7 +86,7 @@
 
 		private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
-			var registration = new RegistrationWindow();
+			var registration = new RegistrationForm();
 			registration.ShowDialog();
 		}
 

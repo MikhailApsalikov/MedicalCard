@@ -3,23 +3,22 @@
 	using System;
 	using System.Collections.Generic;
 	using System.Linq;
-	using System.Text;
 	using System.Windows.Forms;
 	using BLL;
 	using BLL.Repositories;
 	using Entities;
 	using Entities.Enums;
 
-	public partial class AssistantMainWindow : BaseForm
+	public partial class AssistantMainForm : BaseForm
 	{
 		private Assistant assistant;
-		private readonly LoginWindow loginWindow;
 		private AssistantRepository repository = new AssistantRepository(new MedicalCardDbContext());
+		private readonly LoginForm loginForm;
 
-		public AssistantMainWindow(LoginWindow loginWindow, Assistant assistant)
+		public AssistantMainForm(LoginForm loginForm, Assistant assistant)
 		{
 			this.assistant = assistant;
-			this.loginWindow = loginWindow;
+			this.loginForm = loginForm;
 			InitializeComponent();
 			SetName(String.Format("Лаборант " + assistant.FullName));
 			UpdateAnalysisList(checkBox1.Checked);
@@ -38,7 +37,7 @@
 
 		private void редактироватьЛичныеДанныеToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			var accountDataEdit = new AssistantEditWindow(assistant);
+			var accountDataEdit = new AssistantEditForm(assistant);
 			accountDataEdit.ShowDialog();
 			assistant = new AssistantRepository(new MedicalCardDbContext()).GetById(assistant.Id);
 			SetName(String.Format("Лаборант " + assistant.FullName));
@@ -46,13 +45,13 @@
 
 		private void выходИзСистемыToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			loginWindow.Show();
+			loginForm.Show();
 			Hide();
 		}
 
 		private void workTimeToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			var workTimeWindow = new WorkTimeWindow(assistant.Account);
+			var workTimeWindow = new WorkTimeForm(assistant.Account);
 			workTimeWindow.ShowDialog();
 		}
 
@@ -86,7 +85,7 @@
 		private List<Analysis> GetAnalysis(bool isTodayOnly)
 		{
 			repository = new AssistantRepository(new MedicalCardDbContext());
-			IEnumerable<Analysis> analyses = repository.GetById(assistant.Id).Analyses.Where(e => e.Status != AnalysisStatus.Closed);
+			var analyses = repository.GetById(assistant.Id).Analyses.Where(e => e.Status != AnalysisStatus.Closed);
 			var now = DateTime.Now;
 
 			if (isTodayOnly)
@@ -106,11 +105,9 @@
 			{
 				return;
 			}
-			int selectedId = Int32.Parse(currentAnalysisListView.SelectedItems[0].Text);
-
-			throw new NotImplementedException();
-			var examinationForm = new ExaminationForm(assistant.Account, selectedId);
-			examinationForm.ShowDialog();
+			var selectedId = Int32.Parse(currentAnalysisListView.SelectedItems[0].Text);
+			var analysisForm = new AnalysisForm(assistant.Account, selectedId);
+			analysisForm.ShowDialog();
 
 			UpdateAnalysisList(checkBox1.Checked);
 		}

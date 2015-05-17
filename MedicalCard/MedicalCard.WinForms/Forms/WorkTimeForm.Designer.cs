@@ -1,6 +1,6 @@
 ﻿namespace MedicalCard.WinForms.Forms
 {
-	partial class WorkTimeWindow
+	partial class WorkTimeForm
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -297,7 +297,7 @@
 			this.checkBox5.UseVisualStyleBackColor = true;
 			this.checkBox5.CheckedChanged += new System.EventHandler(this.CheckedChanged);
 			// 
-			// WorkTimeWindow
+			// WorkTimeForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -327,8 +327,8 @@
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.button2);
 			this.Controls.Add(this.button1);
-			this.Name = "WorkTimeWindow";
-			this.Text = "WorkTimeWindow";
+			this.Name = "WorkTimeForm";
+			this.Text = "WorkTimeForm";
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

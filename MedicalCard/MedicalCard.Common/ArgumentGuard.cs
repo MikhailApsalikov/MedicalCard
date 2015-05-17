@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace MedicalCard.Common
+﻿namespace MedicalCard.Common
 {
+	using System;
+
 	public static class ArgumentGuard
 	{
 		public static void ThrowOnNull<T>(T argument, string argumentName) where T : class

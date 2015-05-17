@@ -28,7 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.doctorActionsGroupBox = new System.Windows.Forms.GroupBox();
+			this.manageButtons = new System.Windows.Forms.GroupBox();
 			this.button4 = new System.Windows.Forms.Button();
 			this.button3 = new System.Windows.Forms.Button();
 			this.button2 = new System.Windows.Forms.Button();
@@ -46,21 +46,21 @@
 			this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.historyIsEmptyLabel = new System.Windows.Forms.Label();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
-			this.doctorActionsGroupBox.SuspendLayout();
+			this.manageButtons.SuspendLayout();
 			this.groupBox1.SuspendLayout();
 			this.SuspendLayout();
 			// 
-			// doctorActionsGroupBox
+			// manageButtons
 			// 
-			this.doctorActionsGroupBox.Controls.Add(this.button4);
-			this.doctorActionsGroupBox.Controls.Add(this.button3);
-			this.doctorActionsGroupBox.Controls.Add(this.button2);
-			this.doctorActionsGroupBox.Controls.Add(this.button1);
-			this.doctorActionsGroupBox.Location = new System.Drawing.Point(532, 12);
-			this.doctorActionsGroupBox.Name = "doctorActionsGroupBox";
-			this.doctorActionsGroupBox.Size = new System.Drawing.Size(155, 532);
-			this.doctorActionsGroupBox.TabIndex = 0;
-			this.doctorActionsGroupBox.TabStop = false;
+			this.manageButtons.Controls.Add(this.button4);
+			this.manageButtons.Controls.Add(this.button3);
+			this.manageButtons.Controls.Add(this.button2);
+			this.manageButtons.Controls.Add(this.button1);
+			this.manageButtons.Location = new System.Drawing.Point(532, 12);
+			this.manageButtons.Name = "manageButtons";
+			this.manageButtons.Size = new System.Drawing.Size(155, 532);
+			this.manageButtons.TabIndex = 0;
+			this.manageButtons.TabStop = false;
 			// 
 			// button4
 			// 
@@ -227,10 +227,10 @@
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.textBox1);
-			this.Controls.Add(this.doctorActionsGroupBox);
+			this.Controls.Add(this.manageButtons);
 			this.Name = "ExaminationForm";
 			this.Text = "ExaminationForm";
-			this.doctorActionsGroupBox.ResumeLayout(false);
+			this.manageButtons.ResumeLayout(false);
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
 			this.ResumeLayout(false);
@@ -240,7 +240,7 @@
 
 		#endregion
 
-		private System.Windows.Forms.GroupBox doctorActionsGroupBox;
+		private System.Windows.Forms.GroupBox manageButtons;
 		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.TextBox textBox1;
 		private System.Windows.Forms.Label label1;

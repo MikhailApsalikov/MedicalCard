@@ -6,6 +6,6 @@
 	{
 		[Description("Ожидание врача")] Pending = 0,
 		[Description("Заполнение данных осмотра")] InProgress = 1,
-		[Description("Закрыт")] Closed = 2,
+		[Description("Закрыт")] Closed = 2
 	}
 }

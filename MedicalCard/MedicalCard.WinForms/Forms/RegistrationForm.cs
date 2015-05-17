@@ -14,13 +14,13 @@
 	using Entities.Enums;
 	using Properties;
 
-	public partial class RegistrationWindow : BaseForm
+	public partial class RegistrationForm : BaseForm
 	{
 		private byte[] image;
 		private PositionRepository positionRepository;
 		private List<Position> positions;
 
-		public RegistrationWindow()
+		public RegistrationForm()
 		{
 			InitializeComponent();
 			SetName("Регистрация");
@@ -47,8 +47,8 @@
 		private void roleComboBox1_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			var selectedIndex = roleComboBox.SelectedIndex;
-			patientPanel.Visible = (selectedIndex == (int)Role.Patient);
-			doctorPanel.Visible = (selectedIndex == (int)Role.Doctor);
+			patientPanel.Visible = (selectedIndex == (int) Role.Patient);
+			doctorPanel.Visible = (selectedIndex == (int) Role.Doctor);
 		}
 
 		private void button1_Click(object sender, EventArgs e)
@@ -57,7 +57,7 @@
 			{
 				Username = loginTextBox.Text,
 				Password = passwordTextBox.Text,
-				Role = (Role)roleComboBox.SelectedIndex,
+				Role = (Role) roleComboBox.SelectedIndex
 			};
 			if (account.Role != Role.Patient)
 			{
@@ -136,10 +136,10 @@
 							BirthDate = birthDateTimePicker.Value,
 							Email = emailTextBox.Text,
 							FirstName = firstNameTextBox.Text,
-							Gender = (Gender)GenderComboBox.SelectedIndex,
+							Gender = (Gender) GenderComboBox.SelectedIndex,
 							LastName = lastNameTextBox.Text,
 							MiddleName = middleNameTextBox.Text,
-							Phone = phoneTextBox.Text,
+							Phone = phoneTextBox.Text
 						};
 
 						break;

@@ -33,12 +33,12 @@
 			SetInprogressStatusIfItIsDoctor();
 			RefreshHistoryList(
 				examination.Patient.Examinations.Where(
-					e => e.ExaminationDate < examination.ExaminationDate).OrderByDescending(e=>e.ExaminationDate).ToList());
+					e => e.ExaminationDate < examination.ExaminationDate).OrderByDescending(e => e.ExaminationDate).ToList());
 		}
 
 		private void InitReadOnlyMode()
 		{
-			isReadOnly = currentAccount.Role == Role.Patient || examination.Status == ExaminationStatus.Closed;
+			isReadOnly = currentAccount.Role != Role.Doctor || examination.Status == ExaminationStatus.Closed;
 			if (!isReadOnly)
 			{
 				return;
@@ -57,7 +57,7 @@
 
 		private void InitGroupBoxes()
 		{
-			doctorActionsGroupBox.Visible = !isReadOnly;
+			manageButtons.Visible = !isReadOnly;
 		}
 
 		private void SetInprogressStatusIfItIsDoctor()
@@ -92,7 +92,7 @@
 
 		private void button3_Click(object sender, EventArgs e)
 		{
-			var window = new NoteEditWindow(examination.Patient, examination.Doctor);
+			var window = new NoteEditForm(examination.Patient, examination.Doctor);
 			window.ShowDialog();
 		}
 
@@ -131,14 +131,14 @@
 			{
 				return;
 			}
-			int selectedId = Int32.Parse(historyListView.SelectedItems[0].Text);
+			var selectedId = Int32.Parse(historyListView.SelectedItems[0].Text);
 			var examinationForm = new ExaminationForm(currentAccount, selectedId);
 			examinationForm.ShowDialog();
 		}
 
 		private void button4_Click(object sender, EventArgs e)
 		{
-			var window = new InitiateAnalysisWindow(examination.Patient, examination.Doctor);
+			var window = new InitiateAnalysisForm(examination.Patient, examination.Doctor);
 			window.ShowDialog();
 			// TODO: refresh analyses list
 		}

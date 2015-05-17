@@ -1,6 +1,6 @@
 ﻿namespace MedicalCard.WinForms.Forms
 {
-	partial class RegistrationWindow
+	partial class RegistrationForm
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -471,7 +471,7 @@
 			this.button2.Text = " Отмена";
 			this.button2.UseVisualStyleBackColor = true;
 			// 
-			// RegistrationWindow
+			// RegistrationForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -503,7 +503,7 @@
 			this.Controls.Add(this.loginTextBox);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.patientPanel);
-			this.Name = "RegistrationWindow";
+			this.Name = "RegistrationForm";
 			this.Text = "Registration";
 			this.patientPanel.ResumeLayout(false);
 			this.patientPanel.PerformLayout();

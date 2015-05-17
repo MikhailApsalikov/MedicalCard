@@ -1,6 +1,6 @@
 ﻿namespace MedicalCard.Entities
 {
-	using MedicalCard.Entities.Interfaces;
+	using Interfaces;
 
 	public class Photo : IEntityWithId<int>
 	{

@@ -1,6 +1,6 @@
 ﻿namespace MedicalCard.WinForms.Forms
 {
-	partial class NoteListWindow
+	partial class NoteListForm
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -178,15 +178,15 @@
 			this.button1.UseVisualStyleBackColor = true;
 			this.button1.Click += new System.EventHandler(this.button1_Click);
 			// 
-			// NoteListWindow
+			// NoteListForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1153, 455);
 			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.noteListView);
-			this.Name = "NoteListWindow";
-			this.Text = "NoteListWindow";
+			this.Name = "NoteListForm";
+			this.Text = "NoteListForm";
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
 			this.ResumeLayout(false);

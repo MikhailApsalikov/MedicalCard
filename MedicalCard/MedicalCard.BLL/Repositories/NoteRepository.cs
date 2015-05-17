@@ -1,5 +1,6 @@
 ﻿namespace MedicalCard.BLL.Repositories
 {
+	using System.Data.Entity;
 	using Entities;
 
 	public class NoteRepository : BaseRepository<Note, int>
@@ -9,7 +10,7 @@
 		{
 		}
 
-		protected override System.Data.Entity.DbSet<Note> GetDbSet(MedicalCardDbContext dbContext)
+		protected override DbSet<Note> GetDbSet(MedicalCardDbContext dbContext)
 		{
 			return dbContext.Notes;
 		}

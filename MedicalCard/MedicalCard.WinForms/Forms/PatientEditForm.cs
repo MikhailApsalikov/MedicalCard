@@ -2,19 +2,18 @@
 {
 	using System;
 	using System.Data.Entity.Validation;
-	using System.Linq;
-	using MedicalCard.BLL;
-	using MedicalCard.BLL.Repositories;
-	using MedicalCard.Common.Extensions;
-	using MedicalCard.Entities;
-	using MedicalCard.Entities.Enums;
+	using BLL;
+	using BLL.Repositories;
+	using Common.Extensions;
+	using Entities;
+	using Entities.Enums;
 
-	public partial class PatientEditWindow : BaseForm
+	public partial class PatientEditForm : BaseForm
 	{
 		private readonly Patient patient;
 		private readonly PatientRepository repository = new PatientRepository(new MedicalCardDbContext());
 
-		public PatientEditWindow(Patient patient)
+		public PatientEditForm(Patient patient)
 		{
 			this.patient = repository.GetById(patient.Id);
 			InitializeComponent();
@@ -25,12 +24,12 @@
 		private void SetValues()
 		{
 			addressTextBox.Text = patient.Address;
-			birthDateTimePicker.Value = patient.BirthDate??DateTime.Now;
-			disabilityComboBox.SelectedIndex = (int)patient.Disability;
+			birthDateTimePicker.Value = patient.BirthDate ?? DateTime.Now;
+			disabilityComboBox.SelectedIndex = (int) patient.Disability;
 			disabliltyDocumentTextBox.Text = patient.DisabilityDocument;
 			emailTextBox.Text = patient.Email;
 			firstNameTextBox.Text = patient.FirstName;
-			GenderComboBox.SelectedIndex = (int)patient.Gender;
+			GenderComboBox.SelectedIndex = (int) patient.Gender;
 			insurancePolicyTextBox.Text = patient.InsurancePolicy;
 			positionTextBox.Text = patient.JobStudyPosition;
 			lastNameTextBox.Text = patient.LastName;

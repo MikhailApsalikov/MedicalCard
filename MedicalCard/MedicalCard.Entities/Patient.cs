@@ -42,11 +42,10 @@
 			get { return String.Format("{0} {1} {2}", LastName, FirstName, MiddleName); }
 		}
 
+		public virtual List<Examination> Examinations { get; set; }
+		public virtual List<Note> Notes { get; set; }
+
 		[Key, ForeignKey("Account")]
 		public int Id { get; set; }
-
-		public virtual List<Examination> Examinations { get; set; }
-
-		public virtual List<Note> Notes { get; set; }
 	}
 }

@@ -11,7 +11,7 @@
 	using Common.Extensions;
 	using Entities;
 
-	public partial class WorkTimeWindow : BaseForm
+	public partial class WorkTimeForm : BaseForm
 	{
 		private const string Format = "{0}:00";
 		private Dictionary<DayOfWeek, ComboBox> beginComboBoxes;
@@ -20,7 +20,7 @@
 		private readonly Account account;
 		private readonly AccountRepository repository;
 
-		public WorkTimeWindow(Account account)
+		public WorkTimeForm(Account account)
 		{
 			repository = new AccountRepository(new MedicalCardDbContext());
 			this.account = repository.GetById(account.Id);

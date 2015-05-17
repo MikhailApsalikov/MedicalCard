@@ -9,16 +9,16 @@
 	using Entities;
 	using Entities.Enums;
 
-	public partial class DoctorMainWindow : BaseForm
+	public partial class DoctorMainForm : BaseForm
 	{
 		private Doctor doctor;
-		private readonly LoginWindow loginWindow;
 		private DoctorRepository repository = new DoctorRepository(new MedicalCardDbContext());
+		private readonly LoginForm loginForm;
 
-		public DoctorMainWindow(LoginWindow loginWindow, Doctor doctor)
+		public DoctorMainForm(LoginForm loginForm, Doctor doctor)
 		{
 			this.doctor = doctor;
-			this.loginWindow = loginWindow;
+			this.loginForm = loginForm;
 			InitializeComponent();
 			SetName(String.Format("Врач " + doctor.FullName));
 			UpdateExaminationList(checkBox1.Checked);
@@ -37,7 +37,7 @@
 
 		private void редактироватьЛичныеДанныеToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			var accountDataEdit = new DoctorEditWindow(doctor);
+			var accountDataEdit = new DoctorEditForm(doctor);
 			accountDataEdit.ShowDialog();
 			doctor = new DoctorRepository(new MedicalCardDbContext()).GetById(doctor.Id);
 			SetName(String.Format("Врач " + doctor.FullName));
@@ -45,13 +45,13 @@
 
 		private void выходИзСистемыToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			loginWindow.Show();
+			loginForm.Show();
 			Hide();
 		}
 
 		private void workTimeToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			var workTimeWindow = new WorkTimeWindow(doctor.Account);
+			var workTimeWindow = new WorkTimeForm(doctor.Account);
 			workTimeWindow.ShowDialog();
 		}
 
@@ -85,7 +85,7 @@
 		private List<Examination> GetExaminations(bool isTodayOnly)
 		{
 			repository = new DoctorRepository(new MedicalCardDbContext());
-			IEnumerable<Examination> examinations = repository.GetById(doctor.Id).Examinations.Where(e=>e.Status != ExaminationStatus.Closed);
+			var examinations = repository.GetById(doctor.Id).Examinations.Where(e => e.Status != ExaminationStatus.Closed);
 			var now = DateTime.Now;
 
 			if (isTodayOnly)
@@ -105,7 +105,7 @@
 			{
 				return;
 			}
-			int selectedId = Int32.Parse(currentExaminationListView.SelectedItems[0].Text);
+			var selectedId = Int32.Parse(currentExaminationListView.SelectedItems[0].Text);
 			var examinationForm = new ExaminationForm(doctor.Account, selectedId);
 			examinationForm.ShowDialog();
 

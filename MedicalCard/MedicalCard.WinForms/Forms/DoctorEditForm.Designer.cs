@@ -1,6 +1,6 @@
 ﻿namespace MedicalCard.WinForms.Forms
 {
-	partial class PatientEditWindow
+	partial class DoctorEditForm
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -51,20 +51,17 @@
 			this.lastNameTextBox = new System.Windows.Forms.TextBox();
 			this.label5 = new System.Windows.Forms.Label();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
-			this.positionTextBox = new System.Windows.Forms.TextBox();
-			this.disabliltyDocumentTextBox = new System.Windows.Forms.TextBox();
-			this.label17 = new System.Windows.Forms.Label();
-			this.label16 = new System.Windows.Forms.Label();
-			this.disabilityComboBox = new System.Windows.Forms.ComboBox();
-			this.label15 = new System.Windows.Forms.Label();
-			this.insurancePolicyTextBox = new System.Windows.Forms.TextBox();
-			this.label14 = new System.Windows.Forms.Label();
-			this.snilsTextBox = new System.Windows.Forms.TextBox();
-			this.label13 = new System.Windows.Forms.Label();
+			this.removePhotoButton = new System.Windows.Forms.Button();
+			this.photoPictureBox = new System.Windows.Forms.PictureBox();
+			this.photoPickButton = new System.Windows.Forms.Button();
+			this.label19 = new System.Windows.Forms.Label();
+			this.positionComboBox = new System.Windows.Forms.ComboBox();
+			this.label18 = new System.Windows.Forms.Label();
 			this.button2 = new System.Windows.Forms.Button();
 			this.button3 = new System.Windows.Forms.Button();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.photoPictureBox)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// passwordTextBox
@@ -261,16 +258,12 @@
 			// 
 			// groupBox2
 			// 
-			this.groupBox2.Controls.Add(this.positionTextBox);
-			this.groupBox2.Controls.Add(this.disabliltyDocumentTextBox);
-			this.groupBox2.Controls.Add(this.label17);
-			this.groupBox2.Controls.Add(this.label16);
-			this.groupBox2.Controls.Add(this.disabilityComboBox);
-			this.groupBox2.Controls.Add(this.label15);
-			this.groupBox2.Controls.Add(this.insurancePolicyTextBox);
-			this.groupBox2.Controls.Add(this.label14);
-			this.groupBox2.Controls.Add(this.snilsTextBox);
-			this.groupBox2.Controls.Add(this.label13);
+			this.groupBox2.Controls.Add(this.removePhotoButton);
+			this.groupBox2.Controls.Add(this.photoPictureBox);
+			this.groupBox2.Controls.Add(this.photoPickButton);
+			this.groupBox2.Controls.Add(this.label19);
+			this.groupBox2.Controls.Add(this.positionComboBox);
+			this.groupBox2.Controls.Add(this.label18);
 			this.groupBox2.Controls.Add(this.lastNameTextBox);
 			this.groupBox2.Controls.Add(this.emailTextBox);
 			this.groupBox2.Controls.Add(this.label8);
@@ -294,94 +287,62 @@
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "Редактирование данных";
 			// 
-			// positionTextBox
+			// removePhotoButton
 			// 
-			this.positionTextBox.Location = new System.Drawing.Point(136, 399);
-			this.positionTextBox.Name = "positionTextBox";
-			this.positionTextBox.Size = new System.Drawing.Size(280, 20);
-			this.positionTextBox.TabIndex = 43;
+			this.removePhotoButton.Location = new System.Drawing.Point(274, 287);
+			this.removePhotoButton.Name = "removePhotoButton";
+			this.removePhotoButton.Size = new System.Drawing.Size(142, 23);
+			this.removePhotoButton.TabIndex = 46;
+			this.removePhotoButton.Text = "Удалить фото";
+			this.removePhotoButton.UseVisualStyleBackColor = true;
+			this.removePhotoButton.Click += new System.EventHandler(this.removePhotoButton_Click);
 			// 
-			// disabliltyDocumentTextBox
+			// photoPictureBox
 			// 
-			this.disabliltyDocumentTextBox.Location = new System.Drawing.Point(16, 325);
-			this.disabliltyDocumentTextBox.Multiline = true;
-			this.disabliltyDocumentTextBox.Name = "disabliltyDocumentTextBox";
-			this.disabliltyDocumentTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-			this.disabliltyDocumentTextBox.Size = new System.Drawing.Size(400, 65);
-			this.disabliltyDocumentTextBox.TabIndex = 50;
+			this.photoPictureBox.Image = global::MedicalCard.WinForms.Properties.Resources.DefaultPhoto;
+			this.photoPictureBox.Location = new System.Drawing.Point(107, 260);
+			this.photoPictureBox.Name = "photoPictureBox";
+			this.photoPictureBox.Size = new System.Drawing.Size(161, 161);
+			this.photoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.photoPictureBox.TabIndex = 45;
+			this.photoPictureBox.TabStop = false;
 			// 
-			// label17
+			// photoPickButton
 			// 
-			this.label17.AutoSize = true;
-			this.label17.Location = new System.Drawing.Point(13, 402);
-			this.label17.Name = "label17";
-			this.label17.Size = new System.Drawing.Size(117, 13);
-			this.label17.TabIndex = 41;
-			this.label17.Text = "Место работы/учебы:";
+			this.photoPickButton.Location = new System.Drawing.Point(274, 259);
+			this.photoPickButton.Name = "photoPickButton";
+			this.photoPickButton.Size = new System.Drawing.Size(142, 23);
+			this.photoPickButton.TabIndex = 44;
+			this.photoPickButton.Text = "Обзор...";
+			this.photoPickButton.UseVisualStyleBackColor = true;
+			this.photoPickButton.Click += new System.EventHandler(this.photoPickButton_Click);
 			// 
-			// label16
+			// label19
 			// 
-			this.label16.AutoSize = true;
-			this.label16.Location = new System.Drawing.Point(13, 309);
-			this.label16.Name = "label16";
-			this.label16.Size = new System.Drawing.Size(150, 13);
-			this.label16.TabIndex = 49;
-			this.label16.Text = "Документ об инвалидности:";
+			this.label19.AutoSize = true;
+			this.label19.Location = new System.Drawing.Point(18, 269);
+			this.label19.Name = "label19";
+			this.label19.Size = new System.Drawing.Size(38, 13);
+			this.label19.TabIndex = 43;
+			this.label19.Text = "Фото:";
 			// 
-			// disabilityComboBox
+			// positionComboBox
 			// 
-			this.disabilityComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.disabilityComboBox.FormattingEnabled = true;
-			this.disabilityComboBox.Items.AddRange(new object[] {
-            "Нет",
-            "3-ей группы",
-            "2-ой группы",
-            "1-ой группы"});
-			this.disabilityComboBox.Location = new System.Drawing.Point(102, 279);
-			this.disabilityComboBox.Name = "disabilityComboBox";
-			this.disabilityComboBox.Size = new System.Drawing.Size(314, 21);
-			this.disabilityComboBox.TabIndex = 48;
+			this.positionComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.positionComboBox.FormattingEnabled = true;
+			this.positionComboBox.Location = new System.Drawing.Point(107, 228);
+			this.positionComboBox.Name = "positionComboBox";
+			this.positionComboBox.Size = new System.Drawing.Size(309, 21);
+			this.positionComboBox.TabIndex = 42;
 			// 
-			// label15
+			// label18
 			// 
-			this.label15.AutoSize = true;
-			this.label15.Location = new System.Drawing.Point(13, 284);
-			this.label15.Name = "label15";
-			this.label15.Size = new System.Drawing.Size(83, 13);
-			this.label15.TabIndex = 47;
-			this.label15.Text = "Инвалидность:";
-			// 
-			// insurancePolicyTextBox
-			// 
-			this.insurancePolicyTextBox.Location = new System.Drawing.Point(162, 253);
-			this.insurancePolicyTextBox.Name = "insurancePolicyTextBox";
-			this.insurancePolicyTextBox.Size = new System.Drawing.Size(254, 20);
-			this.insurancePolicyTextBox.TabIndex = 46;
-			// 
-			// label14
-			// 
-			this.label14.AutoSize = true;
-			this.label14.Location = new System.Drawing.Point(13, 256);
-			this.label14.Name = "label14";
-			this.label14.Size = new System.Drawing.Size(143, 13);
-			this.label14.TabIndex = 45;
-			this.label14.Text = "Номер страхового полиса:";
-			// 
-			// snilsTextBox
-			// 
-			this.snilsTextBox.Location = new System.Drawing.Point(88, 227);
-			this.snilsTextBox.Name = "snilsTextBox";
-			this.snilsTextBox.Size = new System.Drawing.Size(328, 20);
-			this.snilsTextBox.TabIndex = 44;
-			// 
-			// label13
-			// 
-			this.label13.AutoSize = true;
-			this.label13.Location = new System.Drawing.Point(13, 230);
-			this.label13.Name = "label13";
-			this.label13.Size = new System.Drawing.Size(48, 13);
-			this.label13.TabIndex = 42;
-			this.label13.Text = "СНИЛС:";
+			this.label18.AutoSize = true;
+			this.label18.Location = new System.Drawing.Point(16, 231);
+			this.label18.Name = "label18";
+			this.label18.Size = new System.Drawing.Size(71, 13);
+			this.label18.TabIndex = 41;
+			this.label18.Text = "Должность: ";
 			// 
 			// button2
 			// 
@@ -403,7 +364,7 @@
 			this.button3.UseVisualStyleBackColor = true;
 			this.button3.Click += new System.EventHandler(this.OnClickCancelButton);
 			// 
-			// PatientEditWindow
+			// DoctorEditForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -412,12 +373,13 @@
 			this.Controls.Add(this.button2);
 			this.Controls.Add(this.groupBox2);
 			this.Controls.Add(this.groupBox1);
-			this.Name = "PatientEditWindow";
+			this.Name = "DoctorEditForm";
 			this.Text = "AccountDataEdit";
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
 			this.groupBox2.ResumeLayout(false);
 			this.groupBox2.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.photoPictureBox)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -447,17 +409,13 @@
 		private System.Windows.Forms.TextBox lastNameTextBox;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.GroupBox groupBox2;
-		private System.Windows.Forms.TextBox positionTextBox;
-		private System.Windows.Forms.TextBox disabliltyDocumentTextBox;
-		private System.Windows.Forms.Label label17;
-		private System.Windows.Forms.Label label16;
-		private System.Windows.Forms.ComboBox disabilityComboBox;
-		private System.Windows.Forms.Label label15;
-		private System.Windows.Forms.TextBox insurancePolicyTextBox;
-		private System.Windows.Forms.Label label14;
-		private System.Windows.Forms.TextBox snilsTextBox;
-		private System.Windows.Forms.Label label13;
 		private System.Windows.Forms.Button button2;
 		private System.Windows.Forms.Button button3;
+		private System.Windows.Forms.Button removePhotoButton;
+		private System.Windows.Forms.PictureBox photoPictureBox;
+		private System.Windows.Forms.Button photoPickButton;
+		private System.Windows.Forms.Label label19;
+		private System.Windows.Forms.ComboBox positionComboBox;
+		private System.Windows.Forms.Label label18;
 	}
 }

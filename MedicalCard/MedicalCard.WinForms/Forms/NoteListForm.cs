@@ -1,7 +1,6 @@
 ﻿namespace MedicalCard.WinForms.Forms
 {
 	using System;
-	using System.Collections.Generic;
 	using System.Linq;
 	using System.Windows.Forms;
 	using BLL;
@@ -9,13 +8,13 @@
 	using Entities;
 	using Exporter;
 
-	public partial class NoteListWindow : BaseForm
+	public partial class NoteListForm : BaseForm
 	{
 		private Note currentNote;
 		private readonly Patient patient;
 		private readonly NoteRepository repository = new NoteRepository(new MedicalCardDbContext());
 
-		public NoteListWindow(Patient patient)
+		public NoteListForm(Patient patient)
 		{
 			this.patient = patient;
 			InitializeComponent();
@@ -27,7 +26,7 @@
 		private void UpdateNoteList()
 		{
 			noteListView.Items.Clear();
-			List<Note> notes = patient.Notes.Where(e => e.ExpirationDate > DateTime.Now).ToList();
+			var notes = patient.Notes.Where(e => e.ExpirationDate > DateTime.Now).ToList();
 
 			foreach (var note in notes)
 			{

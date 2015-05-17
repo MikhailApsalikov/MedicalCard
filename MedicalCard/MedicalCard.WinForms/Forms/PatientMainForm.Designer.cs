@@ -1,6 +1,6 @@
 ﻿namespace MedicalCard.WinForms.Forms
 {
-	partial class PatientMainWindow
+	partial class PatientMainForm
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -273,7 +273,7 @@
 			this.моиСправкиToolStripMenuItem.Text = "Мои справки";
 			this.моиСправкиToolStripMenuItem.Click += new System.EventHandler(this.моиСправкиToolStripMenuItem_Click);
 			// 
-			// PatientMainWindow
+			// PatientMainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -282,8 +282,8 @@
 			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.menuStrip1);
 			this.MainMenuStrip = this.menuStrip1;
-			this.Name = "PatientMainWindow";
-			this.Text = "PatientMainWindow";
+			this.Name = "PatientMainForm";
+			this.Text = "PatientMainForm";
 			this.menuStrip1.ResumeLayout(false);
 			this.menuStrip1.PerformLayout();
 			this.groupBox1.ResumeLayout(false);

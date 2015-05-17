@@ -11,7 +11,8 @@
 		public static void ExportNote(Note note, string destination)
 		{
 			var data = String.Format(File.ReadAllText(Path.Combine("Templates", "NoteTemplate.html")), note.Title,
-				note.Patient.FullName, note.Text, note.CreateDate.ToString("dd.MM.yyyy"), note.Doctor.Initials, note.ExpirationDate.ToString("dd.MM.yyyy"));
+				note.Patient.FullName, note.Text, note.CreateDate.ToString("dd.MM.yyyy"), note.Doctor.Initials,
+				note.ExpirationDate.ToString("dd.MM.yyyy"));
 			var tempName = Path.Combine(Environment.CurrentDirectory, Guid.NewGuid() + ".html");
 			File.WriteAllText(tempName, data);
 			ConvertHtmlToDoc(tempName, destination);

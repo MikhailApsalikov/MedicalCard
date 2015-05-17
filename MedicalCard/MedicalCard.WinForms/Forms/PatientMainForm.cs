@@ -9,15 +9,15 @@
 	using Entities;
 	using Entities.Enums;
 
-	public partial class PatientMainWindow : BaseForm
+	public partial class PatientMainForm : BaseForm
 	{
 		private Patient patient;
-		private readonly LoginWindow loginWindow;
+		private readonly LoginForm loginForm;
 
-		public PatientMainWindow(LoginWindow loginWindow, Patient patient)
+		public PatientMainForm(LoginForm loginForm, Patient patient)
 		{
 			this.patient = patient;
-			this.loginWindow = loginWindow;
+			this.loginForm = loginForm;
 			InitializeComponent();
 			RefreshAllData();
 		}
@@ -35,20 +35,20 @@
 
 		private void редактироватьЛичныеДанныеToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			var accountDataEdit = new PatientEditWindow(patient);
+			var accountDataEdit = new PatientEditForm(patient);
 			accountDataEdit.ShowDialog();
 			RefreshAllData();
 		}
 
 		private void выходИзСистемыToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			loginWindow.Show();
+			loginForm.Show();
 			Hide();
 		}
 
 		private void записьКВрачуToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			var initiateExaminationWindow = new InitiateExaminationWindow(patient);
+			var initiateExaminationWindow = new InitiateExaminationForm(patient);
 			initiateExaminationWindow.ShowDialog();
 			RefreshAllData();
 		}
@@ -69,7 +69,10 @@
 
 		private void RefreshHistoryList(List<Examination> examinations)
 		{
-			var history = patient.Examinations.Where(e => e.Status == ExaminationStatus.Closed).OrderByDescending(x => x.ExaminationDate).ToList();
+			var history =
+				patient.Examinations.Where(e => e.Status == ExaminationStatus.Closed)
+					.OrderByDescending(x => x.ExaminationDate)
+					.ToList();
 
 			if (!history.Any())
 			{
@@ -100,7 +103,10 @@
 
 		private void RefreshCurrentExaminationList(List<Examination> examinations)
 		{
-			var current = patient.Examinations.Where(e => e.Status != ExaminationStatus.Closed).OrderByDescending(x => x.ExaminationDate).ToList();
+			var current =
+				patient.Examinations.Where(e => e.Status != ExaminationStatus.Closed)
+					.OrderByDescending(x => x.ExaminationDate)
+					.ToList();
 			if (!current.Any())
 			{
 				currentExaminationListView.Visible = false;
@@ -137,7 +143,7 @@
 			{
 				return;
 			}
-			int selectedId = Int32.Parse(historyListView.SelectedItems[0].Text);
+			var selectedId = Int32.Parse(historyListView.SelectedItems[0].Text);
 			var examinationForm = new ExaminationForm(patient.Account, selectedId);
 			examinationForm.ShowDialog();
 		}
@@ -146,11 +152,12 @@
 		{
 			if (!patient.Notes.Any(n => n.ExpirationDate > DateTime.Now))
 			{
-				Error("У вас нет выписанных справок. Запишитесь к врачу и, возможно, он выпишет вам справку.", "У вас нет выписанных справок.");
+				Error("У вас нет выписанных справок. Запишитесь к врачу и, возможно, он выпишет вам справку.",
+					"У вас нет выписанных справок.");
 				return;
 			}
 
-			var window = new NoteListWindow(patient);
+			var window = new NoteListForm(patient);
 			window.ShowDialog();
 		}
 	}

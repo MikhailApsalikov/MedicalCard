@@ -20,22 +20,22 @@
 
 		private void InitializeExaminations(MedicalCardDbContext context)
 		{
-			DateTime now = DateTime.Now;
+			var now = DateTime.Now;
 			if (context.Examinations.Any())
 			{
 				return;
 			}
 
-			context.Examinations.AddRange(new List<Examination>()
+			context.Examinations.AddRange(new List<Examination>
 			{
-				new Examination()
+				new Examination
 				{
 					ExaminationDate = new DateTime(now.Year, now.Month, now.Day, 14, 00, 00),
 					Status = ExaminationStatus.Pending,
 					DoctorId = 9,
-					PatientId = 4,
+					PatientId = 4
 				},
-				new Examination()
+				new Examination
 				{
 					ExaminationDate = new DateTime(now.Year, now.Month, now.Day, 14, 00, 00).AddDays(-1),
 					Status = ExaminationStatus.Closed,
@@ -43,12 +43,12 @@
 					PatientId = 4,
 					Text = "Пациент осмотрен. Жалоб нет."
 				},
-				new Examination()
+				new Examination
 				{
 					ExaminationDate = new DateTime(now.Year, now.Month, now.Day, 14, 00, 00).AddDays(1),
 					Status = ExaminationStatus.Pending,
 					DoctorId = 9,
-					PatientId = 4,
+					PatientId = 4
 				}
 			});
 
@@ -442,7 +442,7 @@
 						Gender = Gender.Male,
 						LastName = "Васютин",
 						MiddleName = "Русланович",
-						Phone = "8 (979) 938-44-98",
+						Phone = "8 (979) 938-44-98"
 					},
 					WorkTimes = new List<WorkTime>
 					{
@@ -452,7 +452,7 @@
 						new WorkTime(DayOfWeek.Thursday, 11, 10),
 						new WorkTime(DayOfWeek.Friday, 8, 11)
 					}
-				},
+				}
 			};
 
 			context.Accounts.AddRange(accounts);

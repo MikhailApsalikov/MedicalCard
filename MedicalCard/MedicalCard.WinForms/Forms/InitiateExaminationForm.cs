@@ -15,14 +15,14 @@
 	using Entities.Enums;
 	using Properties;
 
-	public partial class InitiateExaminationWindow : BaseForm
+	public partial class InitiateExaminationForm : BaseForm
 	{
 		private Doctor selectedDoctor;
 		private Dictionary<DayOfWeek, Label> workTimeLabels;
 		private readonly DoctorRepository doctorRepository = new DoctorRepository(new MedicalCardDbContext());
 		private readonly Patient patient;
 
-		public InitiateExaminationWindow(Patient patient)
+		public InitiateExaminationForm(Patient patient)
 		{
 			this.patient = patient;
 			InitializeComponent();
@@ -70,10 +70,10 @@
 
 			if (!String.IsNullOrWhiteSpace(filter))
 			{
-				doctors = doctors.Where(d => d.FirstName.Contains(filter)||
-					d.LastName.Contains(filter)||
-					d.MiddleName.Contains(filter)||
-					d.Position.Name.Contains(filter));
+				doctors = doctors.Where(d => d.FirstName.Contains(filter) ||
+				                             d.LastName.Contains(filter) ||
+				                             d.MiddleName.Contains(filter) ||
+				                             d.Position.Name.Contains(filter));
 			}
 
 			return doctors.ToList();
@@ -200,18 +200,18 @@
 		private void SetAvailableTimes(WorkTime workTime)
 		{
 			var availableTime = new List<TimeSpan>();
-			TimeSpan end = TimeSpan.FromHours(workTime.End);
-			TimeSpan interval = TimeSpan.FromMinutes(Examination.Interval);
-			List<DateTime> alreadyExist =
+			var end = TimeSpan.FromHours(workTime.End);
+			var interval = TimeSpan.FromMinutes(Examination.Interval);
+			var alreadyExist =
 				selectedDoctor.Examinations.Where(e => e.ExaminationDate.Year == dateTimePicker1.Value.Year &&
-													   e.ExaminationDate.Month == dateTimePicker1.Value.Month&&
-													   e.ExaminationDate.Day == dateTimePicker1.Value.Day)
-										   .Select(e=>e.ExaminationDate).ToList();
+				                                       e.ExaminationDate.Month == dateTimePicker1.Value.Month &&
+				                                       e.ExaminationDate.Day == dateTimePicker1.Value.Day)
+					.Select(e => e.ExaminationDate).ToList();
 
 
 			for (var i = TimeSpan.FromHours(workTime.Begin); i < end; i = i.Add(interval))
 			{
-				if (!alreadyExist.Any(d=>d.Hour == i.Hours && d.Minute == i.Minutes))
+				if (!alreadyExist.Any(d => d.Hour == i.Hours && d.Minute == i.Minutes))
 				{
 					availableTime.Add(i);
 				}

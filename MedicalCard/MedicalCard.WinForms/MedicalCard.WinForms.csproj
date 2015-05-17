@@ -53,23 +53,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\AssistantEditWindow.cs">
+    <Compile Include="Forms\AnalysisListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AnalysisListForm.Designer.cs">
+      <DependentUpon>AnalysisListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AssistantEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\AssistantEditWindow.Designer.cs">
-      <DependentUpon>AssistantEditWindow.cs</DependentUpon>
+      <DependentUpon>AssistantEditForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\DoctorEditWindow.cs">
+    <Compile Include="Forms\DoctorEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\DoctorEditWindow.Designer.cs">
-      <DependentUpon>DoctorEditWindow.cs</DependentUpon>
+    <Compile Include="Forms\DoctorEditForm.Designer.cs">
+      <DependentUpon>DoctorEditForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\AssistantMainWindow.cs">
+    <Compile Include="Forms\AssistantMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AssistantMainWindow.Designer.cs">
-      <DependentUpon>AssistantMainWindow.cs</DependentUpon>
+    <Compile Include="Forms\AssistantMainForm.Designer.cs">
+      <DependentUpon>AssistantMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AnalysisForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AnalysisForm.Designer.cs">
+      <DependentUpon>AnalysisForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ExaminationForm.cs">
       <SubType>Form</SubType>
@@ -77,115 +89,118 @@
     <Compile Include="Forms\ExaminationForm.Designer.cs">
       <DependentUpon>ExaminationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\InitiateAnalysisWindow.cs">
+    <Compile Include="Forms\InitiateAnalysisForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\InitiateAnalysisWindow.Designer.cs">
-      <DependentUpon>InitiateAnalysisWindow.cs</DependentUpon>
+    <Compile Include="Forms\InitiateAnalysisForm.Designer.cs">
+      <DependentUpon>InitiateAnalysisForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\InitiateExaminationWindow.cs">
+    <Compile Include="Forms\InitiateExaminationForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\InitiateExaminationWindow.Designer.cs">
-      <DependentUpon>InitiateExaminationWindow.cs</DependentUpon>
+    <Compile Include="Forms\InitiateExaminationForm.Designer.cs">
+      <DependentUpon>InitiateExaminationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\NoteEditWindow.cs">
+    <Compile Include="Forms\NoteEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\NoteEditWindow.Designer.cs">
-      <DependentUpon>NoteEditWindow.cs</DependentUpon>
+    <Compile Include="Forms\NoteEditForm.Designer.cs">
+      <DependentUpon>NoteEditForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\NoteListWindow.cs">
+    <Compile Include="Forms\NoteListForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\NoteListWindow.Designer.cs">
-      <DependentUpon>NoteListWindow.cs</DependentUpon>
+    <Compile Include="Forms\NoteListForm.Designer.cs">
+      <DependentUpon>NoteListForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\PatientEditWindow.cs">
+    <Compile Include="Forms\PatientEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\PatientEditWindow.Designer.cs">
-      <DependentUpon>PatientEditWindow.cs</DependentUpon>
+    <Compile Include="Forms\PatientEditForm.Designer.cs">
+      <DependentUpon>PatientEditForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\BaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\DoctorMainWindow.cs">
+    <Compile Include="Forms\DoctorMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\DoctorMainWindow.Designer.cs">
-      <DependentUpon>DoctorMainWindow.cs</DependentUpon>
+    <Compile Include="Forms\DoctorMainForm.Designer.cs">
+      <DependentUpon>DoctorMainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\PatientMainWindow.cs">
+    <Compile Include="Forms\PatientMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\PatientMainWindow.Designer.cs">
-      <DependentUpon>PatientMainWindow.cs</DependentUpon>
+    <Compile Include="Forms\PatientMainForm.Designer.cs">
+      <DependentUpon>PatientMainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\RegistrationWindow.cs">
+    <Compile Include="Forms\RegistrationForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\RegistrationWindow.Designer.cs">
-      <DependentUpon>RegistrationWindow.cs</DependentUpon>
+    <Compile Include="Forms\RegistrationForm.Designer.cs">
+      <DependentUpon>RegistrationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\WorkTimeWindow.cs">
+    <Compile Include="Forms\WorkTimeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\WorkTimeWindow.Designer.cs">
-      <DependentUpon>WorkTimeWindow.cs</DependentUpon>
+    <Compile Include="Forms\WorkTimeForm.Designer.cs">
+      <DependentUpon>WorkTimeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\LoginWindow.cs">
+    <Compile Include="Forms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\LoginWindow.Designer.cs">
-      <DependentUpon>LoginWindow.cs</DependentUpon>
+    <Compile Include="Forms\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\AssistantEditWindow.resx">
-      <DependentUpon>AssistantEditWindow.cs</DependentUpon>
+      <DependentUpon>AssistantEditForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\DoctorEditWindow.resx">
-      <DependentUpon>DoctorEditWindow.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\DoctorEditForm.resx">
+      <DependentUpon>DoctorEditForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AssistantMainWindow.resx">
-      <DependentUpon>AssistantMainWindow.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\AssistantMainForm.resx">
+      <DependentUpon>AssistantMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AnalysisForm.resx">
+      <DependentUpon>AnalysisForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ExaminationForm.resx">
       <DependentUpon>ExaminationForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\InitiateAnalysisWindow.resx">
-      <DependentUpon>InitiateAnalysisWindow.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\InitiateAnalysisForm.resx">
+      <DependentUpon>InitiateAnalysisForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\InitiateExaminationWindow.resx">
-      <DependentUpon>InitiateExaminationWindow.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\InitiateExaminationForm.resx">
+      <DependentUpon>InitiateExaminationForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\NoteEditWindow.resx">
-      <DependentUpon>NoteEditWindow.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\NoteEditForm.resx">
+      <DependentUpon>NoteEditForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\NoteListWindow.resx">
-      <DependentUpon>NoteListWindow.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\NoteListForm.resx">
+      <DependentUpon>NoteListForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\PatientEditWindow.resx">
-      <DependentUpon>PatientEditWindow.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\PatientEditForm.resx">
+      <DependentUpon>PatientEditForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\LoginWindow.resx">
-      <DependentUpon>LoginWindow.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\DoctorMainWindow.resx">
-      <DependentUpon>DoctorMainWindow.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\DoctorMainForm.resx">
+      <DependentUpon>DoctorMainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\PatientMainWindow.resx">
-      <DependentUpon>PatientMainWindow.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\PatientMainForm.resx">
+      <DependentUpon>PatientMainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RegistrationWindow.resx">
-      <DependentUpon>RegistrationWindow.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\RegistrationForm.resx">
+      <DependentUpon>RegistrationForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\WorkTimeWindow.resx">
-      <DependentUpon>WorkTimeWindow.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\WorkTimeForm.resx">
+      <DependentUpon>WorkTimeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

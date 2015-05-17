@@ -6,6 +6,6 @@
 	{
 		[Description("Зарегистрирован")] Pending = 0,
 		[Description("Заполнение данных")] InProgress = 1,
-		[Description("Закрыт")] Closed = 2,
+		[Description("Закрыт")] Closed = 2
 	}
 }

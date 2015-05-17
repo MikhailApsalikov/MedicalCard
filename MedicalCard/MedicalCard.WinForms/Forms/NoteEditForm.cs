@@ -7,13 +7,13 @@
 	using Common.Extensions;
 	using Entities;
 
-	public partial class NoteEditWindow : BaseForm
+	public partial class NoteEditForm : BaseForm
 	{
+		private NoteRepository repository = new NoteRepository(new MedicalCardDbContext());
 		private readonly Doctor doctor;
 		private readonly Patient patient;
-		private NoteRepository repository = new NoteRepository(new MedicalCardDbContext());
 
-		public NoteEditWindow(Patient patient, Doctor doctor)
+		public NoteEditForm(Patient patient, Doctor doctor)
 		{
 			this.patient = patient;
 			this.doctor = doctor;

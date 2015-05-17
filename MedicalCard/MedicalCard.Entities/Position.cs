@@ -7,19 +7,20 @@
 
 	public class Position : IEntityWithId<int>
 	{
-		[Required]
-		[Index(IsUnique = true)]
-		[StringLength(50)]
-		public String Name { get; set; }
-		public int Id { get; set; }
-
 		public Position()
 		{
 		}
 
 		public Position(String name)
 		{
-			this.Name = name;
+			Name = name;
 		}
+
+		[Required]
+		[Index(IsUnique = true)]
+		[StringLength(50)]
+		public String Name { get; set; }
+
+		public int Id { get; set; }
 	}
 }

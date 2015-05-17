@@ -3,8 +3,6 @@
 	using System;
 	using System.Collections.Generic;
 	using System.Data.Entity.Validation;
-	using System.Drawing;
-	using System.IO;
 	using System.Linq;
 	using System.Text.RegularExpressions;
 	using System.Windows.Forms;
@@ -13,17 +11,16 @@
 	using Common.Extensions;
 	using Entities;
 	using Entities.Enums;
-	using Properties;
 
-	public partial class InitiateAnalysisWindow : BaseForm
+	public partial class InitiateAnalysisForm : BaseForm
 	{
 		private Assistant selectedAssistant;
 		private Dictionary<DayOfWeek, Label> workTimeLabels;
 		private readonly AssistantRepository assistantRepository = new AssistantRepository(new MedicalCardDbContext());
+		private readonly Doctor doctor;
 		private readonly Patient patient;
-		private Doctor doctor;
 
-		public InitiateAnalysisWindow(Patient patient, Doctor doctor)
+		public InitiateAnalysisForm(Patient patient, Doctor doctor)
 		{
 			this.patient = patient;
 			this.doctor = doctor;
@@ -71,9 +68,9 @@
 
 			if (!String.IsNullOrWhiteSpace(filter))
 			{
-				assistants = assistants.Where(d => d.FirstName.Contains(filter)||
-					d.LastName.Contains(filter)||
-					d.MiddleName.Contains(filter));
+				assistants = assistants.Where(d => d.FirstName.Contains(filter) ||
+				                                   d.LastName.Contains(filter) ||
+				                                   d.MiddleName.Contains(filter));
 			}
 
 			return assistants.ToList();
@@ -129,7 +126,7 @@
 					DoctorId = doctor.Id,
 					Date = GetDate(),
 					Status = AnalysisStatus.Pending,
-					Name = analysisTypeTextBox.Text,
+					Name = analysisTypeTextBox.Text
 				};
 				repository.Add(analysis);
 				repository.SaveChanges();
@@ -196,18 +193,18 @@
 		private void SetAvailableTimes(WorkTime workTime)
 		{
 			var availableTime = new List<TimeSpan>();
-			TimeSpan end = TimeSpan.FromHours(workTime.End);
-			TimeSpan interval = TimeSpan.FromMinutes(Analysis.Interval);
-			List<DateTime> alreadyExist =
+			var end = TimeSpan.FromHours(workTime.End);
+			var interval = TimeSpan.FromMinutes(Analysis.Interval);
+			var alreadyExist =
 				selectedAssistant.Analyses.Where(e => e.Date.Year == dateTimePicker1.Value.Year &&
-													   e.Date.Month == dateTimePicker1.Value.Month &&
-													   e.Date.Day == dateTimePicker1.Value.Day)
-										   .Select(e=>e.Date).ToList();
+				                                      e.Date.Month == dateTimePicker1.Value.Month &&
+				                                      e.Date.Day == dateTimePicker1.Value.Day)
+					.Select(e => e.Date).ToList();
 
 
 			for (var i = TimeSpan.FromHours(workTime.Begin); i < end; i = i.Add(interval))
 			{
-				if (!alreadyExist.Any(d=>d.Hour == i.Hours && d.Minute == i.Minutes))
+				if (!alreadyExist.Any(d => d.Hour == i.Hours && d.Minute == i.Minutes))
 				{
 					availableTime.Add(i);
 				}

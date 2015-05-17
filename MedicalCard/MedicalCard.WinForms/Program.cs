@@ -17,7 +17,7 @@
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 			Database.SetInitializer(new TestDataInitializer());
-			Application.Run(new LoginWindow());
+			Application.Run(new LoginForm());
 		}
 	}
 }

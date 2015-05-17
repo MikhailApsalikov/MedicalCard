@@ -8,12 +8,12 @@
 	using Entities;
 	using Entities.Enums;
 
-	public partial class AssistantEditWindow : BaseForm
+	public partial class AssistantEditForm : BaseForm
 	{
 		private readonly Assistant assistant;
 		private readonly AssistantRepository repository = new AssistantRepository(new MedicalCardDbContext());
 
-		public AssistantEditWindow(Assistant assistant)
+		public AssistantEditForm(Assistant assistant)
 		{
 			this.assistant = repository.GetById(assistant.Id);
 			InitializeComponent();

@@ -14,7 +14,7 @@
 	using Entities.Enums;
 	using Properties;
 
-	public partial class DoctorEditWindow : BaseForm
+	public partial class DoctorEditForm : BaseForm
 	{
 		private byte[] image;
 		private PositionRepository positionRepository;
@@ -22,7 +22,7 @@
 		private readonly Doctor doctor;
 		private readonly DoctorRepository repository = new DoctorRepository(new MedicalCardDbContext());
 
-		public DoctorEditWindow(Doctor doctor)
+		public DoctorEditForm(Doctor doctor)
 		{
 			this.doctor = repository.GetById(doctor.Id);
 			InitializeComponent();

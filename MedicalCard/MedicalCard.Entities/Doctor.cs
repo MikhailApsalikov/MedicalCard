@@ -65,6 +65,7 @@
 				return sb.ToString();
 			}
 		}
+
 		public virtual List<Examination> Examinations { get; set; }
 
 		[Key, ForeignKey("Account")]
