@@ -9,13 +9,8 @@
 	using Enums;
 	using Interfaces;
 
-	public class Doctor : IEntityWithId<int>
+	public class Assistant : IEntityWithId<int>
 	{
-		public Doctor()
-		{
-			PositionId = 1;
-		}
-
 		public virtual Account Account { get; set; }
 
 		[DisplayName("Фамилия")]
@@ -33,13 +28,10 @@
 
 		public DateTime? BirthDate { get; set; }
 		public Gender Gender { get; set; }
-		public int PositionId { get; set; }
-		public virtual Position Position { get; set; }
+		
 		public String Address { get; set; }
 		public String Phone { get; set; }
 		public String Email { get; set; }
-		public int? PhotoId { get; set; }
-		public virtual Photo Photo { get; set; }
 
 		[NotMapped]
 		public string FullName
@@ -65,7 +57,6 @@
 				return sb.ToString();
 			}
 		}
-		public virtual List<Examination> Examinations { get; set; }
 
 		[Key, ForeignKey("Account")]
 		public int Id { get; set; }

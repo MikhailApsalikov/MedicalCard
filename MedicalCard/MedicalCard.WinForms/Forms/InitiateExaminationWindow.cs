@@ -99,7 +99,7 @@
 				: Resources.DefaultPhoto;
 			foreach (var dayOfWeek in WorkTime.WorkDays)
 			{
-				var workTime = selectedDoctor.WorkTimes.FirstOrDefault(wt => wt.DayOfWeek == dayOfWeek);
+				var workTime = selectedDoctor.Account.WorkTimes.FirstOrDefault(wt => wt.DayOfWeek == dayOfWeek);
 
 				workTimeLabels[dayOfWeek].Text = workTime != null
 					? String.Format("{0}:00-{1}:00", workTime.Begin, workTime.End)
@@ -180,7 +180,7 @@
 				return;
 			}
 
-			var workTime = selectedDoctor.WorkTimes.FirstOrDefault(w => w.DayOfWeek == date.DayOfWeek);
+			var workTime = selectedDoctor.Account.WorkTimes.FirstOrDefault(w => w.DayOfWeek == date.DayOfWeek);
 			if (workTime == null)
 			{
 				SetTimeError("Выходной");

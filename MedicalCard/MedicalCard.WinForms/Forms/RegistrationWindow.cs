@@ -57,7 +57,8 @@
 			{
 				Username = loginTextBox.Text,
 				Password = passwordTextBox.Text,
-				Role = (Role) roleComboBox.SelectedIndex
+				Role = (Role)roleComboBox.SelectedIndex,
+				WorkTimes = WorkTime.Default.ToList()
 			};
 			var accountRepository = new AccountRepository(new MedicalCardDbContext());
 			if (accountRepository.GetAll().FirstOrDefault(d => d.Username == account.Username) != null)
@@ -110,8 +111,7 @@
 							LastName = lastNameTextBox.Text,
 							MiddleName = middleNameTextBox.Text,
 							Phone = phoneTextBox.Text,
-							PositionId = position.Id,
-							WorkTimes = WorkTime.Default.ToList()
+							PositionId = position.Id
 						};
 						if (image != null)
 						{

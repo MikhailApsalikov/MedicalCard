@@ -52,8 +52,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Analysis.cs" />
+    <Compile Include="Assistant.cs" />
     <Compile Include="Doctor.cs" />
     <Compile Include="Enums\Disability.cs" />
+    <Compile Include="Enums\AnalysisStatus.cs" />
     <Compile Include="Enums\ExaminationStatus.cs" />
     <Compile Include="Enums\Role.cs" />
     <Compile Include="Enums\Gender.cs" />

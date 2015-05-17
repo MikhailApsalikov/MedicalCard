@@ -27,7 +27,7 @@
 			InitializeComponent();
 			SetName("Изменить часы приема");
 			InitializeForm();
-			SetValues(this.doctor.WorkTimes);
+			SetValues(this.doctor.Account.WorkTimes);
 		}
 
 		private void InitializeForm()
@@ -124,12 +124,12 @@
 		{
 			try
 			{
-				doctor.WorkTimes.Clear();
+				doctor.Account.WorkTimes.Clear();
 				foreach (var dayOfWeek in WorkTime.WorkDays)
 				{
 					if (!checkBoxes[dayOfWeek].Checked)
 					{
-						doctor.WorkTimes.Add(new WorkTime
+						doctor.Account.WorkTimes.Add(new WorkTime
 						{
 							DayOfWeek = dayOfWeek,
 							Begin = GetValueFromComboBox(beginComboBoxes[dayOfWeek]),

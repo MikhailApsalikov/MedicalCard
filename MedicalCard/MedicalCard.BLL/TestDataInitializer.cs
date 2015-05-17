@@ -24,25 +24,25 @@
 				return;
 			}
 
-			context.Notes.AddRange(new List<Note>()
+			context.Notes.AddRange(new List<Note>
 			{
-				new Note()
+				new Note
 				{
 					CreateDate = DateTime.Now,
 					ExpirationDate = DateTime.Now.AddDays(30),
 					DoctorId = 2,
 					PatientId = 4,
 					Title = "Справка о состоянии здоровья",
-					Text = "Данная справка подтверждает, что пациент здоров.",
+					Text = "Данная справка подтверждает, что пациент здоров."
 				},
-				new Note()
+				new Note
 				{
 					CreateDate = DateTime.Now,
 					ExpirationDate = DateTime.Now.AddDays(60),
 					DoctorId = 3,
 					PatientId = 4,
 					Title = "Справка о болезни формы 095/у",
-					Text = "Данная справка подтверждает, что пациент освобожден от занятий.",
+					Text = "Данная справка подтверждает, что пациент освобожден от занятий."
 				}
 			});
 			context.SaveChanges();
@@ -93,7 +93,7 @@
 						Phone = "+7915468741",
 						Disability = Disability.None,
 						InsurancePolicy = "4897693246237940",
-						Snils = "434836472683",
+						Snils = "434836472683"
 					}
 				},
 				new Account
@@ -112,16 +112,16 @@
 						MiddleName = "Романович",
 						Phone = "+7123546678",
 						PositionId = 1,
-						WorkTimes = new List<WorkTime>()
-						{
-							new WorkTime(DayOfWeek.Monday, 9, 11),
-							new WorkTime(DayOfWeek.Wednesday, 13, 16),
-							new WorkTime(DayOfWeek.Friday, 9, 19),
-						},
-						Photo = new Photo()
+						Photo = new Photo
 						{
 							Content = Resources.test1.ImageToByteArray()
 						}
+					},
+					WorkTimes = new List<WorkTime>
+					{
+						new WorkTime(DayOfWeek.Monday, 9, 11),
+						new WorkTime(DayOfWeek.Wednesday, 13, 16),
+						new WorkTime(DayOfWeek.Friday, 9, 19)
 					}
 				},
 				new Account
@@ -140,12 +140,12 @@
 						MiddleName = "Петрович",
 						Phone = "+79177894561",
 						PositionId = 2,
-						WorkTimes = WorkTime.Default.ToList(),
-						Photo = new Photo()
+						Photo = new Photo
 						{
 							Content = Resources.test2.ImageToByteArray()
 						}
-					}
+					},
+					WorkTimes = WorkTime.Default.ToList()
 				},
 				new Account
 				{
@@ -164,7 +164,7 @@
 						Phone = "+7915464321",
 						Disability = Disability.Third,
 						InsurancePolicy = "4897693246237940",
-						Snils = "434836472683",
+						Snils = "434836472683"
 					}
 				},
 				new Account
@@ -183,17 +183,17 @@
 						MiddleName = "Григорьевна",
 						Phone = "8 (908) 205-31-12",
 						PositionId = 3,
-						WorkTimes = new List<WorkTime>()
-						{
-							new WorkTime(DayOfWeek.Tuesday, 8, 15),
-							new WorkTime(DayOfWeek.Wednesday, 8, 15),
-							new WorkTime(DayOfWeek.Thursday, 8, 12),
-							new WorkTime(DayOfWeek.Friday, 12, 19),
-						},
-						Photo = new Photo()
+						Photo = new Photo
 						{
 							Content = Resources.test10.ImageToByteArray()
 						}
+					},
+					WorkTimes = new List<WorkTime>
+					{
+						new WorkTime(DayOfWeek.Tuesday, 8, 15),
+						new WorkTime(DayOfWeek.Wednesday, 8, 15),
+						new WorkTime(DayOfWeek.Thursday, 8, 12),
+						new WorkTime(DayOfWeek.Friday, 12, 19)
 					}
 				},
 				new Account
@@ -212,15 +212,15 @@
 						MiddleName = "Кирилловна",
 						Phone = "8 (908) 205-31-13",
 						PositionId = 4,
-						WorkTimes = new List<WorkTime>()
-						{
-							new WorkTime(DayOfWeek.Monday, 9, 17),
-							new WorkTime(DayOfWeek.Thursday, 13, 17),
-						},
-						Photo = new Photo()
+						Photo = new Photo
 						{
 							Content = Resources.test9.ImageToByteArray()
 						}
+					},
+					WorkTimes = new List<WorkTime>
+					{
+						new WorkTime(DayOfWeek.Monday, 9, 17),
+						new WorkTime(DayOfWeek.Thursday, 13, 17)
 					}
 				},
 				new Account
@@ -239,18 +239,18 @@
 						MiddleName = "Владимирович",
 						Phone = "8 (928) 287-74-96",
 						PositionId = 3,
-						WorkTimes = new List<WorkTime>()
-						{
-							new WorkTime(DayOfWeek.Monday, 9, 11),
-							new WorkTime(DayOfWeek.Tuesday, 8, 10),
-							new WorkTime(DayOfWeek.Wednesday, 11, 13),
-							new WorkTime(DayOfWeek.Thursday, 17, 19),
-							new WorkTime(DayOfWeek.Friday, 17, 20),
-						},
-						Photo = new Photo()
+						Photo = new Photo
 						{
 							Content = Resources.test3.ImageToByteArray()
 						}
+					},
+					WorkTimes = new List<WorkTime>
+					{
+						new WorkTime(DayOfWeek.Monday, 9, 11),
+						new WorkTime(DayOfWeek.Tuesday, 8, 10),
+						new WorkTime(DayOfWeek.Wednesday, 11, 13),
+						new WorkTime(DayOfWeek.Thursday, 17, 19),
+						new WorkTime(DayOfWeek.Friday, 17, 20)
 					}
 				},
 				new Account
@@ -269,17 +269,17 @@
 						MiddleName = "Максимович",
 						Phone = "8 (978) 843-87-66",
 						PositionId = 2,
-						WorkTimes = new List<WorkTime>()
-						{
-							new WorkTime(DayOfWeek.Monday, 17, 20),
-							new WorkTime(DayOfWeek.Tuesday, 8, 15),
-							new WorkTime(DayOfWeek.Wednesday, 12, 17),
-							new WorkTime(DayOfWeek.Friday, 11, 14),
-						},
-						Photo = new Photo()
+						Photo = new Photo
 						{
 							Content = Resources.test4.ImageToByteArray()
 						}
+					},
+					WorkTimes = new List<WorkTime>
+					{
+						new WorkTime(DayOfWeek.Monday, 17, 20),
+						new WorkTime(DayOfWeek.Tuesday, 8, 15),
+						new WorkTime(DayOfWeek.Wednesday, 12, 17),
+						new WorkTime(DayOfWeek.Friday, 11, 14)
 					}
 				},
 				new Account
@@ -298,18 +298,18 @@
 						MiddleName = "Сергеевич",
 						Phone = "8 (905) 936-16-48",
 						PositionId = 4,
-						WorkTimes = new List<WorkTime>()
-						{
-							new WorkTime(DayOfWeek.Monday, 8, 15),
-							new WorkTime(DayOfWeek.Tuesday, 8, 15),
-							new WorkTime(DayOfWeek.Wednesday, 11, 15),
-							new WorkTime(DayOfWeek.Thursday, 11, 15),
-							new WorkTime(DayOfWeek.Friday, 8, 15),
-						},
-						Photo = new Photo()
+						Photo = new Photo
 						{
 							Content = Resources.test5.ImageToByteArray()
 						}
+					},
+					WorkTimes = new List<WorkTime>
+					{
+						new WorkTime(DayOfWeek.Monday, 8, 15),
+						new WorkTime(DayOfWeek.Tuesday, 8, 15),
+						new WorkTime(DayOfWeek.Wednesday, 11, 15),
+						new WorkTime(DayOfWeek.Thursday, 11, 15),
+						new WorkTime(DayOfWeek.Friday, 8, 15)
 					}
 				},
 				new Account
@@ -328,14 +328,14 @@
 						MiddleName = "Матвеевна",
 						Phone = "8 (905) 459-26-71",
 						PositionId = 1,
-						WorkTimes = new List<WorkTime>()
-						{
-							new WorkTime(DayOfWeek.Monday, 10, 20),
-						},
-						Photo = new Photo()
+						Photo = new Photo
 						{
 							Content = Resources.test8.ImageToByteArray()
 						}
+					},
+					WorkTimes = new List<WorkTime>
+					{
+						new WorkTime(DayOfWeek.Monday, 10, 20)
 					}
 				},
 				new Account
@@ -354,17 +354,17 @@
 						MiddleName = "Антоновна",
 						Phone = "8 (900) 685-31-46",
 						PositionId = 2,
-						WorkTimes = new List<WorkTime>()
-						{
-							new WorkTime(DayOfWeek.Monday, 14, 20),
-							new WorkTime(DayOfWeek.Friday, 14, 20),
-							new WorkTime(DayOfWeek.Wednesday, 14, 20),
-							new WorkTime(DayOfWeek.Thursday, 14, 20),
-						},
-						Photo = new Photo()
+						Photo = new Photo
 						{
 							Content = Resources.test7.ImageToByteArray()
 						}
+					},
+					WorkTimes = new List<WorkTime>
+					{
+						new WorkTime(DayOfWeek.Monday, 14, 20),
+						new WorkTime(DayOfWeek.Friday, 14, 20),
+						new WorkTime(DayOfWeek.Wednesday, 14, 20),
+						new WorkTime(DayOfWeek.Thursday, 14, 20)
 					}
 				},
 				new Account
@@ -383,13 +383,13 @@
 						MiddleName = "Владиславовна",
 						Phone = "8 (900) 387-44-52",
 						PositionId = 3,
-						WorkTimes = WorkTime.Default.ToList(),
-						Photo = new Photo()
+						Photo = new Photo
 						{
 							Content = Resources.test6.ImageToByteArray()
 						}
-					}
-				},
+					},
+					WorkTimes = WorkTime.Default.ToList()
+				}
 			};
 
 			context.Accounts.AddRange(accounts);

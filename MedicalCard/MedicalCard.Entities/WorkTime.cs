@@ -26,7 +26,7 @@
 
 		[Key]
 		[Column(Order = 1)]
-		public int DoctorId { get; set; }
+		public int AccountId { get; set; }
 
 		[Key]
 		[Column(Order = 2)]
