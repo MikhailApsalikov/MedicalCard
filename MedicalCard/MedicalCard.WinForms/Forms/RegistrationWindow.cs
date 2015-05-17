@@ -47,8 +47,8 @@
 		private void roleComboBox1_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			var selectedIndex = roleComboBox.SelectedIndex;
-			patientPanel.Visible = (selectedIndex == 0);
-			doctorPanel.Visible = (selectedIndex == 1);
+			patientPanel.Visible = (selectedIndex == (int)Role.Patient);
+			doctorPanel.Visible = (selectedIndex == (int)Role.Doctor);
 		}
 
 		private void button1_Click(object sender, EventArgs e)
@@ -58,8 +58,11 @@
 				Username = loginTextBox.Text,
 				Password = passwordTextBox.Text,
 				Role = (Role)roleComboBox.SelectedIndex,
-				WorkTimes = WorkTime.Default.ToList()
 			};
+			if (account.Role != Role.Patient)
+			{
+				account.WorkTimes = WorkTime.Default.ToList();
+			}
 			var accountRepository = new AccountRepository(new MedicalCardDbContext());
 			if (accountRepository.GetAll().FirstOrDefault(d => d.Username == account.Username) != null)
 			{

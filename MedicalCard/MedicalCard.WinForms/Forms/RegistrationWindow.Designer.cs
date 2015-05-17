@@ -83,7 +83,8 @@
 			this.roleComboBox.FormattingEnabled = true;
 			this.roleComboBox.Items.AddRange(new object[] {
             "Пациент",
-            "Врач"});
+            "Врач",
+            "Лаборант"});
 			this.roleComboBox.Location = new System.Drawing.Point(87, 91);
 			this.roleComboBox.Name = "roleComboBox";
 			this.roleComboBox.Size = new System.Drawing.Size(226, 21);
@@ -469,7 +470,6 @@
 			this.button2.TabIndex = 26;
 			this.button2.Text = " Отмена";
 			this.button2.UseVisualStyleBackColor = true;
-			this.button2.Click += new System.EventHandler(this.OnClickCancelButton);
 			// 
 			// RegistrationWindow
 			// 

@@ -144,6 +144,12 @@
 
 		private void моиСправкиToolStripMenuItem_Click(object sender, EventArgs e)
 		{
+			if (!patient.Notes.Any(n => n.ExpirationDate > DateTime.Now))
+			{
+				Error("У вас нет выписанных справок. Запишитесь к врачу и, возможно, он выпишет вам справку.", "У вас нет выписанных справок.");
+				return;
+			}
+
 			var window = new NoteListWindow(patient);
 			window.ShowDialog();
 		}

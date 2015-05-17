@@ -10,8 +10,6 @@
 	using Entities.Enums;
 
 	//TODO: анализы
-	//TODO: предыдущие осмотры
-	//TODO: справки
 	//TODO: экспорт
 	public partial class ExaminationForm : BaseForm
 	{

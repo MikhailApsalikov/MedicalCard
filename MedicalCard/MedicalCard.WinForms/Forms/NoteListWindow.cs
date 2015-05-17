@@ -1,6 +1,7 @@
 ﻿namespace MedicalCard.WinForms.Forms
 {
 	using System;
+	using System.Collections.Generic;
 	using System.Linq;
 	using System.Windows.Forms;
 	using BLL;
@@ -26,7 +27,8 @@
 		private void UpdateNoteList()
 		{
 			noteListView.Items.Clear();
-			var notes = patient.Notes.Where(e => e.ExpirationDate > DateTime.Now);
+			List<Note> notes = patient.Notes.Where(e => e.ExpirationDate > DateTime.Now).ToList();
+
 			foreach (var note in notes)
 			{
 				var item = new ListViewItem
