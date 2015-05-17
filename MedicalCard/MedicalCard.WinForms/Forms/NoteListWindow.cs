@@ -1,18 +1,17 @@
 ﻿namespace MedicalCard.WinForms.Forms
 {
 	using System;
-	using System.IO;
 	using System.Linq;
 	using System.Windows.Forms;
 	using BLL;
 	using BLL.Repositories;
 	using Entities;
-	using Properties;
+	using Exporter;
 
 	public partial class NoteListWindow : BaseForm
 	{
-		private readonly Patient patient;
 		private Note currentNote;
+		private readonly Patient patient;
 		private readonly NoteRepository repository = new NoteRepository(new MedicalCardDbContext());
 
 		public NoteListWindow(Patient patient)
@@ -66,6 +65,34 @@
 			//  TODO: заполнение
 
 			groupBox1.Visible = true;
+		}
+
+		private void button1_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				var sfd = new SaveFileDialog
+				{
+					AddExtension = true,
+					Filter = "Microsoft Word (.docx)|.docx",
+					DefaultExt = ".docx"
+				};
+				if (sfd.ShowDialog() != DialogResult.OK)
+				{
+					return;
+				}
+
+				ExportHelper.ExportNote(currentNote, sfd.FileName);
+				Message("Справка экпортирована успешно. Теперь вы можете ее распечатать", "Справка экпортирована успешно");
+			}
+			catch (Exception exception)
+			{
+				while (exception.InnerException != null)
+				{
+					exception = exception.InnerException;
+				}
+				Error(exception.Message, "Ошибка");
+			}
 		}
 	}
 }
