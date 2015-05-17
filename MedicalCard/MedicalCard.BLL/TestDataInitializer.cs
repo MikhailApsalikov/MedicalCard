@@ -14,6 +14,37 @@
 		{
 			InitializePositions(context);
 			Initialize(context);
+			InitializeNotes(context);
+		}
+
+		private void InitializeNotes(MedicalCardDbContext context)
+		{
+			if (context.Notes.Any())
+			{
+				return;
+			}
+
+			context.Notes.AddRange(new List<Note>()
+			{
+				new Note()
+				{
+					CreateDate = DateTime.Now,
+					ExpirationDate = DateTime.Now.AddDays(30),
+					DoctorId = 2,
+					PatientId = 4,
+					Title = "Справка о состоянии здоровья",
+					Text = "Данная справка подтверждает, что пациент здоров.",
+				},
+				new Note()
+				{
+					CreateDate = DateTime.Now,
+					ExpirationDate = DateTime.Now.AddDays(60),
+					DoctorId = 3,
+					PatientId = 4,
+					Title = "Справка о болезни формы 095/у",
+					Text = "О том, что пациент освобожден от занятий в ",
+				}
+			});
 		}
 
 		private void InitializePositions(MedicalCardDbContext context)
@@ -62,25 +93,6 @@
 						Disability = Disability.None,
 						InsurancePolicy = "4897693246237940",
 						Snils = "434836472683",
-						Notes = new List<Note>()
-						{
-							new Note()
-							{
-								CreateDate = DateTime.Now,
-								ExpirationDate = DateTime.Now.AddDays(30),
-								DoctorId = 2,
-								Title = "Справка о состоянии здоровья",
-								Text = "Данная справка подтверждает, что пациент здоров.",
-							},
-							new Note()
-							{
-								CreateDate = DateTime.Now,
-								ExpirationDate = DateTime.Now.AddDays(60),
-								DoctorId = 3,
-								Title = "Справка от ортопеда",
-								Text = "У пациента все хорошо.",
-							}
-						}
 					}
 				},
 				new Account
@@ -151,7 +163,7 @@
 						Phone = "+7915464321",
 						Disability = Disability.Third,
 						InsurancePolicy = "4897693246237940",
-						Snils = "434836472683"
+						Snils = "434836472683",
 					}
 				},
 				new Account
