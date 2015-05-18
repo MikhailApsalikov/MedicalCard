@@ -110,6 +110,9 @@
 		[Description("Область надплечий")]
 		public Symmetries ShouldersPosition { get; set; }
 
+		[Description("Область лопаток")]
+		public Symmetries BladesPosition { get; set; }
+
 		[Description("Область ключиц")]
 		public Symmetries СollarbonePosition { get; set; }
 
