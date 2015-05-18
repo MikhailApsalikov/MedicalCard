@@ -39,7 +39,7 @@
 		public PatientFeatures PatientFeature { get; set; }
 
 		[Description("Дата возникновения заболевания")]
-		public DateTime DiseaseOccurenceDate { get; set; }
+		public DateTime? DiseaseOccurenceDate { get; set; }
 
 		[Description("Причины возникновения")]
 		public Causes Cause { get; set; }
@@ -47,7 +47,7 @@
 		[Description("Возраст диагностирования")]
 		public Ages Age { get; set; }
 
-		[Description("Возраст диагностирования")]
+		[Description("Форма искривления")]
 		public DiseaseForms DiseaseForm { get; set; }
 
 		[Description("Рентген-классификация")]
@@ -132,7 +132,7 @@
 		public int Ddpsm { get; set; }
 
 		[Description("Дата рентген-обследования")]
-		public DateTime XrayDate { get; set; }
+		public DateTime? XrayDate { get; set; }
 
 		public int Id { get; set; }
 	}

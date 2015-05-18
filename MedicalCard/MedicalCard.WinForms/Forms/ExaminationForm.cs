@@ -8,12 +8,12 @@
 	using BLL.Repositories;
 	using Entities;
 	using Entities.Enums;
+	using Entities.Enums.ExaminationRelated;
 
 	//TODO: анализы
 	//TODO: экспорт
 	public partial class ExaminationForm : BaseForm
 	{
-		private const int ReadOnlyWidth = 539;
 		private bool isReadOnly;
 		private readonly Account currentAccount;
 		private readonly Role currentRole;
@@ -27,13 +27,32 @@
 			currentRole = currentAccount.Role;
 			InitializeComponent();
 			SetName(String.Format("Осмотр пациента " + examination.Patient.FullName));
+			InitializeEnumComboBoxes();
 			InitReadOnlyMode();
-			InitGroupBoxes();
+			InitManageButtons();
 			InitFields();
 			SetInprogressStatusIfItIsDoctor();
 			RefreshHistoryList(
 				examination.Patient.Examinations.Where(
 					e => e.ExaminationDate < examination.ExaminationDate).OrderByDescending(e => e.ExaminationDate).ToList());
+		}
+
+		private void InitializeEnumComboBoxes()
+		{
+			painComboBox.Items.AddRange(new[] {"Нет", "Да"});
+			localizaionComboBox.Items.AddRange(Localizations.ГруднойОтдел.GetValues().ToArray());
+			visualComplaintsComboBox.Items.AddRange(new[] {"Нет", "Да"});
+
+			lifeStyleFeature.Items.AddRange(LifeStyleFeatures.БезОсобенностей.GetValues().ToArray());
+			diseaseFeature.Items.AddRange(DiseaseFeatures.БезОсобенностей.GetValues().ToArray());
+			patientFeature.Items.AddRange(PatientFeatures.БезОсобенностей.GetValues().ToArray());
+
+			cause.Items.AddRange(Causes.Врожденный.GetValues().ToArray());
+			age.Items.AddRange(Ages.Аделосцентный.GetValues().ToArray());
+			diseaseForm.Items.AddRange(DiseaseForms.C.GetValues().ToArray());
+			xray.Items.AddRange(Xrays.First.GetValues().ToArray());
+			diseaseLocalication.Items.AddRange(DiseaseLocalications.Грудной.GetValues().ToArray());
+			deformation.Items.AddRange(Deformations.Диспластическая.GetValues().ToArray());
 		}
 
 		private void InitReadOnlyMode()
@@ -45,7 +64,24 @@
 			}
 
 			textBox1.ReadOnly = true;
-			Width = ReadOnlyWidth;
+			drugs.ReadOnly = true;
+			recommendations.ReadOnly = true;
+			diseaseOccurenceDate.Enabled = false;
+
+			painComboBox.Enabled = false;
+			localizaionComboBox.Enabled = false;
+			visualComplaintsComboBox.Enabled = false;
+
+			lifeStyleFeature.Enabled = false;
+			diseaseFeature.Enabled = false;
+			patientFeature.Enabled = false;
+
+			cause.Enabled = false;
+			age.Enabled = false;
+			diseaseForm.Enabled = false;
+			xray.Enabled = false;
+			diseaseLocalication.Enabled = false;
+			deformation.Enabled = false;
 		}
 
 		private void InitFields()
@@ -53,9 +89,28 @@
 			textBox1.Text = examination.Text;
 			label3.Text = examination.Status.GetString();
 			label5.Text = examination.Doctor.FullName;
+
+			drugs.Text = examination.Drugs;
+			recommendations.Text = examination.Recommendations;
+			diseaseOccurenceDate.Value = examination.DiseaseOccurenceDate ?? DateTime.Now;
+
+			painComboBox.SelectedIndex = examination.Pain?1:0;
+			localizaionComboBox.SelectedIndex = (int)examination.Localication;
+			visualComplaintsComboBox.SelectedIndex = examination.VisualComplaints ? 1 : 0;
+
+			lifeStyleFeature.SelectedIndex = (int)examination.LifeStyleFeature;
+			diseaseFeature.SelectedIndex = (int)examination.DiseaseFeature;
+			patientFeature.SelectedIndex = (int)examination.PatientFeature;
+
+			cause.SelectedIndex = (int)examination.Cause;
+			age.SelectedIndex = (int)examination.Age;
+			diseaseForm.SelectedIndex = (int)examination.DiseaseForm;
+			xray.SelectedIndex = (int)examination.Xray;
+			diseaseLocalication.SelectedIndex = (int)examination.DiseaseLocalication;
+			deformation.SelectedIndex = (int)examination.Deformation;
 		}
 
-		private void InitGroupBoxes()
+		private void InitManageButtons()
 		{
 			manageButtons.Visible = !isReadOnly;
 		}
@@ -77,7 +132,7 @@
 
 		private void button1_Click(object sender, EventArgs e)
 		{
-			examination.Text = textBox1.Text;
+			SaveExamination();
 			SetExaminationStatus(ExaminationStatus.Closed);
 			Message("Осмотр успешно завершен. Теперь вы не можете его редактировать", "Осмотр завершен");
 			Close();
@@ -85,9 +140,33 @@
 
 		private void button2_Click(object sender, EventArgs e)
 		{
-			examination.Text = textBox1.Text;
-			repository.SaveChanges();
+			SaveExamination();
 			Message("Изменения сохранены");
+		}
+
+		private void SaveExamination()
+		{
+			examination.Text = textBox1.Text;
+
+			examination.Drugs = drugs.Text;
+			examination.Recommendations = recommendations.Text;
+			examination.DiseaseOccurenceDate = diseaseOccurenceDate.Value;
+
+			examination.Pain = painComboBox.SelectedIndex == 1;
+			examination.Localication = (Localizations)localizaionComboBox.SelectedIndex;
+			examination.VisualComplaints = visualComplaintsComboBox.SelectedIndex == 1;
+
+			examination.LifeStyleFeature = (LifeStyleFeatures)lifeStyleFeature.SelectedIndex;
+			examination.DiseaseFeature = (DiseaseFeatures)diseaseFeature.SelectedIndex;
+			examination.PatientFeature = (PatientFeatures)patientFeature.SelectedIndex;
+
+			examination.Cause = (Causes)cause.SelectedIndex;
+			examination.Age = (Ages)age.SelectedIndex;
+			examination.DiseaseForm = (DiseaseForms)diseaseForm.SelectedIndex;
+			examination.Xray = (Xrays)xray.SelectedIndex;
+			examination.DiseaseLocalication = (DiseaseLocalications)diseaseLocalication.SelectedIndex;
+			examination.Deformation = (Deformations)deformation.SelectedIndex;
+			repository.SaveChanges();
 		}
 
 		private void button3_Click(object sender, EventArgs e)

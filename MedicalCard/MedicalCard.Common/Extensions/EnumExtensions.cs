@@ -1,6 +1,8 @@
 ﻿namespace System
 {
+	using Collections.Generic;
 	using ComponentModel;
+	using Linq;
 
 	public static class EnumExtensions
 	{
@@ -16,6 +18,11 @@
 			}
 
 			return s;
+		}
+
+		public static IEnumerable<object> GetValues(this Enum e)
+		{
+			return Enum.GetValues(e.GetType()).Cast<Enum>().Select(value => value.GetString());
 		}
 	}
 }
