@@ -70,8 +70,8 @@
 
 		private void button1_Click(object sender, EventArgs e)
 		{
-			try
-			{
+			//try
+			//{
 				var sfd = new SaveFileDialog
 				{
 					AddExtension = true,
@@ -85,15 +85,15 @@
 
 				ExportHelper.ExportNote(currentNote, sfd.FileName);
 				Message("Справка экпортирована успешно. Теперь вы можете ее распечатать", "Справка экпортирована успешно");
-			}
-			catch (Exception exception)
-			{
-				while (exception.InnerException != null)
-				{
-					exception = exception.InnerException;
-				}
-				Error(exception.Message, "Ошибка");
-			}
+			//}
+			//catch (Exception exception)
+			//{
+			//	while (exception.InnerException != null)
+			//	{
+			//		exception = exception.InnerException;
+			//	}
+			//	Error(exception.Message, "Ошибка");
+			//}
 		}
 	}
 }
