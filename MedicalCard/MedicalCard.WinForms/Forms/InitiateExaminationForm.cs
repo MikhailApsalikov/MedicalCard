@@ -35,7 +35,7 @@
 		private void UpdateDoctorList(String filter = null)
 		{
 			doctorListView.Items.Clear();
-			var doctors = GetDoctorsByFilter(filter);
+			var doctors = GetDoctorsByFilter(dateFilter.Value, filter);
 			foreach (var doctor in doctors)
 			{
 				var item = new ListViewItem
@@ -64,19 +64,17 @@
 			};
 		}
 
-		private List<Doctor> GetDoctorsByFilter(String filter = null)
+		private List<Doctor> GetDoctorsByFilter(DateTime date, String filter = null)
 		{
-			var doctors = doctorRepository.GetAll();
+			List<Doctor> doctors = doctorRepository.GetAll().Where(d => d.Account.WorkTimes.Any(wt => wt.DayOfWeek == date.DayOfWeek)).ToList();
 
 			if (!String.IsNullOrWhiteSpace(filter))
 			{
-				doctors = doctors.Where(d => d.FirstName.Contains(filter) ||
-				                             d.LastName.Contains(filter) ||
-				                             d.MiddleName.Contains(filter) ||
-				                             d.Position.Name.Contains(filter));
+				doctors = doctors.Where(d => d.FullName.Contains(filter) ||
+											 d.Position.Name.Contains(filter)).ToList();
 			}
 
-			return doctors.ToList();
+			return doctors;
 		}
 
 		private void SelectedIndexChanged(object sender, EventArgs e)
@@ -108,14 +106,14 @@
 
 			doctorInfoGroupBox.Visible = true;
 			timePickerGroupBox.Visible = true;
-			dateTimePicker1.Value = DateTime.Now.AddDays(1);
+			dateTimePicker1.Value = dateFilter.Value;
 		}
 
 		private void button2_Click(object sender, EventArgs e)
 		{
 			if (selectedDoctor == null)
 			{
-				Error("Доктор не выбран");
+				Error("Врач не выбран");
 				return;
 			}
 
@@ -169,7 +167,7 @@
 		{
 			if (selectedDoctor == null)
 			{
-				SetTimeError("Доктор не выбран");
+				SetTimeError("Врач не выбран");
 				return;
 			}
 
@@ -240,6 +238,12 @@
 		private void FilterTextChanged(object sender, EventArgs e)
 		{
 			UpdateDoctorList(searchTextBox.Text);
+		}
+
+		private void dateFilter_ValueChanged(object sender, EventArgs e)
+		{
+			UpdateDoctorList(searchTextBox.Text);
+			dateTimePicker1.Value = dateFilter.Value;
 		}
 	}
 }
