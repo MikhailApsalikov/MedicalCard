@@ -42,6 +42,7 @@
 			this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.checkBox1 = new System.Windows.Forms.CheckBox();
+			this.зарегистрироватьПациентаВСистемеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.groupBox1.SuspendLayout();
 			this.SuspendLayout();
@@ -84,7 +85,8 @@
 			// 
 			this.медицинскаяКартаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.редактироватьЛичныеДанныеToolStripMenuItem,
-            this.мояКартаToolStripMenuItem});
+            this.мояКартаToolStripMenuItem,
+            this.зарегистрироватьПациентаВСистемеToolStripMenuItem});
 			this.медицинскаяКартаToolStripMenuItem.Name = "медицинскаяКартаToolStripMenuItem";
 			this.медицинскаяКартаToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
 			this.медицинскаяКартаToolStripMenuItem.Text = "ЭМК";
@@ -92,14 +94,14 @@
 			// редактироватьЛичныеДанныеToolStripMenuItem
 			// 
 			this.редактироватьЛичныеДанныеToolStripMenuItem.Name = "редактироватьЛичныеДанныеToolStripMenuItem";
-			this.редактироватьЛичныеДанныеToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
+			this.редактироватьЛичныеДанныеToolStripMenuItem.Size = new System.Drawing.Size(285, 22);
 			this.редактироватьЛичныеДанныеToolStripMenuItem.Text = "Редактировать личные данные";
 			this.редактироватьЛичныеДанныеToolStripMenuItem.Click += new System.EventHandler(this.редактироватьЛичныеДанныеToolStripMenuItem_Click);
 			// 
 			// мояКартаToolStripMenuItem
 			// 
 			this.мояКартаToolStripMenuItem.Name = "мояКартаToolStripMenuItem";
-			this.мояКартаToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
+			this.мояКартаToolStripMenuItem.Size = new System.Drawing.Size(285, 22);
 			this.мояКартаToolStripMenuItem.Text = "Мои часы приема";
 			this.мояКартаToolStripMenuItem.Click += new System.EventHandler(this.workTimeToolStripMenuItem_Click);
 			// 
@@ -164,6 +166,13 @@
 			this.checkBox1.UseVisualStyleBackColor = true;
 			this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
 			// 
+			// зарегистрироватьПациентаВСистемеToolStripMenuItem
+			// 
+			this.зарегистрироватьПациентаВСистемеToolStripMenuItem.Name = "зарегистрироватьПациентаВСистемеToolStripMenuItem";
+			this.зарегистрироватьПациентаВСистемеToolStripMenuItem.Size = new System.Drawing.Size(285, 22);
+			this.зарегистрироватьПациентаВСистемеToolStripMenuItem.Text = "Зарегистрировать пациента в системе";
+			this.зарегистрироватьПациентаВСистемеToolStripMenuItem.Click += new System.EventHandler(this.зарегистрироватьПациентаВСистемеToolStripMenuItem_Click);
+			// 
 			// DoctorMainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -199,5 +208,6 @@
 		private System.Windows.Forms.ColumnHeader columnHeader2;
 		private System.Windows.Forms.ColumnHeader columnHeader3;
 		private System.Windows.Forms.ColumnHeader columnHeader4;
+		private System.Windows.Forms.ToolStripMenuItem зарегистрироватьПациентаВСистемеToolStripMenuItem;
 	}
 }

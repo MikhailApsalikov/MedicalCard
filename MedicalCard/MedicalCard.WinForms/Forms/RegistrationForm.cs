@@ -20,12 +20,24 @@
 		private PositionRepository positionRepository;
 		private List<Position> positions;
 
+		private readonly String registrationComplete =
+			"Регистрация прошла успешно. Теперь вы можете зайти под своей учетной записью.";
+
 		public RegistrationForm()
 		{
 			InitializeComponent();
 			SetName("Регистрация");
 			InitRepositories();
 			InitComboBoxes();
+		}
+
+		public RegistrationForm(Role forcedRole) : this()
+		{
+			roleComboBox.SelectedIndex = (int) forcedRole;
+			roleComboBox.Enabled = false;
+			SetName("Регистрация нового пациента");
+			registrationComplete = "Вы успешно загистрировали пациента в системе.";
+			button1.Text = "Зарегистрировать";
 		}
 
 		private void InitComboBoxes()
@@ -151,7 +163,7 @@
 				}
 
 				accountRepository.Add(account);
-				Message("Регистрация прошла успешно. Теперь вы можете зайти под своей учетной записью.", "Регистрация");
+				Message(registrationComplete, "Регистрация");
 				Close();
 			}
 			catch (DbEntityValidationException exception)

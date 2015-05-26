@@ -111,5 +111,11 @@
 
 			UpdateExaminationList(checkBox1.Checked);
 		}
+
+		private void зарегистрироватьПациентаВСистемеToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			var registration = new RegistrationForm(Role.Patient);
+			registration.ShowDialog();
+		}
 	}
 }
