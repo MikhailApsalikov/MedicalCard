@@ -95,10 +95,8 @@
 
 			var positions = new List<Position>
 			{
-				new Position("Терапевт"),
 				new Position("Ортопед"),
 				new Position("Хирург"),
-				new Position("Невропатолог")
 			};
 
 			context.Positions.AddRange(positions);
@@ -220,7 +218,7 @@
 						LastName = "Пономарёва",
 						MiddleName = "Григорьевна",
 						Phone = "8 (908) 205-31-12",
-						PositionId = 3,
+						PositionId = 1,
 						Photo = new Photo
 						{
 							Content = Resources.test10.ImageToByteArray()
@@ -249,7 +247,7 @@
 						LastName = "Наумова",
 						MiddleName = "Кирилловна",
 						Phone = "8 (908) 205-31-13",
-						PositionId = 4,
+						PositionId = 2,
 						Photo = new Photo
 						{
 							Content = Resources.test9.ImageToByteArray()
@@ -276,7 +274,7 @@
 						LastName = "Городнов",
 						MiddleName = "Владимирович",
 						Phone = "8 (928) 287-74-96",
-						PositionId = 3,
+						PositionId = 1,
 						Photo = new Photo
 						{
 							Content = Resources.test3.ImageToByteArray()
@@ -335,7 +333,7 @@
 						LastName = "Баландин",
 						MiddleName = "Сергеевич",
 						Phone = "8 (905) 936-16-48",
-						PositionId = 4,
+						PositionId = 2,
 						Photo = new Photo
 						{
 							Content = Resources.test5.ImageToByteArray()
@@ -420,7 +418,7 @@
 						LastName = "Трифонова",
 						MiddleName = "Владиславовна",
 						Phone = "8 (900) 387-44-52",
-						PositionId = 3,
+						PositionId = 1,
 						Photo = new Photo
 						{
 							Content = Resources.test6.ImageToByteArray()
