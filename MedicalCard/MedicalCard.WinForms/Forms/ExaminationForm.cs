@@ -10,8 +10,6 @@
 	using Entities.Enums;
 	using Entities.Enums.ExaminationRelated;
 
-	//TODO: анализы
-	//TODO: экспорт
 	public partial class ExaminationForm : BaseForm
 	{
 		private bool isReadOnly;
