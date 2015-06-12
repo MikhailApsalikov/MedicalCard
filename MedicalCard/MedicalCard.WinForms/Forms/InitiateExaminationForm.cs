@@ -126,6 +126,9 @@
 			try
 			{
 				var repository = new ExaminationRepository(new MedicalCardDbContext());
+				var previousExamination =
+					repository.GetAll().OrderByDescending(ex => ex.ExaminationDate).FirstOrDefault(ex => ex.PatientId == patient.Id && ex.Status == ExaminationStatus.Closed);
+
 				var examination = new Examination
 				{
 					PatientId = patient.Id,
@@ -133,6 +136,12 @@
 					ExaminationDate = GetExaminationDate(),
 					Status = ExaminationStatus.Pending
 				};
+
+				if (previousExamination != null)
+				{
+					examination.SetValuesAs(previousExamination);
+				}
+
 				repository.Add(examination);
 				repository.SaveChanges();
 				Message("Вы записались к врачу на " + timeComboBox.Text, "Запись к врачу");

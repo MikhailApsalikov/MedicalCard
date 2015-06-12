@@ -138,5 +138,53 @@
 		public DateTime? XrayDate { get; set; }
 
 		public int Id { get; set; }
+
+		public void SetValuesAs(Examination previousExamination)
+		{
+			Text = previousExamination.Text;
+
+			Drugs = previousExamination.Drugs;
+			Recommendations = previousExamination.Recommendations;
+			DiseaseOccurenceDate = previousExamination.DiseaseOccurenceDate;
+			Pain = previousExamination.Pain;
+			Localication = previousExamination.Localication;
+			VisualComplaints = previousExamination.VisualComplaints;
+			LifeStyleFeature = previousExamination.LifeStyleFeature;
+			DiseaseFeature = previousExamination.DiseaseFeature;
+			PatientFeature = previousExamination.PatientFeature;
+			Cause = previousExamination.Cause;
+			Age = previousExamination.Age;
+			DiseaseForm = previousExamination.DiseaseForm;
+			Xray = previousExamination.Xray;
+			DiseaseLocalication = previousExamination.DiseaseLocalication;
+			Deformation = previousExamination.Deformation;
+			Physiques = previousExamination.Physiques;
+			PostureViolation = previousExamination.PostureViolation;
+			HeadPosition = previousExamination.HeadPosition;
+			IsFlatFoot = previousExamination.IsFlatFoot;
+			Feet = previousExamination.Feet;
+			MuscleRoller = previousExamination.MuscleRoller;
+			RibHump = previousExamination.RibHump;
+			Palpation = previousExamination.Palpation;
+			PelvisPosition = previousExamination.PelvisPosition;
+			Nk = previousExamination.Nk;
+			NkDifference = previousExamination.NkDifference;
+			NkFunction = previousExamination.NkFunction;
+			Traumas = previousExamination.Traumas;
+			TraumaComment = previousExamination.TraumaComment;
+			PpNeckPosition = previousExamination.PpNeckPosition;
+			PpChestPosition = previousExamination.PpChestPosition;
+			PpWaistPosition = previousExamination.PpWaistPosition;
+			ShouldersPosition = previousExamination.ShouldersPosition;
+			BladesPosition = previousExamination.BladesPosition;
+			СollarbonePosition = previousExamination.СollarbonePosition;
+			WaistPosition = previousExamination.WaistPosition;
+			NeckMuscule = previousExamination.NeckMuscule;
+			Vk = previousExamination.Vk;
+			VkDifference = previousExamination.VkDifference;
+			VkFunction = previousExamination.VkFunction;
+			Ddpsm = previousExamination.Ddpsm;
+			XrayDate = previousExamination.XrayDate;
+		}
 	}
 }
