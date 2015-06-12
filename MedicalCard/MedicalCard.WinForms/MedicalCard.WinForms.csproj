@@ -160,9 +160,6 @@
     <EmbeddedResource Include="Forms\AnalysisListForm.resx">
       <DependentUpon>AnalysisListForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AssistantEditWindow.resx">
-      <DependentUpon>AssistantEditForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\DoctorEditForm.resx">
       <DependentUpon>DoctorEditForm.cs</DependentUpon>
     </EmbeddedResource>

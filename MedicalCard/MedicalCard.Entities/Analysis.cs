@@ -21,6 +21,14 @@
 		public int AssistantId { get; set; }
 		public virtual Assistant Assistant { get; set; }
 		public AnalysisStatus Status { get; set; }
+		public Side ChestSide { get; set; }
+		public int ChestDegrees { get; set; }
+		public Side NeckSide { get; set; }
+		public int NeckDegrees { get; set; }
+		public Side WaistSide { get; set; }
+		public int WaistDegrees { get; set; }
+		public int? PhotoId { get; set; }
+		public virtual Photo Photo { get; set; }
 		public int Id { get; set; }
 	}
 }

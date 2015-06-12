@@ -79,6 +79,7 @@
     <Compile Include="Enums\ExaminationStatus.cs" />
     <Compile Include="Enums\Role.cs" />
     <Compile Include="Enums\Gender.cs" />
+    <Compile Include="Enums\Side.cs" />
     <Compile Include="Examination.cs" />
     <Compile Include="Exceptions\EntityNotFoundException.cs" />
     <Compile Include="Interfaces\IEntityWithId.cs" />
