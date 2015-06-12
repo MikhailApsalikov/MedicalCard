@@ -29,6 +29,7 @@
 		private void InitializeComponent()
 		{
 			this.manageButtons = new System.Windows.Forms.GroupBox();
+			this.importButton = new System.Windows.Forms.Button();
 			this.button5 = new System.Windows.Forms.Button();
 			this.button4 = new System.Windows.Forms.Button();
 			this.button3 = new System.Windows.Forms.Button();
@@ -137,7 +138,6 @@
 			this.label13 = new System.Windows.Forms.Label();
 			this.drugs = new System.Windows.Forms.TextBox();
 			this.exportButton = new System.Windows.Forms.Button();
-			this.importButton = new System.Windows.Forms.Button();
 			this.manageButtons.SuspendLayout();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
@@ -160,6 +160,16 @@
 			this.manageButtons.Size = new System.Drawing.Size(177, 195);
 			this.manageButtons.TabIndex = 0;
 			this.manageButtons.TabStop = false;
+			// 
+			// importButton
+			// 
+			this.importButton.Location = new System.Drawing.Point(6, 159);
+			this.importButton.Name = "importButton";
+			this.importButton.Size = new System.Drawing.Size(165, 23);
+			this.importButton.TabIndex = 5;
+			this.importButton.Text = "Импортировать";
+			this.importButton.UseVisualStyleBackColor = true;
+			this.importButton.Click += new System.EventHandler(this.importButton_Click);
 			// 
 			// button5
 			// 
@@ -1298,15 +1308,6 @@
 			this.exportButton.Text = "Экспортировать";
 			this.exportButton.UseVisualStyleBackColor = true;
 			this.exportButton.Click += new System.EventHandler(this.exportButton_Click);
-			// 
-			// importButton
-			// 
-			this.importButton.Location = new System.Drawing.Point(6, 159);
-			this.importButton.Name = "importButton";
-			this.importButton.Size = new System.Drawing.Size(165, 23);
-			this.importButton.TabIndex = 5;
-			this.importButton.Text = "Импортировать";
-			this.importButton.UseVisualStyleBackColor = true;
 			// 
 			// ExaminationForm
 			// 

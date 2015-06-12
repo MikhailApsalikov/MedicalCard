@@ -54,7 +54,7 @@
 				var sfd = new SaveFileDialog
 				{
 					AddExtension = true,
-					Filter = "Microsoft Word (.docx)|.docx",
+					Filter = "Microsoft Word (.docx)|*.docx",
 					DefaultExt = ".docx"
 				};
 				if (sfd.ShowDialog() != DialogResult.OK)

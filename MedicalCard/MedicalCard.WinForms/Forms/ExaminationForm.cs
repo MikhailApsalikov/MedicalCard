@@ -366,14 +366,14 @@
 
 		private void exportButton_Click(object sender, EventArgs e)
 		{
-			//try
-			//{
+			try
+			{
 				SaveExamination();
 
 				var sfd = new SaveFileDialog
 				{
 					AddExtension = true,
-					Filter = "Microsoft Excel (.xlsx)|.xlsx",
+					Filter = "Microsoft Excel (.xlsx)|*.xlsx",
 					DefaultExt = ".xlsx"
 				};
 				if (sfd.ShowDialog() != DialogResult.OK)
@@ -383,15 +383,46 @@
 
 				ExportHelper.ExportExamination(examination, sfd.FileName);
 				Message("Данные осмотра экпортированы успешно!");
-			//}
-			//catch (Exception exception)
-			//{
-			//	while (exception.InnerException != null)
-			//	{
-			//		exception = exception.InnerException;
-			//	}
-			//	Error(exception.Message, "Ошибка");
-			//}
+			}
+			catch (Exception exception)
+			{
+				while (exception.InnerException != null)
+				{
+					exception = exception.InnerException;
+				}
+				Error(exception.Message, "Ошибка");
+			}
+		}
+
+		private void importButton_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				var sfd = new OpenFileDialog
+				{
+					AddExtension = true,
+					Filter = "Microsoft Excel (.xlsx)|*.xlsx",
+					DefaultExt = ".xlsx"
+				};
+				if (sfd.ShowDialog() != DialogResult.OK)
+				{
+					return;
+				}
+
+				ExportHelper.ImportExamination(examination, sfd.FileName);
+				InitFields();
+				Message("Данные осмотра импортированы успешно!");
+			}
+			catch (Exception exception)
+			{
+				while (exception.InnerException != null)
+				{
+					exception = exception.InnerException;
+				}
+				Error(exception.Message, "Ошибка");
+			}
+
+			
 		}
 	}
 }
