@@ -1,7 +1,9 @@
 ﻿namespace MedicalCard.WinForms.Forms
 {
 	using System;
+	using System.ComponentModel;
 	using System.Windows.Forms;
+	using Properties;
 
 	public class BaseForm : Form
 	{
@@ -10,6 +12,7 @@
 			StartPosition = FormStartPosition.CenterScreen;
 			FormBorderStyle = FormBorderStyle.FixedSingle;
 			MaximizeBox = false;
+			Icon = Resources.Icon;
 		}
 
 		protected void SetName(string caption)
@@ -40,6 +43,18 @@
 		protected void OnClickCancelButton(object sender, EventArgs e)
 		{
 			Close();
+		}
+
+		private void InitializeComponent()
+		{
+			var resources = new ComponentResourceManager(typeof (BaseForm));
+			SuspendLayout();
+			// 
+			// BaseForm
+			// 
+			resources.ApplyResources(this, "$this");
+			Name = "BaseForm";
+			ResumeLayout(false);
 		}
 	}
 }

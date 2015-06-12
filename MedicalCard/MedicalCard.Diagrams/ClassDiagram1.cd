@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MedicalCard.BLL.Repositories.AccountRepository">
+    <Position X="3.75" Y="8.25" Width="2" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="MedicalCard.BLL.Repositories.AnalysesRepository">
+    <Position X="6" Y="8.5" Width="2" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="MedicalCard.BLL.Repositories.AssistantRepository">
+    <Position X="8.5" Y="8.5" Width="2" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="MedicalCard.BLL.Repositories.DoctorRepository">
+    <Position X="3.75" Y="10" Width="2" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="MedicalCard.BLL.Repositories.ExaminationRepository">
+    <Position X="6" Y="10.5" Width="2" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="MedicalCard.BLL.Repositories.NoteRepository">
+    <Position X="8.75" Y="10.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="MedicalCard.BLL.Repositories.PatientRepository">
+    <Position X="4" Y="12.5" Width="2" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="MedicalCard.BLL.Repositories.PositionRepository">
+    <Position X="6.75" Y="12.75" Width="2" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="MedicalCard.BLL.BaseRepository&lt;T, TKey&gt;">
+    <Position X="6.25" Y="2" Width="2.25" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
