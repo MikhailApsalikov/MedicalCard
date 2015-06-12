@@ -2,6 +2,7 @@
 {
 	using System;
 	using System.Data.Entity.Validation;
+	using System.Windows.Forms;
 	using BLL;
 	using BLL.Repositories;
 	using Common.Extensions;
@@ -36,7 +37,14 @@
 					Title = textBox1.Text
 				};
 				repository.Add(note);
-				Message("Справка выписана. Теперь пациент сможет распечатать её.", "Справка");
+				var dialogResult = MessageBox.Show("Справка выписана. Вы хотите ее экспортировать для печати?", "Справка выписана",
+					MessageBoxButtons.YesNo);
+
+				if (dialogResult == DialogResult.Yes)
+				{
+					PrintNote(new NoteRepository(new MedicalCardDbContext()).GetById(note.Id));
+				}
+
 				Close();
 			}
 			catch (DbEntityValidationException exception)
