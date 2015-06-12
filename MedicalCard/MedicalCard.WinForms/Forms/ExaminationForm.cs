@@ -9,6 +9,7 @@
 	using Entities;
 	using Entities.Enums;
 	using Entities.Enums.ExaminationRelated;
+	using Exporter;
 
 	public partial class ExaminationForm : BaseForm
 	{
@@ -361,6 +362,36 @@
 
 			var window = new AnalysisListForm(currentAccount, examination.Patient);
 			window.ShowDialog();
+		}
+
+		private void exportButton_Click(object sender, EventArgs e)
+		{
+			//try
+			//{
+				SaveExamination();
+
+				var sfd = new SaveFileDialog
+				{
+					AddExtension = true,
+					Filter = "Microsoft Excel (.xlsx)|.xlsx",
+					DefaultExt = ".xlsx"
+				};
+				if (sfd.ShowDialog() != DialogResult.OK)
+				{
+					return;
+				}
+
+				ExportHelper.ExportExamination(examination, sfd.FileName);
+				Message("Данные осмотра экпортированы успешно!");
+			//}
+			//catch (Exception exception)
+			//{
+			//	while (exception.InnerException != null)
+			//	{
+			//		exception = exception.InnerException;
+			//	}
+			//	Error(exception.Message, "Ошибка");
+			//}
 		}
 	}
 }

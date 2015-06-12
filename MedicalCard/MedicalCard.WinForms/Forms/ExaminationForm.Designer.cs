@@ -136,6 +136,8 @@
 			this.recommendations = new System.Windows.Forms.TextBox();
 			this.label13 = new System.Windows.Forms.Label();
 			this.drugs = new System.Windows.Forms.TextBox();
+			this.exportButton = new System.Windows.Forms.Button();
+			this.importButton = new System.Windows.Forms.Button();
 			this.manageButtons.SuspendLayout();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
@@ -147,14 +149,15 @@
 			// 
 			// manageButtons
 			// 
+			this.manageButtons.Controls.Add(this.importButton);
 			this.manageButtons.Controls.Add(this.button5);
 			this.manageButtons.Controls.Add(this.button4);
 			this.manageButtons.Controls.Add(this.button3);
 			this.manageButtons.Controls.Add(this.button2);
 			this.manageButtons.Controls.Add(this.button1);
-			this.manageButtons.Location = new System.Drawing.Point(1117, 413);
+			this.manageButtons.Location = new System.Drawing.Point(1101, 399);
 			this.manageButtons.Name = "manageButtons";
-			this.manageButtons.Size = new System.Drawing.Size(155, 164);
+			this.manageButtons.Size = new System.Drawing.Size(177, 195);
 			this.manageButtons.TabIndex = 0;
 			this.manageButtons.TabStop = false;
 			// 
@@ -162,7 +165,7 @@
 			// 
 			this.button5.Location = new System.Drawing.Point(6, 101);
 			this.button5.Name = "button5";
-			this.button5.Size = new System.Drawing.Size(143, 23);
+			this.button5.Size = new System.Drawing.Size(165, 23);
 			this.button5.TabIndex = 4;
 			this.button5.Text = "Посмотреть анализы";
 			this.button5.UseVisualStyleBackColor = true;
@@ -172,7 +175,7 @@
 			// 
 			this.button4.Location = new System.Drawing.Point(6, 130);
 			this.button4.Name = "button4";
-			this.button4.Size = new System.Drawing.Size(143, 23);
+			this.button4.Size = new System.Drawing.Size(165, 23);
 			this.button4.TabIndex = 3;
 			this.button4.Text = "Назначить анализ";
 			this.button4.UseVisualStyleBackColor = true;
@@ -182,7 +185,7 @@
 			// 
 			this.button3.Location = new System.Drawing.Point(6, 72);
 			this.button3.Name = "button3";
-			this.button3.Size = new System.Drawing.Size(143, 23);
+			this.button3.Size = new System.Drawing.Size(165, 23);
 			this.button3.TabIndex = 2;
 			this.button3.Text = "Выдать справку";
 			this.button3.UseVisualStyleBackColor = true;
@@ -192,7 +195,7 @@
 			// 
 			this.button2.Location = new System.Drawing.Point(6, 14);
 			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(143, 23);
+			this.button2.Size = new System.Drawing.Size(165, 23);
 			this.button2.TabIndex = 1;
 			this.button2.Text = "Сохранить изменения";
 			this.button2.UseVisualStyleBackColor = true;
@@ -202,7 +205,7 @@
 			// 
 			this.button1.Location = new System.Drawing.Point(6, 43);
 			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(143, 23);
+			this.button1.Size = new System.Drawing.Size(165, 23);
 			this.button1.TabIndex = 0;
 			this.button1.Text = "Закончить осмотр";
 			this.button1.UseVisualStyleBackColor = true;
@@ -273,7 +276,7 @@
 			this.historyListView.Location = new System.Drawing.Point(6, 19);
 			this.historyListView.MultiSelect = false;
 			this.historyListView.Name = "historyListView";
-			this.historyListView.Size = new System.Drawing.Size(485, 167);
+			this.historyListView.Size = new System.Drawing.Size(485, 189);
 			this.historyListView.TabIndex = 4;
 			this.historyListView.UseCompatibleStateImageBehavior = false;
 			this.historyListView.View = System.Windows.Forms.View.Details;
@@ -316,7 +319,7 @@
 			this.groupBox1.Controls.Add(this.historyListView);
 			this.groupBox1.Location = new System.Drawing.Point(15, 380);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(503, 197);
+			this.groupBox1.Size = new System.Drawing.Size(503, 214);
 			this.groupBox1.TabIndex = 7;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Предыдущие осмотры:";
@@ -1245,7 +1248,7 @@
 			this.groupBox6.Controls.Add(this.drugs);
 			this.groupBox6.Location = new System.Drawing.Point(524, 369);
 			this.groupBox6.Name = "groupBox6";
-			this.groupBox6.Size = new System.Drawing.Size(572, 208);
+			this.groupBox6.Size = new System.Drawing.Size(572, 225);
 			this.groupBox6.TabIndex = 12;
 			this.groupBox6.TabStop = false;
 			this.groupBox6.Text = "Лечение";
@@ -1253,7 +1256,7 @@
 			// label14
 			// 
 			this.label14.AutoSize = true;
-			this.label14.Location = new System.Drawing.Point(6, 121);
+			this.label14.Location = new System.Drawing.Point(5, 131);
 			this.label14.Name = "label14";
 			this.label14.Size = new System.Drawing.Size(85, 13);
 			this.label14.TabIndex = 14;
@@ -1261,11 +1264,11 @@
 			// 
 			// recommendations
 			// 
-			this.recommendations.Location = new System.Drawing.Point(97, 118);
+			this.recommendations.Location = new System.Drawing.Point(96, 129);
 			this.recommendations.Multiline = true;
 			this.recommendations.Name = "recommendations";
 			this.recommendations.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-			this.recommendations.Size = new System.Drawing.Size(456, 71);
+			this.recommendations.Size = new System.Drawing.Size(456, 90);
 			this.recommendations.TabIndex = 13;
 			// 
 			// label13
@@ -1283,17 +1286,38 @@
 			this.drugs.Multiline = true;
 			this.drugs.Name = "drugs";
 			this.drugs.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-			this.drugs.Size = new System.Drawing.Size(456, 71);
+			this.drugs.Size = new System.Drawing.Size(456, 97);
 			this.drugs.TabIndex = 11;
+			// 
+			// exportButton
+			// 
+			this.exportButton.Location = new System.Drawing.Point(1107, 374);
+			this.exportButton.Name = "exportButton";
+			this.exportButton.Size = new System.Drawing.Size(166, 23);
+			this.exportButton.TabIndex = 13;
+			this.exportButton.Text = "Экспортировать";
+			this.exportButton.UseVisualStyleBackColor = true;
+			this.exportButton.Click += new System.EventHandler(this.exportButton_Click);
+			// 
+			// importButton
+			// 
+			this.importButton.Location = new System.Drawing.Point(6, 159);
+			this.importButton.Name = "importButton";
+			this.importButton.Size = new System.Drawing.Size(165, 23);
+			this.importButton.TabIndex = 5;
+			this.importButton.Text = "Импортировать";
+			this.importButton.UseVisualStyleBackColor = true;
 			// 
 			// ExaminationForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1285, 589);
+			this.ClientSize = new System.Drawing.Size(1285, 606);
+			this.Controls.Add(this.exportButton);
 			this.Controls.Add(this.groupBox5);
 			this.Controls.Add(this.groupBox6);
 			this.Controls.Add(this.groupBox4);
+			this.Controls.Add(this.manageButtons);
 			this.Controls.Add(this.groupBox3);
 			this.Controls.Add(this.groupBox2);
 			this.Controls.Add(this.groupBox1);
@@ -1301,7 +1325,6 @@
 			this.Controls.Add(this.label4);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.label2);
-			this.Controls.Add(this.manageButtons);
 			this.Name = "ExaminationForm";
 			this.Text = "ExaminationForm";
 			this.manageButtons.ResumeLayout(false);
@@ -1432,5 +1455,7 @@
 		private System.Windows.Forms.Label label37;
 		private System.Windows.Forms.Label label36;
 		private System.Windows.Forms.Label label35;
+		private System.Windows.Forms.Button importButton;
+		private System.Windows.Forms.Button exportButton;
 	}
 }

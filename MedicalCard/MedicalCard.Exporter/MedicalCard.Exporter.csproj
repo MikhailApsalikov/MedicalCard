@@ -59,6 +59,9 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="Templates\ExaminationTemplate.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Templates\NoteTemplate.html">
@@ -66,6 +69,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MedicalCard.Common\MedicalCard.Common.csproj">
+      <Project>{f3797235-c7f1-4f87-9f11-555f5b89dbbb}</Project>
+      <Name>MedicalCard.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MedicalCard.Entities\MedicalCard.Entities.csproj">
       <Project>{42F3B05F-249D-4840-A2B5-76B59E39E429}</Project>
       <Name>MedicalCard.Entities</Name>

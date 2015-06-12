@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MedicalCard.WinForms.Forms.AnalysisForm" Collapsed="true">
+    <Position X="17.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>8QgAAAQAACACYJACAASEAAAKEII4AEAQFnGAAAAAIAQ=</HashCode>
+      <FileName>Forms\AnalysisForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalCard.WinForms.Forms.AnalysisListForm" Collapsed="true">
+    <Position X="16.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAACAAAAIAAACAAAA+AgAAAAAAABEAAAAAAQA=</HashCode>
+      <FileName>Forms\AnalysisListForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalCard.WinForms.Forms.AssistantEditForm" Collapsed="true">
+    <Position X="20.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ciAAABECACICAhAACCCAAAACAAA8gAAAAGAAAAAAAAA=</HashCode>
+      <FileName>Forms\AssistantEditForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalCard.WinForms.Forms.AssistantMainForm" Collapsed="true">
+    <Position X="20.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QSAAIQAAACICAAECCBCAAQjCAQCAAAAAACEAAEECYEA=</HashCode>
+      <FileName>Forms\AssistantMainForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalCard.WinForms.Forms.BaseForm">
+    <Position X="19.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAIACAAAAAAAAAAAAYAAAAAA=</HashCode>
+      <FileName>Forms\BaseForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalCard.WinForms.Forms.DoctorEditForm" Collapsed="true">
+    <Position X="15.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>cqgAABECACICghAIDCCAIAACFAA8gAAACGAAAAAAgDQ=</HashCode>
+      <FileName>Forms\DoctorEditForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalCard.WinForms.Forms.DoctorMainForm" Collapsed="true">
+    <Position X="14.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ASAAIQAAACIGAAECAACAASjCBQiAAAACACEAAEFCIEA=</HashCode>
+      <FileName>Forms\DoctorMainForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalCard.WinForms.Forms.ExaminationForm" Collapsed="true">
+    <Position X="20.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>/wJEAEBDgGACYJAgAACAoYK+Csh4UEIwUHWfRICCKbA=</HashCode>
+      <FileName>Forms\ExaminationForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalCard.WinForms.Forms.InitiateAnalysisForm" Collapsed="true">
+    <Position X="22.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>0QAICAAAASEAABACgADAECCChhAcAAAAACRAEIEKFIA=</HashCode>
+      <FileName>Forms\InitiateAnalysisForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalCard.WinForms.Forms.InitiateExaminationForm" Collapsed="true">
+    <Position X="22.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>8QgICAAAATAQAFAChBDAACCCgxEYAAIAACBAkQEKEAE=</HashCode>
+      <FileName>Forms\InitiateExaminationForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalCard.WinForms.Forms.LoginForm" Collapsed="true">
+    <Position X="17.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAACACSBAAACSAAAACAAAoAAAAAEgAAAAAAAA=</HashCode>
+      <FileName>Forms\LoginForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalCard.WinForms.Forms.NoteEditForm" Collapsed="true">
+    <Position X="16.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAIAAAAACACABAQAACAAAACBAAYAAAAEEAAAABAAAA=</HashCode>
+      <FileName>Forms\NoteEditForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalCard.WinForms.Forms.NoteListForm" Collapsed="true">
+    <Position X="20.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAIAAAAACCCEAAAAAKEEAA+AgKYAEAAAGBAAAAAAAA=</HashCode>
+      <FileName>Forms\NoteListForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalCard.WinForms.Forms.PatientEditForm" Collapsed="true">
+    <Position X="22.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>/yAIABACACICAhABCCCAAIACAQA8gAAAAGAgAAAAAAA=</HashCode>
+      <FileName>Forms\PatientEditForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalCard.WinForms.Forms.PatientMainForm" Collapsed="true">
+    <Position X="22.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAIIAAAACJECAECEIChAQj+AwCCAAAAUTEAAEACIUA=</HashCode>
+      <FileName>Forms\PatientMainForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalCard.WinForms.Forms.RegistrationForm" Collapsed="true">
+    <Position X="14.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>/6kAAFECACIAglAJDCCAIIACEQAcgAAACGAgAAAAgDQ=</HashCode>
+      <FileName>Forms\RegistrationForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalCard.WinForms.Forms.WorkTimeForm" Collapsed="true">
+    <Position X="18" Y="1.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACCCAhAQAATAgAgCAAgYAAIAAEABQBEEAAA=</HashCode>
+      <FileName>Forms\WorkTimeForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
