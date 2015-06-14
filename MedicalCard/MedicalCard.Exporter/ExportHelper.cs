@@ -57,6 +57,8 @@
 			var sheet = (Worksheet) book.Sheets[1];
 
 			LoadExaminationFromExcelFile(examination, sheet);
+			book.Close();
+			app.Quit();
 			return examination;
 		}
 
